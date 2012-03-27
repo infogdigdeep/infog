@@ -226,6 +226,12 @@
 	</dependencies>
 	<build>
 		<finalName>infog</finalName>
+				<resources>
+			<resource>
+				<directory>src/main/conf</directory>
+				<filtering>false</filtering>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -244,11 +250,11 @@
 				<configuration>
 					<components>
 						<component>
-							<name>jersey-cdi</name>
+							<name>infog</name>
 							<artifact>${project.build.directory}/${project.build.finalName}.war</artifact>
 						</component>
 					</components>
-					<glassfishDirectory>C:\development\tmp\glassfish3\glassfish3\glassfish</glassfishDirectory>
+					<glassfishDirectory>${glassfish.directory}</glassfishDirectory>
 					<user>admin</user>
 					<adminPassword>admin</adminPassword>
 					<domain>
@@ -326,5 +332,6 @@
 		<jasper.version>4.5.0</jasper.version>
 		<log4j.version>1.2.14</log4j.version>
 		<mongodb.driver.version>2.7.2</mongodb.driver.version>
+		<glassfish.directory>C:\development\tmp\glassfish3\glassfish3\glassfish</glassfish.directory>
 	</properties>
 </project>

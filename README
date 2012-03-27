@@ -1,0 +1,21 @@
+asadmin create-jvm-options --target server-config -- '-XX\:+UnlockExperimentalVMOptions'
+asadmin create-jvm-options --target server-config -- '-XX\:+UseG1GC'
+asadmin delete-jvm-options --target server-config -- '-Xmx512m'
+asadmin create-jvm-options --target server-config -- '-Xmx1024m'
+asadmin delete-jvm-options --target server-config -- '-XX\:MaxPermSize=192m'
+asadmin create-jvm-options --target server-config -- '-XX\:MaxPermSize=256m'
+
+asadmin create-jvm-options --target default-config -- '-XX\:+UnlockExperimentalVMOptions'
+asadmin create-jvm-options --target default-config -- '-XX\:+UseG1GC'
+asadmin delete-jvm-options --target default-config -- '-Xmx512m'
+asadmin create-jvm-options --target default-config -- '-Xmx1024m'
+asadmin delete-jvm-options --target default-config -- '-XX\:MaxPermSize=192m'
+asadmin create-jvm-options --target default-config -- '-XX\:MaxPermSize=256m'
+
+export GF="/c/development/tmp/glassfish3/glassfish3"
+export MDB="/c/development/tmp/mongodb-win32-x86_64-2.0.3"
+export PATH=$GF/bin:$MDB/bin:$PATH
+export WS="/c/development/tmp/jersey-samples-1.5/infog"
+alias sgf="asadmin start-domain --debug=true domain2"
+alias egf="asadmin stop-domain domain2"
+cd $WS
