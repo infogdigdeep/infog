@@ -13,7 +13,7 @@ import com.digdeep.infog.exceptions.InvalidProviderException;
 import com.digdeep.infog.model.input.ContentRequestInput;
 
 
-@Path("infog")
+@Path("content")
 @RequestScoped
 public class ContentProvider {
 
