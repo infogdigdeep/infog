@@ -8,13 +8,16 @@ import javax.xml.bind.Marshaller;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.methods.PostMethod;
+import org.apache.commons.httpclient.methods.PutMethod;
 import org.apache.commons.httpclient.methods.StringRequestEntity;
 
+import com.digdeep.infog.model.ContentType;
+import com.digdeep.infog.model.input.ContentProvisionInput;
 import com.digdeep.infog.model.input.ContentRequestInput;
 
 public class RestClient {
 
-	public String reqEntityToString(ContentRequestInput input) throws Exception {
+	public String reqEntityToString(Object input) throws Exception {
 
 		JAXBContext context = JAXBContext.newInstance(input.getClass());
 		Marshaller marshaller = context.createMarshaller();
@@ -25,7 +28,34 @@ public class RestClient {
 
 		return sw.toString();
 	}
+	public static void main(String[] args) {
+		PutMethod putMethod = null;
+		try {
+			RestClient coreClient = new RestClient();
+			HttpClient client = new HttpClient();
+			putMethod = new PutMethod(
+					"http://localhost:8080/infog/service/contentinfo");
+			ContentProvisionInput provInput = new ContentProvisionInput();
+			provInput.setDescription("Google News RSS");
+			provInput.setType(0);
+			provInput.setUrl("http://news.google.com/news?ned=us&topic=h&output=rss");
+			
+			StringRequestEntity req = new StringRequestEntity(
+					coreClient.reqEntityToString(provInput), "application/xml", "UTF-8");
+			putMethod.setRequestEntity(req);
+			client.executeMethod(putMethod);
+			if (putMethod.getStatusCode() == HttpStatus.SC_OK) {
+				System.out.println(putMethod.getResponseBodyAsString());
+			}
+			
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			postMethod.releaseConnection();
 
+		}
+	}
+	/*
 	public static void main(String[] args) {
 		PostMethod postMethod = null;
 		try {
@@ -51,4 +81,5 @@ public class RestClient {
 
 		}
 	}
+	*/
 }
