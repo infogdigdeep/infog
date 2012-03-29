@@ -31,5 +31,5 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		class="org.springframework.beans.factory.config.PropertiesFactoryBean"
 		p:location="classpath:spring.properties" />
 
-
+	<bean id="staticBeanBuilder" class="com.infog.common.service.internal.StaticBeanBuilder"/>
 </beans>
