@@ -1,8 +1,6 @@
 package com.digdeep.infog.model;
 
-import javax.enterprise.util.AnnotationLiteral;
 
-import com.digdeep.infog.qualifiers.ContentConfig;
 
 public enum ContentType {
 	WEATHER(0), NEWS(1);
