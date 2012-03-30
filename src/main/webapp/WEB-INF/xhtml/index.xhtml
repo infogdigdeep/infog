@@ -4,27 +4,26 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.prime.com.tr/ui">
-		<h:form>
-			<p:panel id="createPnl" header="#{i18n.newArticle}"
-				toggleable="true" closable="false" toggleSpeed="500"
-				onCloseUpdate="growl" closeSpeed="2000" onToggleUpdate="growl"
-				widgetVar="panel">
-				<h:panelGrid columns="3" cellpadding="10">
-					<label>#{i18n.title}</label>
-					<h:inputText label="Title" id="lblTitle"
-						value="#{blogEntryBean.blogEntry.title}" required="true" />
-					<h:message for="lblTitle" class="errorMsg"/>
-					<label>#{i18n.author}</label>
-					<h:inputText label="Author" id="lblAuthor"
-						value="#{blogEntryBean.blogEntry.author}" required="true" />
-					<h:message for="lblAuthor" class="errorMsg"/>
-					<label>#{i18n.content}</label>
-					<h:inputTextarea label="Content" id="lblContent"
-						value="#{blogEntryBean.blogEntry.content}" required="true" />
-					<h:message for="lblContent" class="errorMsg"/>
-					<h:commandButton title="#{i18n.save}" value="#{i18n.save}"
-						action="#{blogEntryBean.saveBlogEntry()}" />
-				</h:panelGrid>
-			</p:panel>
-		</h:form>
+<h:form>
+	<p:panel id="contentPanel" header="Content Entry" toggleable="true"
+		closable="false" toggleSpeed="500" onCloseUpdate="growl"
+		closeSpeed="2000" onToggleUpdate="growl" widgetVar="panel">
+		<h:panelGrid columns="3" cellpadding="10">
+			<label>Description</label>
+			<h:inputText label="Description" id="description"
+				value="#{content.currentInfo.description}" required="true" />
+			<h:message for="description" class="errorMsg" />
+			<label>URL</label>
+			<h:inputText label="URL" id="url" value="#{content.currentInfo.url}"
+				required="true" />
+			<h:message for="url" class="errorMsg" />
+			<label>Type</label>
+			<h:selectOneMenu id="type" value="#{content.currentInfo.type}">
+				<f:selectItems value="#{content.contentTypeValues}" var="ct"
+					itemValue="#{ct.ordinal()}" itemLabel="#{ct}" />
+			</h:selectOneMenu>
+			<h:commandButton title="Add" value="Add" action="#{content.save()}" />
+		</h:panelGrid>
+	</p:panel>
+</h:form>
 </html>
