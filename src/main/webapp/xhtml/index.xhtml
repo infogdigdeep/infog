@@ -10,9 +10,9 @@
 		closeSpeed="2000" onToggleUpdate="growl" widgetVar="panel">
 		<h:panelGrid columns="3" cellpadding="10">
 			<label>Description</label>
-			<h:inputText label="Description" id="description"
-				value="#{content.currentInfo.description}" required="true" />
-			<h:message for="description" class="errorMsg" />
+			<h:inputText label="Descriptions" id="descriptions"
+				value="#{content.currentInfo.descriptions}" required="true" />
+			<h:message for="descriptions" class="errorMsg" />
 			<label>URL</label>
 			<h:inputText label="URL" id="url" value="#{content.currentInfo.url}"
 				required="true" />
@@ -20,8 +20,9 @@
 			<label>Type</label>
 			<h:selectOneMenu id="type" value="#{content.currentInfo.type}">
 				<f:selectItems value="#{content.contentTypeValues}" var="ct"
-					itemValue="#{ct.ordinal()}" itemLabel="#{ct}" />
+					itemValue="#{ct}" itemLabel="#{ct}" />
 			</h:selectOneMenu>
+			<h:message for="type" class="errorMsg" />
 			<h:commandButton title="Add" value="Add" action="#{content.save()}" />
 		</h:panelGrid>
 	</p:panel>

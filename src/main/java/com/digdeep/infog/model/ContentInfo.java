@@ -4,11 +4,13 @@ import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 
 
 @Entity
+@Table(name="contentInfo")
 public class ContentInfo {
 	
 	@Id
