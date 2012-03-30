@@ -1,5 +1,7 @@
 package com.digdeep.infog.beans.controller;
 
+import java.util.List;
+
 import javax.enterprise.inject.Model;
 import javax.faces.bean.RequestScoped;
 import javax.faces.model.SelectItem;
@@ -21,6 +23,8 @@ public class Content {
 	
 	@Inject
 	private ContentInfo currentInfo;
+	
+	private List<ContentInfo> contentList;
 
 	public ContentType[] getContentTypeValues() {
 		return ContentType.values();
@@ -41,6 +45,14 @@ public class Content {
 	public void setCurrentInfo(ContentInfo currentInfo) {
 		this.currentInfo = currentInfo;
 	}
-	
-	
+
+	public List<ContentInfo> getContentList() {
+		return provisionService.getAllContentInfo();
+	}
+
+	public void setContentList(List<ContentInfo> contentList) {
+		this.contentList = contentList;
+	}
+
+
 }

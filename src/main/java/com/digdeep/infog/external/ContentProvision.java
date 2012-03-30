@@ -1,8 +1,11 @@
 package com.digdeep.infog.external;
 
+import java.util.List;
+
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.ws.rs.GET;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 
@@ -21,5 +24,10 @@ public class ContentProvision {
 	@PUT
 	public void addContentInfo(ContentProvisionInput info) {
 		infoService.save(info);
+	}
+	
+	@GET
+	public List<ContentInfo> getAllContentInfo() {
+		return infoService.findAll();
 	}
 }
