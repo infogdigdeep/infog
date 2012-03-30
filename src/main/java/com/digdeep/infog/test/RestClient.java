@@ -51,7 +51,7 @@ public class RestClient {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} finally {
-			postMethod.releaseConnection();
+			putMethod.releaseConnection();
 
 		}
 	}

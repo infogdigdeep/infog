@@ -3,9 +3,10 @@ package com.digdeep.infog.model;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
-import org.springframework.data.annotation.Id;
+
 
 @Entity
 public class ContentInfo {

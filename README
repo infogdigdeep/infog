@@ -19,3 +19,5 @@ export WS="/c/development/tmp/jersey-samples-1.5/infog"
 alias sgf="asadmin start-domain --debug=true domain2"
 alias egf="asadmin stop-domain domain2"
 cd $WS
+
+asadmin start-database --dbhost 0.0.0.0 --dbport 1527
