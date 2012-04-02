@@ -32,3 +32,35 @@ $ASADMIN create-jdbc-resource --connectionpoolid DerbyPool jdbc/TestAuth
 $ASADMIN create-auth-realm --classname com.sun.enterprise.security.auth.realm.jdbc.JDBCRealm --property digest-algorithm=MD5:encoding=\HEX:jaas-context=jdbcRealm:datasource-jndi=jdbc/TestAuth:user-table=usertable1:user-name-column=userid:password-column=password:group-table=grouptable1:group-name-column=groupid TestNormalAuthRealm
 $ASADMIN create-auth-realm --classname com.sun.enterprise.security.auth.realm.jdbc.JDBCRealm --property digest-algorithm=MD5:encoding=HASHED:jaas-context=jdbcDigestRealm:datasource-jndi=jdbc/TestAuth:user-table=usertable1:user-name-column=userid:password-column=digestpwd:group-table=grouptable1:group-name-column=groupid TestAuthRealm
  
+login-config.xml
+<application-policy name="LoginJSFRealm">
+    <authentication>
+        <login-module code="org.jboss.security.auth.spi.DatabaseServerLoginModule" flag="required">
+            <module-option name="dsJndiName">java:/LoginJSFRealmDS</module-option>
+            <module-option name="principalsQuery">select pass from users where name=?</module-option>
+            <module-option name="rolesQuery">select role_name, 'Roles' from user_roles where user_name = ?</module-option>
+        </login-module>
+    </authentication>
+</application-policy>
+
+jboss-web.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss-web>
+    <!-- Links with JBoss the Realm to use -->
+    <security-domain>java:/jaas/LoginJSFRealm</security-domain>
+</jboss-web>
+
+
+basic auth type
+
+    <login-config>
+        <auth-method>BASIC</auth-method>
+        <realm-name>myRealm</realm-name>
+    </login-config>
+    <security-role>
+       <role-name>Regular-Group</role-name>
+    </security-role>
+   <security-role>
+        <role-name>Admin-Group</role-name>
+    </security-role>
+ 
