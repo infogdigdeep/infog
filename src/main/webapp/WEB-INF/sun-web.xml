@@ -3,4 +3,12 @@
 <sun-web-app error-url="">
   <context-root>/infog</context-root>
   <class-loader delegate="false"/>
+  <security-role-mapping>
+  	<role-name>ADMIN</role-name>
+  	<group-name>ADMIN</group-name>
+  </security-role-mapping>
+  <security-role-mapping>
+  	<role-name>USER</role-name>
+  	<group-name>USER</group-name>
+  </security-role-mapping>
 </sun-web-app>
