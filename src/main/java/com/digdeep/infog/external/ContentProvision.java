@@ -4,26 +4,35 @@ import java.util.List;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 
 import com.digdeep.infog.model.ContentInfo;
+import com.digdeep.infog.model.input.ConfigInput;
 import com.digdeep.infog.model.input.ContentProvisionInput;
 import com.digdeep.infog.service.data.ContentInfoService;
+import com.digdeep.infog.service.data.UserService;
 
 
-@Path("contentinfo")
+@Path("config")
 @RequestScoped
 public class ContentProvision {
 
 	@EJB
 	private ContentInfoService infoService;
 	
+	@EJB
+	private UserService userService;
+	
 	@PUT
-	public void addContentInfo(ContentProvisionInput info) {
-		infoService.save(info);
+	public void addConfig(ConfigInput cfg) {
+		if (cfg.getContentInput() != null) {
+			infoService.save(cfg.getContentInput());
+		}
+		if (cfg.getControlInput() != null) {
+			userService.save(cfg.getControlInput());
+		}
 	}
 	
 	@GET

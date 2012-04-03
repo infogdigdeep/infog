@@ -28,10 +28,12 @@ CREATE TABLE usertable1 (userid VARCHAR(15) NOT NULL, password varchar(32) NOT N
 CREATE TABLE grouptable1(userid VARCHAR(15)NOT NULL, groupid VARCHAR(20) NOT NULL, PRIMARY KEY(userid));
 ALTER TABLE grouptable1 ADD CONSTRAINT fk_userid FOREIGN KEY(userid) REFERENCES usertable1(userid) ON DELETE CASCADE;
 
-$ASADMIN create-jdbc-resource --connectionpoolid DerbyPool jdbc/TestAuth
-$ASADMIN create-auth-realm --classname com.sun.enterprise.security.auth.realm.jdbc.JDBCRealm --property digest-algorithm=MD5:encoding=\HEX:jaas-context=jdbcRealm:datasource-jndi=jdbc/TestAuth:user-table=usertable1:user-name-column=userid:password-column=password:group-table=grouptable1:group-name-column=groupid TestNormalAuthRealm
-$ASADMIN create-auth-realm --classname com.sun.enterprise.security.auth.realm.jdbc.JDBCRealm --property digest-algorithm=MD5:encoding=HASHED:jaas-context=jdbcDigestRealm:datasource-jndi=jdbc/TestAuth:user-table=usertable1:user-name-column=userid:password-column=digestpwd:group-table=grouptable1:group-name-column=groupid TestAuthRealm
- 
+asadmin create-jdbc-resource --connectionpoolid DerbyPool jdbc/LoginAuth
+//asadmin create-auth-realm --classname com.sun.enterprise.security.auth.realm.jdbc.JDBCRealm --property digest-algorithm=MD5:encoding=\HEX:jaas-context=jdbcRealm:datasource-jndi=jdbc/TestAuth:user-table=usertable1:user-name-column=userid:password-column=password:group-table=grouptable1:group-name-column=groupid TestNormalAuthRealm
+//asadmin create-auth-realm --classname com.sun.enterprise.security.auth.realm.jdbc.JDBCRealm --property digest-algorithm=MD5:encoding=HASHED:jaas-context=jdbcDigestRealm:datasource-jndi=jdbc/TestAuth:user-table=usertable1:user-name-column=userid:password-column=digestpwd:group-table=grouptable1:group-name-column=groupid TestAuthRealm
+
+asadmin create-auth-realm --classname com.sun.enterprise.security.auth.realm.jdbc.JDBCRealm --property jaas-context=jdbcDigestRealm:datasource-jndi=jdbc/__default:user-table=infoguser:user-name-column=username:password-column=password:group-table=infoggrouop:group-name-column=groupname TestAuthRealm
+  
 login-config.xml
 <application-policy name="LoginJSFRealm">
     <authentication>

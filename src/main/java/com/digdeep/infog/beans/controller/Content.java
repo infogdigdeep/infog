@@ -12,6 +12,7 @@ import org.primefaces.event.SelectEvent;
 import com.digdeep.infog.external.ContentProvision;
 import com.digdeep.infog.model.ContentInfo;
 import com.digdeep.infog.model.ContentType;
+import com.digdeep.infog.model.input.ConfigInput;
 import com.digdeep.infog.model.input.ContentProvisionInput;
 
 @RequestScoped
@@ -31,11 +32,13 @@ public class Content {
 	}
 
 	public void save() {
+		ConfigInput config = new ConfigInput();
 		ContentProvisionInput input = new ContentProvisionInput();
 		input.setDescription(currentInfo.getDescriptions());
 		input.setType(currentInfo.getType().getType());
 		input.setUrl(currentInfo.getUrl());
-		provisionService.addContentInfo(input);
+		config.setContentInput(input);
+		provisionService.addConfig(config);
 	}
 
 	public ContentInfo getCurrentInfo() {

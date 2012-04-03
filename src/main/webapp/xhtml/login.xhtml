@@ -12,11 +12,11 @@
 	<p>Login to access admin console:</p>
 	<form method="post" action="j_security_check">
 		<h:panelGrid columns="2">
-			<h:outputLabel for="j_username" value="Username" />
+			<h:outputLabel for="j_username" value="#{infogmsg.username}" />
 			<input type="text" id="j_username" name="j_username" />
-			<h:outputLabel for="j_password" value="Password" />
+			<h:outputLabel for="j_password" value="#{infogmsg.password}" />
 			<input type="password" id="j_password" name="j_password" />
-			<input type="submit" name="submit" value="Login" />
+			<input type="submit" name="submit" value="#{infogmsg.login}" />
 		</h:panelGrid>
 		<br />
 	</form>

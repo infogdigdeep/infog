@@ -35,7 +35,11 @@ public class InfoProviderBean {
     class ContentConfigQualifier extends AnnotationLiteral<ContentConfig>
     implements ContentConfig {
     	
-    	private ContentType type;
+    	/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+		private ContentType type;
     	
     	public ContentConfigQualifier(ContentType type) {
     		this.type = type;

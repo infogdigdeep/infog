@@ -28,4 +28,11 @@ http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
 		</navigation-case>
 	</navigation-rule>
 	-->
+	
+	<application>
+		<resource-bundle>
+			<base-name>com.digdeep.infog.bundle.infog</base-name>
+			<var>infogmsg</var>
+		</resource-bundle>
+	</application>
 </faces-config>

@@ -12,8 +12,10 @@ import org.apache.commons.httpclient.methods.PutMethod;
 import org.apache.commons.httpclient.methods.StringRequestEntity;
 
 import com.digdeep.infog.model.ContentType;
+import com.digdeep.infog.model.input.ConfigInput;
 import com.digdeep.infog.model.input.ContentProvisionInput;
 import com.digdeep.infog.model.input.ContentRequestInput;
+import com.digdeep.infog.model.input.ControlProvisionInput;
 
 public class RestClient {
 
@@ -34,14 +36,23 @@ public class RestClient {
 			RestClient coreClient = new RestClient();
 			HttpClient client = new HttpClient();
 			putMethod = new PutMethod(
-					"http://localhost:8080/infog/service/contentinfo");
+					"http://localhost:8080/infog/service/config");
+			
+			ControlProvisionInput ctlInput = new ControlProvisionInput();
+			ctlInput.setUsername("admin");
+			ctlInput.setEmail("admin@infog.com");
+			ctlInput.setPassword("admin");
+			ctlInput.setGroupname("ADMIN");
 			ContentProvisionInput provInput = new ContentProvisionInput();
 			provInput.setDescription("Google News RSS");
 			provInput.setType(0);
 			provInput.setUrl("http://news.google.com/news?ned=us&topic=h&output=rss");
 			
+			ConfigInput input = new ConfigInput();
+			input.setContentInput(provInput);
+			input.setControlInput(ctlInput);
 			StringRequestEntity req = new StringRequestEntity(
-					coreClient.reqEntityToString(provInput), "application/xml", "UTF-8");
+					coreClient.reqEntityToString(input), "application/xml", "UTF-8");
 			putMethod.setRequestEntity(req);
 			client.executeMethod(putMethod);
 			if (putMethod.getStatusCode() == HttpStatus.SC_OK) {
