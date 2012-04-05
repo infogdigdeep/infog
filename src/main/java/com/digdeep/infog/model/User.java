@@ -17,9 +17,6 @@ import javax.persistence.Table;
 public class User {
 	
 	@Id
-	@GeneratedValue
-	private long id;
-	
 	private String username;
 	
 	private String password;
@@ -29,14 +26,6 @@ public class User {
 	@ManyToMany(cascade=CascadeType.ALL)
 	@JoinTable(name="usergroup", joinColumns={@JoinColumn(name="userId")}, inverseJoinColumns={@JoinColumn(name="groupId")})
 	private List<Group> group;
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
 
 	public String getUsername() {
 		return username;

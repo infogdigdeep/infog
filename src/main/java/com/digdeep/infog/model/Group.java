@@ -4,37 +4,23 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="infoggroup")
 public class Group {
 
-	@Id
-	@GeneratedValue
-	private long id;
 	
-	@OneToMany (cascade=CascadeType.ALL)
+	@ManyToMany (cascade=CascadeType.ALL)
 	@JoinTable(name="usergroup", joinColumns={@JoinColumn(name="groupId")}, inverseJoinColumns={@JoinColumn(name="userId")})
 	private List<User> users;
 	
-	
+	@Id
 	private String groupname;
-
-
-	public long getId() {
-		return id;
-	}
-
-
-	public void setId(long id) {
-		this.id = id;
-	}
 
 
 	public List<User> getUsers() {
