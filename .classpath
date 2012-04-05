@@ -32,18 +32,19 @@
   <classpathentry kind="var" path="M2_REPO/net/sf/jasperreports/jasperreports/4.5.0/jasperreports-4.5.0.jar"/>
   <classpathentry kind="var" path="M2_REPO/javax/javaee-web-api/6.0/javaee-web-api-6.0.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/jboss/interceptor/jboss-interceptor-api/1.1/jboss-interceptor-api-1.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/slf4j/jcl-over-slf4j/1.6.4/jcl-over-slf4j-1.6.4.jar"/>
   <classpathentry kind="var" path="M2_REPO/jfree/jcommon/1.0.15/jcommon-1.0.15.jar"/>
   <classpathentry kind="var" path="M2_REPO/eclipse/jdtcore/3.1.0/jdtcore-3.1.0.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/sun/jersey/jersey-core/1.5/jersey-core-1.5.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/sun/jersey/jersey-server/1.5/jersey-server-1.5.jar"/>
   <classpathentry kind="var" path="M2_REPO/jfree/jfreechart/1.0.12/jfreechart-1.0.12.jar"/>
   <classpathentry kind="var" path="M2_REPO/net/sf/json-lib/json-lib/1.0/json-lib-1.0-jdk15.jar"/>
-  <classpathentry kind="var" path="M2_REPO/log4j/log4j/1.2.14/log4j-1.2.14.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/mongodb/mongo-java-driver/2.7.2/mongo-java-driver-2.7.2.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/apache/poi/poi/3.7/poi-3.7.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/apache/poi/poi-ooxml/3.7/poi-ooxml-3.7.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/apache/poi/poi-ooxml-schemas/3.7/poi-ooxml-schemas-3.7.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/primefaces/primefaces/2.2/primefaces-2.2.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/primefaces/primefaces/3.0.1/primefaces-3.0.1.jar" sourcepath="M2_REPO/org/primefaces/primefaces/3.0.1/primefaces-3.0.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/slf4j/slf4j-api/1.6.4/slf4j-api-1.6.4.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/spring-aop/3.1.0.RELEASE/spring-aop-3.1.0.RELEASE.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/spring-asm/3.1.0.RELEASE/spring-asm-3.1.0.RELEASE.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/spring-aspects/3.1.0.RELEASE/spring-aspects-3.1.0.RELEASE.jar"/>
