@@ -12,7 +12,7 @@
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-server</artifactId>
-			<version>1.5</version>
+			<version>1.14</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -191,7 +191,7 @@
 		</dependency>
 
 
-		
+
 		<dependency>
 			<groupId>net.sf.jasperreports</groupId>
 			<artifactId>jasperreports</artifactId>
@@ -222,14 +222,8 @@
 			<artifactId>twitter4j-core</artifactId>
 			<version>[2.2,)</version>
 		</dependency>
-<!--
-		<dependency>
-			<groupId>commons-logging</groupId>
-			<artifactId>commons-logging</artifactId>
-			<version>1.1.1</version>
-			<scope>provided</scope>
-		</dependency>
--->
+		<!-- <dependency> <groupId>commons-logging</groupId> <artifactId>commons-logging</artifactId> 
+			<version>1.1.1</version> <scope>provided</scope> </dependency> -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId>
@@ -310,23 +304,6 @@
 	</pluginRepositories>
 	<repositories>
 		<repository>
-			<id>maven-repository.dev.java.net</id>
-			<name>Java.net Maven 1 Repository (legacy)</name>
-			<url>http://download.java.net/maven/1</url>
-			<layout>legacy</layout>
-		</repository>
-		<repository>
-			<id>glassfish-repository</id>
-			<name>Java.net Repository for Glassfish</name>
-			<url>http://download.java.net/maven/glassfish</url>
-		</repository>
-		<repository>
-			<id>maven2-repository.dev.java.net</id>
-			<name>Java.net Repository for Maven</name>
-			<url>http://download.java.net/maven/2/</url>
-			<layout>default</layout>
-		</repository>
-		<repository>
 			<id>JBoss repository</id>
 			<url>http://repository.jboss.com/maven2/</url>
 		</repository>
@@ -347,8 +324,27 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
+		<repository>
+			<id>maven2-repository.dev.java.net</id>
+			<name>Java.net Repository for Maven</name>
+			<url>http://download.java.net/maven/2/</url>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<id>maven-repository.dev.java.net</id>
+			<name>Java.net Maven 1 Repository (legacy)</name>
+			<url>http://download.java.net/maven/1</url>
+			<layout>legacy</layout>
+		</repository>
+		<repository>
+			<id>glassfish-repository</id>
+			<name>Java.net Repository for Glassfish</name>
+			<url>http://download.java.net/maven/glassfish</url>
+		</repository>
+
 	</repositories>
 	<properties>
+	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
 		<httpclient.version>3.1</httpclient.version>
 		<org.springframework.version>3.1.0.RELEASE</org.springframework.version>
