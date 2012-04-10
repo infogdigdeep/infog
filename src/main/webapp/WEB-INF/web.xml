@@ -8,7 +8,7 @@
 		<param-value>
 			classpath:applicationContext.xml
 			classpath:springSecurityContext.xml
-		</param-value>
+		</param-value> 
 	</context-param>
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -75,6 +75,7 @@
 
 	<login-config>
 		<auth-method>FORM</auth-method>
+		<realm-name>TestAuthRealm</realm-name>
 		<form-login-config>
 			<form-login-page>/xhtml/login.xhtml</form-login-page>
 			<form-error-page>/xhtml/error.xhtml</form-error-page>

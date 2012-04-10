@@ -32,7 +32,7 @@ asadmin create-jdbc-resource --connectionpoolid DerbyPool jdbc/LoginAuth
 //asadmin create-auth-realm --classname com.sun.enterprise.security.auth.realm.jdbc.JDBCRealm --property digest-algorithm=MD5:encoding=\HEX:jaas-context=jdbcRealm:datasource-jndi=jdbc/TestAuth:user-table=usertable1:user-name-column=userid:password-column=password:group-table=grouptable1:group-name-column=groupid TestNormalAuthRealm
 //asadmin create-auth-realm --classname com.sun.enterprise.security.auth.realm.jdbc.JDBCRealm --property digest-algorithm=MD5:encoding=HASHED:jaas-context=jdbcDigestRealm:datasource-jndi=jdbc/TestAuth:user-table=usertable1:user-name-column=userid:password-column=digestpwd:group-table=grouptable1:group-name-column=groupid TestAuthRealm
 
-asadmin create-auth-realm --classname com.sun.enterprise.security.auth.realm.jdbc.JDBCRealm --property jaas-context=jdbcDigestRealm:datasource-jndi=jdbc/__default:user-table=infoguser:user-name-column=username:password-column=password:group-table=infoggrouop:group-name-column=groupname TestAuthRealm
+asadmin create-auth-realm --classname com.sun.enterprise.security.auth.realm.jdbc.JDBCRealm --property jaas-context=jdbcDigestRealm:datasource-jndi=jdbc/__default:user-table=infoguser:user-name-column=username:password-column=password:group-table=usergroup:group-name-column=groupid TestAuthRealm
   
 login-config.xml
 <application-policy name="LoginJSFRealm">

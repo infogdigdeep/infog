@@ -41,7 +41,7 @@ public class RestClient {
 			ControlProvisionInput ctlInput = new ControlProvisionInput();
 			ctlInput.setUsername("admin");
 			ctlInput.setEmail("admin@infog.com");
-			ctlInput.setPassword("admin");
+			ctlInput.setPassword("8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918");
 			ctlInput.setGroupname("ADMIN");
 			ContentProvisionInput provInput = new ContentProvisionInput();
 			provInput.setDescription("Google News RSS");

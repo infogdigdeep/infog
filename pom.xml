@@ -9,13 +9,14 @@
 	<packaging>war</packaging>
 
 	<dependencies>
+<!--
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-server</artifactId>
-			<version>1.14</version>
+			<version>1.9</version>
 			<scope>provided</scope>
 		</dependency>
-
+-->
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-web-api</artifactId>
@@ -333,7 +334,7 @@
 		<repository>
 			<id>maven-repository.dev.java.net</id>
 			<name>Java.net Maven 1 Repository (legacy)</name>
-			<url>http://download.java.net/maven/1</url>
+			<url>http://download.java.net/maven/1</url>			
 			<layout>legacy</layout>
 		</repository>
 		<repository>
@@ -341,7 +342,12 @@
 			<name>Java.net Repository for Glassfish</name>
 			<url>http://download.java.net/maven/glassfish</url>
 		</repository>
-
+<repository>
+    <id>snapshot-repository.java.net</id>
+    <name>Java.net Snapshot Repository for Maven</name>
+    <url>https://maven.java.net/content/repositories/snapshots/</url>
+    <layout>default</layout>
+</repository>
 	</repositories>
 	<properties>
 	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -356,3 +362,4 @@
 		<glassfish.directory>C:\development\tmp\glassfish3\glassfish3\glassfish</glassfish.directory>
 	</properties>
 </project>
+			
