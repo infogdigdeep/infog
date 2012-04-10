@@ -24,7 +24,7 @@ public class User {
 	private String email;
 	
 	@ManyToMany(cascade=CascadeType.ALL)
-	@JoinTable(name="usergroup", joinColumns={@JoinColumn(name="userId")}, inverseJoinColumns={@JoinColumn(name="groupId")})
+	@JoinTable(name="usergroup", joinColumns={@JoinColumn(name="username")}, inverseJoinColumns={@JoinColumn(name="groupId")})
 	private List<Group> group;
 
 	public String getUsername() {

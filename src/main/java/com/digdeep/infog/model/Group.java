@@ -16,7 +16,7 @@ public class Group {
 
 	
 	@ManyToMany (cascade=CascadeType.ALL)
-	@JoinTable(name="usergroup", joinColumns={@JoinColumn(name="groupId")}, inverseJoinColumns={@JoinColumn(name="userId")})
+	@JoinTable(name="usergroup", joinColumns={@JoinColumn(name="groupId")}, inverseJoinColumns={@JoinColumn(name="username")})
 	private List<User> users;
 	
 	@Id
