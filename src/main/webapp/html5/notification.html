@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Notification</title>
+<meta name="description" content="Infog Notification">
+</head>
+<script type="text/javascript" src="/resource/js/jquery-1.6.4.min.js"></script>
+
+<script type ="text/javascript">
+ // Function to show Notification
+ function createNotification(type) 
+ {
+    if(type ==  '')
+      type = 'normal';
+                        
+    if(type != 'html')
+    {
+     var title ="You have received HTML 5 Notification";
+     var msg="Content Goes Here......";
+     var notification = window.Notifications.createNotification("1.png", title, msg);
+    }
+    else
+    {
+      var notification = window.Notifications.createHTMLNotification('content.html');
+    }
+    notification.show();
+ }
+ 
+</script>
+
+<script type="text/javascript">
+$(document).ready(function () 
+ {        
+   if (window.webkitNotifications) 
+   {
+    window.Notifications = window.webkitNotifications;
+    $('#show_notification').click(function () 
+    {
+      if (window.Notifications.checkPermission() == 0) 
+      {
+        createNotification('normal');
+        createNotification('html');
+      } 
+      else 
+      {
+        window.Notifications.requestPermission();
+      }
+    });
+                                
+
+   } else
+   {
+    alert('HTML 5 Notifications are not supported');
+   }
+ });
+</script>
+<button class="btn btn-success" id="show_notification">Fire Notification</button>
+
+
+
+</html>

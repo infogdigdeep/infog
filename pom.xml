@@ -9,14 +9,16 @@
 	<packaging>war</packaging>
 
 	<dependencies>
-<!--
 		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-server</artifactId>
-			<version>1.9</version>
-			<scope>provided</scope>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxws</artifactId>
+			<version>${cxf.version}</version>
 		</dependency>
--->
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-web-api</artifactId>
@@ -250,7 +252,34 @@
 					<target>1.6</target>
 				</configuration>
 			</plugin>
-
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.2</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<executable>java</executable>
+					<arguments>
+						<argument>-classpath</argument>
+						<classpath />
+						<!-- Uncomment below for debugging with Metro. -->
+						<!--argument> -Dcom.sun.xml.ws.transport.http.client.HttpTransportPipe.dump=true 
+							</argument -->
+						<!-- Uncomment below for debugging with CXF. -->
+						<!--argument> -Djava.util.logging.config.file=${env.CXF_HOME}/etc/logging.properties 
+							</argument -->
+						<argument>client.WSClient</argument>
+						<!-- Modify argument below for the item you wish to search eBay for. -->
+						<argument>camera</argument>
+					</arguments>
+				</configuration>
+			</plugin>
 
 			<plugin>
 				<groupId>org.glassfish.maven.plugin</groupId>
@@ -282,6 +311,29 @@
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-codegen-plugin</artifactId>
+				<version>${cxf.version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>wsdl2java</goal>
+						</goals>
+						<configuration>
+							<sourceRoot>${basedir}/target/generated-sources</sourceRoot>
+							<wsdlOptions>
+								<wsdlOption>
+									<wsdl>
+										${basedir}/src/main/resource/ShoppingService.wsdl
+                                 </wsdl>
+								</wsdlOption>
+							</wsdlOptions>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
 		</plugins>
 	</build>
 	<pluginRepositories>
@@ -301,6 +353,14 @@
 			<name>Java.net Maven 1 Repository (legacy)</name>
 			<url>http://download.java.net/maven/1</url>
 			<layout>legacy</layout>
+		</pluginRepository>
+		<pluginRepository>
+			<id>apache-snapshots</id>
+			<name>Apache SNAPSHOT Repository</name>
+			<url>http://repository.apache.org/snapshots/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
 	<repositories>
@@ -334,7 +394,7 @@
 		<repository>
 			<id>maven-repository.dev.java.net</id>
 			<name>Java.net Maven 1 Repository (legacy)</name>
-			<url>http://download.java.net/maven/1</url>			
+			<url>http://download.java.net/maven/1</url>
 			<layout>legacy</layout>
 		</repository>
 		<repository>
@@ -342,15 +402,23 @@
 			<name>Java.net Repository for Glassfish</name>
 			<url>http://download.java.net/maven/glassfish</url>
 		</repository>
-<repository>
-    <id>snapshot-repository.java.net</id>
-    <name>Java.net Snapshot Repository for Maven</name>
-    <url>https://maven.java.net/content/repositories/snapshots/</url>
-    <layout>default</layout>
-</repository>
+		<repository>
+			<id>snapshot-repository.java.net</id>
+			<name>Java.net Snapshot Repository for Maven</name>
+			<url>https://maven.java.net/content/repositories/snapshots/</url>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<id>apache-snapshots</id>
+			<name>Apache SNAPSHOT Repository</name>
+			<url>http://repository.apache.org/snapshots/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
 	</repositories>
 	<properties>
-	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
 		<httpclient.version>3.1</httpclient.version>
 		<org.springframework.version>3.1.0.RELEASE</org.springframework.version>
@@ -359,6 +427,7 @@
 		<jasper.version>4.5.0</jasper.version>
 		<log4j.version>1.2.14</log4j.version>
 		<mongodb.driver.version>2.7.2</mongodb.driver.version>
+		<cxf.version>2.5.3-SNAPSHOT</cxf.version>
 		<glassfish.directory>C:\development\tmp\glassfish3\glassfish3\glassfish</glassfish.directory>
 	</properties>
 </project>
