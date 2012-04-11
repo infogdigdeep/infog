@@ -1,4 +1,4 @@
-package com.digdeep.infog.util;
+package com.digdeep.infog.utils;
 
 import javax.el.ELContext;
 import javax.el.MethodExpression;

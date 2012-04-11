@@ -5,6 +5,7 @@ import java.io.StringWriter;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.methods.PostMethod;
@@ -41,6 +42,7 @@ public class RestClient {
 			ControlProvisionInput ctlInput = new ControlProvisionInput();
 			ctlInput.setUsername("admin");
 			ctlInput.setEmail("admin@infog.com");
+			
 			ctlInput.setPassword("admin");
 			ctlInput.setGroupname("ADMIN");
 			ContentProvisionInput provInput = new ContentProvisionInput();

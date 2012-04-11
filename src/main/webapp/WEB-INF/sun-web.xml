@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sun-web-app PUBLIC "-//Sun Microsystems, Inc.//DTD GlassFish Application Server 3.0 Servlet 3.0//EN" "http://www.sun.com/software/appserver/dtds/sun-web-app_3_0-0.dtd">
 <sun-web-app error-url="">
-  <context-root>/infog</context-root>
-  <class-loader delegate="false"/>
-  <security-role-mapping>
-  	<role-name>ADMIN</role-name>
-  	<group-name>ADMIN</group-name>
-  </security-role-mapping>
-  <security-role-mapping>
-  	<role-name>USER</role-name>
-  	<group-name>USER</group-name>
-  </security-role-mapping>
+	<context-root>/infog</context-root>
+	<security-role-mapping>
+		<role-name>ADMIN</role-name>
+		<group-name>ADMIN</group-name>
+	</security-role-mapping>
+	<security-role-mapping>
+		<role-name>USER</role-name>
+		<group-name>USER</group-name>
+	</security-role-mapping>
+	<class-loader delegate="false" />
 </sun-web-app>

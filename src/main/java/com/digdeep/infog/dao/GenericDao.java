@@ -45,6 +45,13 @@ public abstract class GenericDao<T> {
 		return em.createQuery(cq).getResultList();
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public List<T> findRange(int startAt, int maxResult) {
+		CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+		cq.select(cq.from(entityClass));
+		return em.createQuery(cq).setFirstResult(startAt).setMaxResults(maxResult).getResultList();
+	}
+	
 	// Using the unchecked because JPA does not have a
 	// ery.getSingleResult()<T> method
 	@SuppressWarnings("unchecked")
