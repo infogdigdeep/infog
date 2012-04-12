@@ -1,6 +1,7 @@
 package com.digdeep.infog.test;
 
 import java.io.StringWriter;
+import java.security.MessageDigest;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
@@ -17,6 +18,7 @@ import com.digdeep.infog.model.input.ConfigInput;
 import com.digdeep.infog.model.input.ContentProvisionInput;
 import com.digdeep.infog.model.input.ContentRequestInput;
 import com.digdeep.infog.model.input.ControlProvisionInput;
+import com.digdeep.infog.utils.EncryptionUtil;
 
 public class RestClient {
 

@@ -10,7 +10,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
+
+import com.digdeep.infog.utils.EncryptionUtil;
 
 @Entity
 @Table(name="infoguser")
@@ -60,6 +63,10 @@ public class User {
 	}
 
 
-	
+	@PrePersist
+	public void beforePersist() throws Exception {
+		EncryptionUtil eUtil = new EncryptionUtil();
+		this.password = eUtil.encryptSHA256(this.password);
+	}
 	
 }
