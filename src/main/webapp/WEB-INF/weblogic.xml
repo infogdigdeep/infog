@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weblogic-web-app xmlns="http://xmlns.oracle.com/weblogic/weblogic-web-app"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://xmlns.oracle.com/weblogic/weblogic-web-app http://xmlns.oracle.com/weblogic/weblogic-web-app/1.4/weblogic-web-app.xsd">
+    <security-role-assignment>
+        <role-name>ADMIN</role-name>
+        <principal-name>admin</principal-name>
+    </security-role-assignment> 
+    <session-descriptor>
+        <timeout-secs>3600</timeout-secs>
+        <invalidation-interval-secs>60</invalidation-interval-secs>
+        <cookie-name>InfogCookie</cookie-name>
+        <cookie-max-age-secs>-1</cookie-max-age-secs>
+        <url-rewriting-enabled>false</url-rewriting-enabled>
+    </session-descriptor>
+</weblogic-web-app>

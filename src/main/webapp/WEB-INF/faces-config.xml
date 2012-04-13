@@ -35,4 +35,8 @@ http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
 			<var>infogmsg</var>
 		</resource-bundle>
 	</application>
+	
+	<factory>
+     <exception-handler-factory>com.digdeep.infog.exceptions.FrontEndExceptionHandlerFactory</exception-handler-factory>
+ </factory> 
 </faces-config>
