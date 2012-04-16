@@ -326,7 +326,7 @@
 								<wsdlOption>
 									<wsdl>
 										${basedir}/src/main/resource/ShoppingService.wsdl
-                                 </wsdl>
+									</wsdl>
 								</wsdlOption>
 							</wsdlOptions>
 						</configuration>
@@ -430,5 +430,66 @@
 		<cxf.version>2.5.3-SNAPSHOT</cxf.version>
 		<glassfish.directory>C:\development\tmp\glassfish3\glassfish3\glassfish</glassfish.directory>
 	</properties>
+
+	<profiles>
+		<profile>
+			<id>weblogic</id>
+			<repositories>
+				<repository>
+					<id>jboss-public-repository-group</id>
+					<name>JBoss Public Repository Group</name>
+					<url>http://repository.jboss.org/nexus/content/groups/public/</url>
+					<layout>default</layout>
+					<releases>
+						<enabled>true</enabled>
+						<updatePolicy>never</updatePolicy>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+						<updatePolicy>never</updatePolicy>
+					</snapshots>
+				</repository>
+			</repositories>
+			<dependencies>
+				<dependency>
+					<groupId>org.hibernate</groupId>
+					<artifactId>hibernate-core</artifactId>
+					<version>3.6.3.Final</version>
+				</dependency>
+<!-- 
+				<dependency>
+					<groupId>org.hibernate.hibernate-annotations</groupId>
+					<artifactId>hibernate-annotations</artifactId>
+					<version>3.5.4-Final</version>
+				</dependency>
+
+				<dependency>
+					<groupId>org.hibernate.hibernate-commons-annotations</groupId>
+					<artifactId>hibernate-commons-annotations</artifactId>
+					<version>3.2.0.Final</version>
+				</dependency>
+				<dependency>
+					<groupId>org.hibernate.hibernate-entitymanager</groupId>
+					<artifactId>hibernate-entitymanager</artifactId>
+					<version>3.6.0.Final</version>
+				</dependency>
+				-->
+			</dependencies>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.oracle.weblogic</groupId>
+						<artifactId>wls-maven-plugin</artifactId>
+						<version>12.1.1.0</version>
+						<configuration>
+							<user>admin</user>
+							<password>${weblogic.pwd}</password>
+							<artifactLocation>${project.build.directory}/${project.build.finalName}.war</artifactLocation>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>
 			
