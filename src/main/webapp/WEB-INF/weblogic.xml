@@ -13,4 +13,7 @@
         <cookie-max-age-secs>-1</cookie-max-age-secs>
         <url-rewriting-enabled>false</url-rewriting-enabled>
     </session-descriptor>
+    <container-descriptor>
+    	<prefer-web-inf-classes>true</prefer-web-inf-classes>
+    </container-descriptor>
 </weblogic-web-app>

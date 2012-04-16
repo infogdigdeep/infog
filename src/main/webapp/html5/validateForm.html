@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>HTML5 based From validation</title>
+<meta name="keywords" content="form validation, html5" />
+<meta name="description" content="HTML5 based form validation" />
+<link rel='stylesheet' href='../resource/css/form-validation.css'
+	type='text/css' />
+</head>
+<body>
+	<h1>User Registration Form</h1>
+	<form name='registration'>
+		<ul>
+			<li><label for="userid">User id :</label></li>
+			<li><input type="text" name="userid" size="12" required
+				pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{5,12}$" /></li>
+			<li class="help">required. alphanumeric, _, 6 to 12 chars</li>
+			<li><label for="passid">Password :</label></li>
+			<li><input type="password" name="passid" size="12" required
+				pattern="(?=^.{5,12}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" />
+			</li>
+			<li class="help">required. alphanumeric, upper & lower case,
+				special chars, 5 to 12 chars</li>
+			<li><label for="username">Name :</label></li>
+			<li><input type="text" name="username" size="30" required
+				pattern="[a-zA-Z ]+" /></li>
+			<li class="help">required. alphabates only, space allowed</li>
+			<li><label for="country">Country :</label></li>
+			<li><input type="text" name="country" size="12" required
+				pattern="[a-zA-Z]+" /></li>
+			<li class="help">required. alphabates only.</li>
+			<li><label for="city">City :</label></li>
+			<li><input type="text" name="city" size="12" required
+				pattern="[a-zA-Z]+" /></li>
+			<li class="help">required. alphabates only.</li>
+			<li><label for="zip">Postal Code :</label></li>
+			<li><input type="text" name="zip" required pattern="[0-9]{6}" />
+			</li>
+			<li class="help">required. Indian Postal Code format only- six
+				digit number.</li>
+			<li><label for="email">Email :</label></li>
+			<li><input type="text" name="email" size="30" required
+				pattern="^[a-zA-Z0-9-\_.]+@[a-zA-Z0-9-\_.]+\.[a-zA-Z0-9.]{2,5}$" />
+			</li>
+			<li class="help">required. Must be a valid email pattern.</li>
+			<li><label for="desc">Terms & condition :</label></li>
+			<li><textarea name="desc" id="desc" readonly>Read Only
+</textarea></li>
+			<li><label>I Agree</label></li>
+			<li><input type="checkbox" name="tc" /></li>
+			<li><input type="submit" name="submit" value="Submit" /></li>
+		</ul>
+	</form>
+</body>
+</html>
