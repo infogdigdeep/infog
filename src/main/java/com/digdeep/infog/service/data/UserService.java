@@ -11,7 +11,6 @@ import com.digdeep.infog.model.User;
 import com.digdeep.infog.model.input.ControlProvisionInput;
 
 @Stateless
-@SessionScoped
 public class UserService extends GenericDao<User> {
 
 	public UserService() {
