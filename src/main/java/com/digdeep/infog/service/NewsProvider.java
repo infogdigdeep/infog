@@ -15,7 +15,8 @@ public class NewsProvider implements InfoProvider {
 	@Inject
 	private ContentUtil contentUtil;
 	
+	//http://rss.cbc.ca/lineup/technology.xml
 	public String get(ContentRequestInput input) throws Exception {	
-		return contentUtil.getConcatDescriptions("http://rss.cbc.ca/lineup/technology.xml");
+		return contentUtil.getConcatDescriptions(input.getUrl());
 	}
 }

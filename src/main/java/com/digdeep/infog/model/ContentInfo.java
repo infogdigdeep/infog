@@ -13,6 +13,18 @@ import javax.validation.constraints.NotNull;
 @Table(name="contentInfo")
 public class ContentInfo {
 	
+	
+	public ContentInfo() {
+
+	}
+
+	public ContentInfo(String descriptions, String url, ContentType type) {
+		super();
+		this.descriptions = descriptions;
+		this.url = url;
+		this.type = type;
+	}
+
 	@Id
 	@GeneratedValue
 	private long id;

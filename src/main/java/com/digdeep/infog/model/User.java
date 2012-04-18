@@ -26,6 +26,8 @@ public class User {
 	
 	private String email;
 	
+	private String zipCode;
+	
 	@ManyToMany(cascade=CascadeType.ALL)
 	@JoinTable(name="usergroup", joinColumns={@JoinColumn(name="username")}, inverseJoinColumns={@JoinColumn(name="groupId")})
 	private List<Group> group;
@@ -62,6 +64,14 @@ public class User {
 		this.group = group;
 	}
 
+
+	public String getZipCode() {
+		return zipCode;
+	}
+
+	public void setZipCode(String zipCode) {
+		this.zipCode = zipCode;
+	}
 
 	@PrePersist
 	public void beforePersist() throws Exception {

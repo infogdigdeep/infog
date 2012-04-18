@@ -38,6 +38,10 @@ public abstract class GenericDao<T> {
 		return em.find(entityClass, entityID);
 	}
 
+	public T find(String entityID) {
+		return em.find(entityClass, entityID);
+	}
+	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<T> findAll() {
 		CriteriaQuery cq = em.getCriteriaBuilder().createQuery();

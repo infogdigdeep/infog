@@ -39,7 +39,7 @@ public class RestClient {
 			RestClient coreClient = new RestClient();
 			HttpClient client = new HttpClient();
 			putMethod = new PutMethod(
-					"http://localhost:8080/infog/service/config");
+					"http://localhost:18080/infog/service/config");
 			
 			ControlProvisionInput ctlInput = new ControlProvisionInput();
 			ctlInput.setUsername("admin");
@@ -77,7 +77,7 @@ public class RestClient {
 			RestClient coreClient = new RestClient();
 			HttpClient client = new HttpClient();
 			postMethod = new PostMethod(
-					"http://localhost:8080/infog/service/content");
+					"http://localhost:18080/infog/service/content");
 			ContentRequestInput req1 = new ContentRequestInput();
 			req1.setType(0);
 			req1.setZipCode("L3R0B2");
