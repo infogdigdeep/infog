@@ -47,6 +47,8 @@ public class RestClient {
 			
 			ctlInput.setPassword("admin");
 			ctlInput.setGroupname("ADMIN");
+			ctlInput.setZipCode("L3R0A9");
+			
 			ContentProvisionInput provInput = new ContentProvisionInput();
 			provInput.setDescription("Google News RSS");
 			provInput.setType(0);

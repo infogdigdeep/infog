@@ -10,7 +10,9 @@ public class ControlProvisionInput {
 	private String email;
 	private String password;
 	private String groupname;
+	private String zipCode;
 	private long groupId;
+	
 	public String getUsername() {
 		return username;
 	}
@@ -40,6 +42,12 @@ public class ControlProvisionInput {
 	}
 	public void setGroupId(long groupId) {
 		this.groupId = groupId;
+	}
+	public String getZipCode() {
+		return zipCode;
+	}
+	public void setZipCode(String zipCode) {
+		this.zipCode = zipCode;
 	}
 	
 	

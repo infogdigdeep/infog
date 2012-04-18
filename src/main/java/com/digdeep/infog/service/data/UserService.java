@@ -3,7 +3,6 @@ package com.digdeep.infog.service.data;
 import java.util.Collections;
 
 import javax.ejb.Stateless;
-import javax.enterprise.context.SessionScoped;
 
 import com.digdeep.infog.dao.GenericDao;
 import com.digdeep.infog.model.Group;
@@ -22,6 +21,7 @@ public class UserService extends GenericDao<User> {
 		user.setUsername(input.getUsername());
 		user.setPassword(input.getPassword());
 		user.setEmail(input.getEmail());
+		user.setZipCode(input.getZipCode());
 		Group group = new Group();
 		group.setGroupname(input.getGroupname());
 		user.setGroup(Collections.singletonList(group));

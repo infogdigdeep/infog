@@ -1,6 +1,7 @@
 package com.digdeep.infog.beans.controller;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -27,49 +28,55 @@ public class Infog {
 
 	@Inject
 	private InfoProviderBean provider;
-	
+
 	@EJB
 	private UserService userService;
-	
+
 	@EJB
 	private ContentInfoService infoService;
-	
+
 	private User currentUser;
-	
-    public User getCurrentUser() {
-        if (getCurrentUser() == null) {
-            Principal principal = FacesContext.getCurrentInstance().getExternalContext().getUserPrincipal();
-            if (principal != null) {
-                setCurrentUser(userService.find(principal.getName()));
-            }
-        }
-        return currentUser;
-    }
+
+	public User getCurrentUser() {
+		if (getCurrentUser() == null) {
+			Principal principal = FacesContext.getCurrentInstance()
+					.getExternalContext().getUserPrincipal();
+			if (principal != null) {
+				setCurrentUser(userService.find(principal.getName()));
+			}
+		}
+		return currentUser;
+	}
 
 	public void setCurrentUser(User currentUser) {
 		this.currentUser = currentUser;
 	}
 
-	private HashMap<ContentType, String> currentContent;
+	private List<String> currentContent;
 
-	public HashMap<ContentType, String> getCurrentContent() {
+
+
+	public List<String> getCurrentContent() {
 		return currentContent;
 	}
 
-	public void setCurrentContent(HashMap<ContentType, String> currentContent) {
+	public void setCurrentContent(List<String> currentContent) {
 		this.currentContent = currentContent;
 	}
-	
-	public void loadContents () throws Exception {
+
+	public void loadContents() throws Exception {
 		List<ContentInfo> infoList = infoService.findAll();
-		HashMap<ContentType, String> currentContent = new HashMap<ContentType, String>();
+		setCurrentContent(new ArrayList<String>());
 		for (ContentInfo tmpInfo : infoList) {
-			String url = tmpInfo.getUrl();
-			ContentRequestInput tmpInput = new ContentRequestInput();
-			tmpInput.setUrl(tmpInfo.getUrl());
-			tmpInput.setType(tmpInfo.getType().getType());
-			String content = provider.get(tmpInput);
-			currentContent.put(tmpInfo.getType(), content);
-		}	
+			try {
+				ContentRequestInput tmpInput = new ContentRequestInput();
+				tmpInput.setUrl(tmpInfo.getUrl());
+				tmpInput.setType(tmpInfo.getType().getType());
+				String content = provider.get(tmpInput);
+				getCurrentContent().add(content);
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+		}
 	}
 }
