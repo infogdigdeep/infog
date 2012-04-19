@@ -259,25 +259,26 @@
 				<executions>
 					<execution>
 						<goals>
-							<goal>exec</goal>
+							<goal>java</goal>
 						</goals>
 					</execution>
 				</executions>
 				<configuration>
-					<executable>java</executable>
+					<mainClass>com.digdeep.infog.test.RestClient</mainClass>
 					<arguments>
+					<!-- 
 						<argument>-classpath</argument>
 						<classpath />
-						<!-- Uncomment below for debugging with Metro. -->
+						Uncomment below for debugging with Metro. -->
 						<!--argument> -Dcom.sun.xml.ws.transport.http.client.HttpTransportPipe.dump=true 
 							</argument -->
 						<!-- Uncomment below for debugging with CXF. -->
 						<!--argument> -Djava.util.logging.config.file=${env.CXF_HOME}/etc/logging.properties 
 							</argument -->
-						<argument>client.WSClient</argument>
-						<!-- Modify argument below for the item you wish to search eBay for. -->
-						<argument>camera</argument>
+						<!-- Modify argument below for the item you wish to search eBay for. 
+							<argument>camera</argument> -->
 					</arguments>
+
 				</configuration>
 			</plugin>
 
@@ -392,7 +393,6 @@
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
-
 		</repository>
 		<repository>
 			<id>maven-repository.dev.java.net</id>
@@ -457,6 +457,16 @@
 
 	<profiles>
 		<profile>
+			<id>jboss</id>
+			<dependencies>
+				<dependency>
+					<groupId>mysql</groupId>
+					<artifactId>mysql-connector-java</artifactId>
+					<version>5.1.15</version>
+				</dependency>
+			</dependencies>
+		</profile>
+		<profile>
 			<id>weblogic</id>
 			<repositories>
 				<repository>
@@ -481,19 +491,9 @@
 						</exclusion>
 					</exclusions>
 				</dependency>
-<!-- 
-				<dependency>
-					<groupId>org.hibernate</groupId>
-					<artifactId>hibernate-annotations</artifactId>
-					<version>3.5.6-Final</version>
-					<exclusions>
-						<exclusion>
-							<groupId>org.slf4j</groupId>
-							<artifactId>slf4j-api</artifactId>
-						</exclusion>
-					</exclusions>
-				</dependency>
--->
+				<!-- <dependency> <groupId>org.hibernate</groupId> <artifactId>hibernate-annotations</artifactId> 
+					<version>3.5.6-Final</version> <exclusions> <exclusion> <groupId>org.slf4j</groupId> 
+					<artifactId>slf4j-api</artifactId> </exclusion> </exclusions> </dependency> -->
 				<dependency>
 					<groupId>org.hibernate</groupId>
 					<artifactId>hibernate-commons-annotations</artifactId>

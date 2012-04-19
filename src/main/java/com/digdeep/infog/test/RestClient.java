@@ -33,6 +33,7 @@ public class RestClient {
 
 		return sw.toString();
 	}
+	/*
 	public static void main(String[] args) {
 		PutMethod putMethod = null;
 		try {
@@ -41,22 +42,8 @@ public class RestClient {
 			putMethod = new PutMethod(
 					"http://localhost:18080/infog/service/config");
 			
-			ControlProvisionInput ctlInput = new ControlProvisionInput();
-			ctlInput.setUsername("admin");
-			ctlInput.setEmail("admin@infog.com");
-			
-			ctlInput.setPassword("admin");
-			ctlInput.setGroupname("ADMIN");
-			ctlInput.setZipCode("L3R0A9");
-			
-			ContentProvisionInput provInput = new ContentProvisionInput();
-			provInput.setDescription("Google News RSS");
-			provInput.setType(0);
-			provInput.setUrl("http://news.google.com/news?ned=us&topic=h&output=rss");
-			
+
 			ConfigInput input = new ConfigInput();
-			input.setContentInput(provInput);
-			input.setControlInput(ctlInput);
 			StringRequestEntity req = new StringRequestEntity(
 					coreClient.reqEntityToString(input), "application/xml", "UTF-8");
 			putMethod.setRequestEntity(req);
@@ -71,8 +58,8 @@ public class RestClient {
 			putMethod.releaseConnection();
 
 		}
-	}
-	/*
+	}*/
+	
 	public static void main(String[] args) {
 		PostMethod postMethod = null;
 		try {
@@ -81,8 +68,7 @@ public class RestClient {
 			postMethod = new PostMethod(
 					"http://localhost:18080/infog/service/content");
 			ContentRequestInput req1 = new ContentRequestInput();
-			req1.setType(0);
-			req1.setZipCode("L3R0B2");
+			req1.setType(1);
 			StringRequestEntity req = new StringRequestEntity(
 					coreClient.reqEntityToString(req1), "application/xml", "UTF-8");
 			postMethod.setRequestEntity(req);
@@ -98,5 +84,5 @@ public class RestClient {
 
 		}
 	}
-	*/
+	
 }

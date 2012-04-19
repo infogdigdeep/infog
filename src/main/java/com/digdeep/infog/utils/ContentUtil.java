@@ -2,7 +2,6 @@ package com.digdeep.infog.utils;
 
 import java.io.InputStream;
 import java.io.StringWriter;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,10 +25,11 @@ import net.sf.json.JSONSerializer;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.methods.PostMethod;
-import org.apache.commons.io.IOCase;
 import org.apache.commons.io.IOUtils;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
+
+import com.digdeep.infog.qualifiers.XMLLogging;
 
 public class ContentUtil {
 
@@ -54,6 +54,7 @@ public class ContentUtil {
 		this.postMethod = postMethod;
 	}
 
+	@XMLLogging
 	private InputStream getFeedContentStream(String url) {
 
 		try {
@@ -66,6 +67,7 @@ public class ContentUtil {
 		} 
 		return null;
 	}
+
 
 	public List<String> getFeedDescriptionList(InputStream content)
 			throws Exception {
@@ -102,24 +104,6 @@ public class ContentUtil {
 				result.append(tmpDesc);
 			}
 			return result.toString();
-	}
-	
-	public String prettyFormat(InputStream input, int indent) {
-		try {
-			Source xmlInput = new StreamSource(input);
-			StringWriter stringWriter = new StringWriter();
-			StreamResult xmlOutput = new StreamResult(stringWriter);
-			TransformerFactory transformerFactory = TransformerFactory
-					.newInstance();
-			transformerFactory.setAttribute("indent-number", indent);
-			Transformer transformer = transformerFactory.newTransformer();
-			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-			transformer.transform(xmlInput, xmlOutput);
-			return xmlOutput.getWriter().toString();
-		} catch (Exception e) {
-			throw new RuntimeException(e); // simple exception handling, please
-											// review it
-		}
 	}
 	
 	public NodeList getTargetNodeListByXPath (InputStream input, String xPathExpression) throws Exception {

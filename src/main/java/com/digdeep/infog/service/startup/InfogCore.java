@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.digdeep.infog.service.data.ContentInfoService;
+import com.digdeep.infog.service.data.UserService;
 
 @Startup
 @Singleton
@@ -19,11 +20,15 @@ public class InfogCore {
 	@EJB
 	private ContentInfoService infoService;
 	
+	@EJB
+	private UserService userService;
+	
 	@PostConstruct
 	public void init() {
 		logger.info(">>>> Start Infog");
-		
+		userService.storeStaticUserInfo();
 		infoService.storeStaticContentInfo();
+		
 		logger.info(">>>> Finish Stored Static Content");
 	}
 	

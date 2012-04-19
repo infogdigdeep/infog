@@ -1,6 +1,7 @@
 package com.digdeep.infog.service.data;
 
 
+import javax.ejb.ApplicationException;
 import javax.ejb.Stateless;
 
 import com.digdeep.infog.dao.GenericDao;
@@ -9,6 +10,7 @@ import com.digdeep.infog.model.ContentType;
 import com.digdeep.infog.model.input.ContentProvisionInput;
 
 @Stateless
+@ApplicationException(rollback=true)
 public class ContentInfoService extends GenericDao<ContentInfo> {
 
 	public ContentInfoService() {
