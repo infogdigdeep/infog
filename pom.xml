@@ -218,6 +218,11 @@
 					<artifactId>commons-logging</artifactId>
 					<groupId>commons-logging</groupId>
 				</exclusion>
+				<exclusion>
+					<groupId>xml-apis</groupId>
+					<artifactId>xml-apis</artifactId>
+				</exclusion>
+
 			</exclusions>
 		</dependency>
 		<dependency>
@@ -266,10 +271,8 @@
 				<configuration>
 					<mainClass>com.digdeep.infog.test.RestClient</mainClass>
 					<arguments>
-					<!-- 
-						<argument>-classpath</argument>
-						<classpath />
-						Uncomment below for debugging with Metro. -->
+						<!-- <argument>-classpath</argument> <classpath /> Uncomment below 
+							for debugging with Metro. -->
 						<!--argument> -Dcom.sun.xml.ws.transport.http.client.HttpTransportPipe.dump=true 
 							</argument -->
 						<!-- Uncomment below for debugging with CXF. -->
@@ -519,12 +522,20 @@
 
 			</dependencies>
 			<build>
+				<resources>
+					<resource>
+						<directory>src/main/weblogic</directory>
+						<filtering>true</filtering>
+					</resource>
+				</resources>
+
 				<plugins>
 					<plugin>
 						<groupId>com.oracle.weblogic</groupId>
 						<artifactId>wls-maven-plugin</artifactId>
 						<version>12.1.1.0</version>
 						<configuration>
+							<name>infog</name>
 							<user>admin</user>
 							<password>${weblogic.pwd}</password>
 							<artifactLocation>${project.build.directory}/${project.build.finalName}.war</artifactLocation>

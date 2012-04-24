@@ -10,7 +10,7 @@ import com.digdeep.infog.model.Group;
 import com.digdeep.infog.model.User;
 import com.digdeep.infog.model.input.ControlProvisionInput;
 
-@Stateless
+@Stateless(mappedName="userbean")
 @ApplicationException(rollback=true)
 public class UserService extends GenericDao<User> {
 
