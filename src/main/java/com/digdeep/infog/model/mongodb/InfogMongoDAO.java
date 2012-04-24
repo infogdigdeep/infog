@@ -1,14 +1,22 @@
 package com.digdeep.infog.model.mongodb;
 
+import com.digdeep.infog.model.Content;
+import com.digdeep.infog.model.ContentType;
+import com.digdeep.infog.model.json.ModelJsonHandler;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
+import com.mongodb.DBObject;
 import com.mongodb.Mongo;
+import com.mongodb.util.JSON;
 
 public class InfogMongoDAO {
 	
+	private final static String CONTENT_REPO = "contentrepository";
+	
 	private static Mongo mongo;
+	
 	
 	public static Mongo getInfogMongo () throws Exception {
 		if (mongo == null) {
@@ -29,13 +37,18 @@ public class InfogMongoDAO {
 		}
 	}
 	
+	public void insert(Content content) throws Exception {
+		ModelJsonHandler jsonHandler = new ModelJsonHandler();
+		DBObject obj = (DBObject) JSON.parse(jsonHandler.toJson(content));
+		getInfogMongoDB().getCollection(CONTENT_REPO).insert(obj);
+	}
+	
 	public static void main (String [] args) {
 		try {
-			DBCollection repo = getInfogMongoDB().getCollection("contentrepository");
-			BasicDBObject ct1 = new BasicDBObject();
-			ct1.put("id", "news");
-			ct1.put("imageUrl", "http://www.google.ca");
-			repo.insert(ct1);
+			Content ct = new Content("www.google.ca", "Google", "Summary", "Google", ContentType.NEWS);
+			InfogMongoDAO dao = new InfogMongoDAO();
+			dao.insert(ct);
+			DBCollection repo = getInfogMongoDB().getCollection(CONTENT_REPO);
 			DBCursor ct1c = repo.find();
 			while (ct1c.hasNext()) {
 				System.out.println(ct1c.next());

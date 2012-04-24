@@ -1,17 +1,8 @@
 package com.digdeep.infog.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Entity
-@Table(name="content")
 public class Content {
 
-	@Id
-	@GeneratedValue
 	private long id;
 	
 	private String pictureUrl;
@@ -22,7 +13,6 @@ public class Content {
 	
 	private String provider;
 
-	@Enumerated
 	private ContentType type;
 	
 	
