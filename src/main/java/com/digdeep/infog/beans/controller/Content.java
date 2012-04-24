@@ -18,7 +18,7 @@ import com.digdeep.infog.model.input.ContentProvisionInput;
 @RequestScoped
 @Model
 public class Content {
-
+	
 	@Inject
 	private ContentProvision provisionService;
 	
