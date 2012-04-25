@@ -2,12 +2,10 @@ package com.digdeep.infog.beans.controller;
 
 import java.util.List;
 
+import javax.annotation.ManagedBean;
 import javax.enterprise.inject.Model;
-import javax.faces.bean.RequestScoped;
-import javax.faces.model.SelectItem;
 import javax.inject.Inject;
 
-import org.primefaces.event.SelectEvent;
 
 import com.digdeep.infog.external.ContentProvision;
 import com.digdeep.infog.model.ContentInfo;
@@ -15,8 +13,8 @@ import com.digdeep.infog.model.ContentType;
 import com.digdeep.infog.model.input.ConfigInput;
 import com.digdeep.infog.model.input.ContentProvisionInput;
 
-@RequestScoped
-@Model
+
+@ManagedBean
 public class Content {
 	
 	@Inject
@@ -56,6 +54,4 @@ public class Content {
 	public void setContentList(List<ContentInfo> contentList) {
 		this.contentList = contentList;
 	}
-
-
 }

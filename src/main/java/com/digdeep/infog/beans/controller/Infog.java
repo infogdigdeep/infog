@@ -2,20 +2,17 @@ package com.digdeep.infog.beans.controller;
 
 import java.security.Principal;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import javax.ejb.EJB;
-import javax.enterprise.inject.Model;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import com.digdeep.infog.beans.InfoProviderBean;
 import com.digdeep.infog.model.ContentInfo;
-import com.digdeep.infog.model.ContentType;
 import com.digdeep.infog.model.User;
 import com.digdeep.infog.model.input.ContentRequestInput;
 import com.digdeep.infog.service.data.ContentInfoService;
@@ -23,7 +20,7 @@ import com.digdeep.infog.service.data.UserService;
 
 @ManagedBean
 @ViewScoped
-@Model
+@Named
 public class Infog {
 
 	@Inject
