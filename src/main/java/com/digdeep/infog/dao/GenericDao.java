@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 public abstract class GenericDao<T> {
 
@@ -49,6 +50,14 @@ public abstract class GenericDao<T> {
 		return em.createQuery(cq).getResultList();
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public long count () {
+		CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+		Root rt = cq.from(entityClass);
+		cq.select(em.getCriteriaBuilder().count(rt));
+		return (Long)em.createQuery(cq).getSingleResult();
+	}
+	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<T> findRange(int startAt, int maxResult) {
 		CriteriaQuery cq = em.getCriteriaBuilder().createQuery();

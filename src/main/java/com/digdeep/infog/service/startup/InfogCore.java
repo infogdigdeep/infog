@@ -27,8 +27,8 @@ public class InfogCore {
 	public void init() {
 		logger.info(">>>> Start Infog");
 		try {
-			//userService.storeStaticUserInfo();
-			//infoService.storeStaticContentInfo();
+		//userService.storeStaticUserInfo();
+		//infoService.storeStaticContentInfo();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
