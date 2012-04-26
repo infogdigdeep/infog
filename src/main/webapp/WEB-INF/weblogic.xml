@@ -2,6 +2,21 @@
 <weblogic-web-app xmlns="http://xmlns.oracle.com/weblogic/weblogic-web-app"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                   xsi:schemaLocation="http://xmlns.oracle.com/weblogic/weblogic-web-app http://xmlns.oracle.com/weblogic/weblogic-web-app/1.4/weblogic-web-app.xsd">
+    <container-descriptor>
+        <prefer-application-packages>
+            <package-name>com.sun.jersey.*</package-name>
+            <package-name>com.sun.research.ws.wadl.*</package-name>
+            <package-name>com.sun.ws.rs.ext.*</package-name>
+
+            <package-name>org.codehaus.jackson.*</package-name>
+ 
+            <package-name>org.codehaus.jettison.*</package-name>
+ 
+            <package-name>javax.ws.rs.*</package-name>
+ 
+            <package-name>org.objectweb.asm.*</package-name>
+        </prefer-application-packages>
+    </container-descriptor>
     <security-role-assignment>
         <role-name>ADMIN</role-name>
         <principal-name>admin</principal-name>

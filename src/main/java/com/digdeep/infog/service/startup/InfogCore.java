@@ -26,9 +26,12 @@ public class InfogCore {
 	@PostConstruct
 	public void init() {
 		logger.info(">>>> Start Infog");
-		userService.storeStaticUserInfo();
-		infoService.storeStaticContentInfo();
-		
+		try {
+			//userService.storeStaticUserInfo();
+			//infoService.storeStaticContentInfo();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
 		logger.info(">>>> Finish Stored Static Content");
 	}
 	
