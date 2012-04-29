@@ -62,7 +62,7 @@ public class RestClient {
 		try {
 			RestClient coreClient = new RestClient();
 			HttpClient client = new HttpClient();
-			postMethod = new PostMethod("http://localhost:18080/infog/service/config");
+			postMethod = new PostMethod("http://localhost:7001/infog/service/config");
 			ConfigInput config = new ConfigInput();
 			ContentProvisionInput contentConfig = new ContentProvisionInput();
 			contentConfig.setDescription("CBC Technology");
