@@ -69,7 +69,8 @@ public class Infog {
 				ContentRequestInput tmpInput = new ContentRequestInput();
 				tmpInput.setUrl(tmpInfo.getUrl());
 				tmpInput.setType(tmpInfo.getType().getType());
-				String content = provider.get(tmpInput);
+				//String content = provider.get(tmpInput);
+				String content = "";
 				getCurrentContent().add(content);
 			} catch (Exception ex) {
 				ex.printStackTrace();

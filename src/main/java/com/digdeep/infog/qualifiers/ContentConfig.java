@@ -13,5 +13,5 @@ import com.digdeep.infog.model.ContentType;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD, ElementType.TYPE})
 public @interface ContentConfig {
-	ContentType contentType() default ContentType.WEATHER;
+	ContentType contentType() default ContentType.RSS;
 }

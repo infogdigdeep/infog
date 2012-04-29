@@ -3,7 +3,7 @@ package com.digdeep.infog.model;
 
 
 public enum ContentType {
-	WEATHER(0), NEWS(1);
+	RSS(0);
 	
 	private int type;
 	
@@ -14,11 +14,9 @@ public enum ContentType {
 	public static ContentType getType (int type) {
 		switch (type) {
 		case 0:
-			return WEATHER;
-		case 1:
-			return NEWS;
+			return RSS;
 		default:
-			return WEATHER;
+			return RSS;
 		}
 	}
 	

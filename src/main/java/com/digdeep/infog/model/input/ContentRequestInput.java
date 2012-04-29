@@ -9,7 +9,7 @@ public class ContentRequestInput {
 	private String zipCode;
 	private String query;
 	private String url;
-	
+	private ContentRequestFeature featureList;
 
 	public String getUrl() {
 		return url;
@@ -41,6 +41,14 @@ public class ContentRequestInput {
 
 	public void setQuery(String query) {
 		this.query = query;
+	}
+
+	public ContentRequestFeature getFeatureList() {
+		return featureList;
+	}
+
+	public void setFeatureList(ContentRequestFeature featureList) {
+		this.featureList = featureList;
 	}
 	
 	

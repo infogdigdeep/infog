@@ -27,8 +27,8 @@ public class ContentInfoService extends GenericDao<ContentInfo> {
 	}
 	
 	public void storeStaticContentInfo() {
-		ContentInfo i1 = new ContentInfo("CBC Technology", "http://rss.cbc.ca/lineup/technology.xml", ContentType.NEWS);
-		ContentInfo i2 = new ContentInfo("CBC Top Stories", "http://rss.cbc.ca/lineup/topstories.xml", ContentType.NEWS);
+		ContentInfo i1 = new ContentInfo("CBC Technology", "http://rss.cbc.ca/lineup/technology.xml", ContentType.RSS);
+		ContentInfo i2 = new ContentInfo("CBC Top Stories", "http://rss.cbc.ca/lineup/topstories.xml", ContentType.RSS);
 		save(i1);
 		save(i2);
 	}

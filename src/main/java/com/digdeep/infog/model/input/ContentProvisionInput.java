@@ -11,6 +11,8 @@ public class ContentProvisionInput {
 	
 	private String url;
 	
+	private ContentRequestFeature features;
+	
 
 
 	public String getDescription() {
@@ -36,6 +38,16 @@ public class ContentProvisionInput {
 	public void setType(int type) {
 		this.type = type;
 	}
+
+	public ContentRequestFeature getFeatures() {
+		return features;
+	}
+
+	public void setFeatures(ContentRequestFeature features) {
+		this.features = features;
+	}
+	
+	
 	
 	
 	
