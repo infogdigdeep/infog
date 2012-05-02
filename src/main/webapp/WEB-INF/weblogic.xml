@@ -15,12 +15,16 @@
             <package-name>javax.ws.rs.*</package-name>
  
             <package-name>org.objectweb.asm.*</package-name>
+            
+            <package-name>antlr.*</package-name>
         </prefer-application-packages>
     </container-descriptor>
+    <!--  
     <security-role-assignment>
         <role-name>ADMIN</role-name>
         <principal-name>admin</principal-name>
-    </security-role-assignment> 
+    </security-role-assignment>
+    --> 
     <session-descriptor>
         <timeout-secs>3600</timeout-secs>
         <invalidation-interval-secs>60</invalidation-interval-secs>

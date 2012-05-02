@@ -1,5 +1,6 @@
 package com.digdeep.infog.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -47,7 +48,12 @@ public abstract class GenericDao<T> {
 	public List<T> findAll() {
 		CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
 		cq.select(cq.from(entityClass));
-		return em.createQuery(cq).getResultList();
+		List<T> result = em.createQuery(cq).getResultList();
+		if (result == null) {
+			return new ArrayList<T>();
+		} else {
+			return result;
+		}
 	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })

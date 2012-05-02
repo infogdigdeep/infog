@@ -14,6 +14,7 @@ import com.digdeep.infog.model.ContentType;
 import com.digdeep.infog.model.input.ConfigInput;
 import com.digdeep.infog.model.input.ContentProvisionInput;
 import com.digdeep.infog.model.input.ContentRequestInput;
+import com.digdeep.infog.model.input.ControlProvisionInput;
 
 public class RestClient {
 
@@ -69,6 +70,15 @@ public class RestClient {
 			contentConfig.setType(ContentType.RSS.getType());
 			contentConfig.setUrl("http://rss.cbc.ca/lineup/technology.xml");
 			config.setContentInput(contentConfig);
+			
+			ControlProvisionInput cpInput = new ControlProvisionInput();
+			cpInput.setUsername("admin");
+			cpInput.setPassword("admin");
+			cpInput.setZipCode("L3R1V8");
+			cpInput.setGroupname("admin");
+			cpInput.setEmail("test@infog.com");
+			
+			config.setControlInput(cpInput);
 			StringRequestEntity req = new StringRequestEntity(
 					coreClient.reqEntityToString(config), "application/xml", "UTF-8");
 			postMethod.setRequestEntity(req);

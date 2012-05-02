@@ -2,8 +2,8 @@ package com.digdeep.infog.beans.controller;
 
 import java.util.List;
 
-import javax.annotation.ManagedBean;
 import javax.enterprise.inject.Model;
+import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 
 
