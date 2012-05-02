@@ -467,6 +467,19 @@
 	<profiles>
 		<profile>
 			<id>jboss</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.jboss.as.plugins</groupId>
+						<artifactId>jboss-as-maven-plugin</artifactId>
+						<version>7.0.2.Final</version>
+						<configuration>
+							<port>9090</port>
+							<jboss.home>C:\AppServ\jboss-as-7.1.0.CR1b</jboss.home>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
 			<dependencies>
 				<dependency>
 					<groupId>mysql</groupId>
