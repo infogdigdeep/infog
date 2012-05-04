@@ -1,4 +1,5 @@
 <datasources xmlns="http://www.jboss.org/ironjacamar/schema">
+<!-- 
 	<datasource jndi-name="java:jboss/datasources/MySqlDB" pool-name="MySQLPool">
 		<connection-url>jdbc:mysql://localhost:3306/infog</connection-url>
 		<driver>mysql-connector-java-5.1.15-bin.jar</driver>
@@ -10,4 +11,5 @@
 			<password>xxx</password>
 		</security>
 	</datasource>
+-->
 </datasources>

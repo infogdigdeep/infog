@@ -10,7 +10,6 @@ import com.digdeep.infog.model.ContentType;
 import com.digdeep.infog.model.input.ContentProvisionInput;
 
 @Stateless
-@ApplicationException(rollback=true)
 public class ContentInfoService extends GenericDao<ContentInfo> {
 
 	public ContentInfoService() {

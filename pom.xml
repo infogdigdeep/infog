@@ -468,23 +468,47 @@
 		<profile>
 			<id>jboss</id>
 			<build>
+				<resources>
+					<resource>
+						<directory>src/main/jboss</directory>
+						<filtering>true</filtering>
+					</resource>
+				</resources>
+
 				<plugins>
 					<plugin>
 						<groupId>org.jboss.as.plugins</groupId>
 						<artifactId>jboss-as-maven-plugin</artifactId>
-						<version>7.0.2.Final</version>
+						<version>7.1.1.Final</version>
 						<configuration>
-							<port>9090</port>
-							<jboss.home>C:\AppServ\jboss-as-7.1.0.CR1b</jboss.home>
+							<port>9999</port>
+							<jboss.home>C:\AppServ\jboss-as-7.1.1.Final</jboss.home>
 						</configuration>
 					</plugin>
 				</plugins>
 			</build>
 			<dependencies>
 				<dependency>
-					<groupId>mysql</groupId>
-					<artifactId>mysql-connector-java</artifactId>
-					<version>5.1.15</version>
+					<groupId>
+						org.slf4j
+					</groupId>
+					<artifactId>
+						jcl-over-slf4j
+					</artifactId>
+					<version>
+						1.6.4
+					</version>
+				</dependency>
+				<dependency>
+					<groupId>
+						com.sun.jersey
+					</groupId>
+					<artifactId>
+						jersey-server
+					</artifactId>
+					<version>
+						1.9
+					</version>
 				</dependency>
 			</dependencies>
 		</profile>
@@ -503,13 +527,23 @@
 			</repositories>
 			<dependencies>
 				<dependency>
-					<groupId>org.hibernate</groupId>
-					<artifactId>hibernate-core</artifactId>
-					<version>4.1.2.Final</version>
+					<groupId>
+						org.hibernate
+					</groupId>
+					<artifactId>
+						hibernate-core
+					</artifactId>
+					<version>
+						4.1.2.Final
+					</version>
 					<exclusions>
 						<exclusion>
-							<groupId>org.slf4j</groupId>
-							<artifactId>slf4j-api</artifactId>
+							<groupId>
+								org.slf4j
+							</groupId>
+							<artifactId>
+								slf4j-api
+							</artifactId>
 						</exclusion>
 					</exclusions>
 				</dependency>
@@ -517,31 +551,57 @@
 					<version>3.5.6-Final</version> <exclusions> <exclusion> <groupId>org.slf4j</groupId> 
 					<artifactId>slf4j-api</artifactId> </exclusion> </exclusions> </dependency> -->
 				<dependency>
-					<groupId>org.hibernate</groupId>
-					<artifactId>hibernate-commons-annotations</artifactId>
-					<version>3.2.0.Final</version>
+					<groupId>
+						org.hibernate
+					</groupId>
+					<artifactId>
+						hibernate-commons-annotations
+					</artifactId>
+					<version>
+						3.2.0.Final
+					</version>
 					<exclusions>
 						<exclusion>
-							<groupId>org.slf4j</groupId>
-							<artifactId>slf4j-api</artifactId>
+							<groupId>
+								org.slf4j
+							</groupId>
+							<artifactId>
+								slf4j-api
+							</artifactId>
 						</exclusion>
 					</exclusions>
 				</dependency>
 				<dependency>
-					<groupId>org.hibernate</groupId>
-					<artifactId>hibernate-entitymanager</artifactId>
-					<version>4.0.0.Final</version>
+					<groupId>
+						org.hibernate
+					</groupId>
+					<artifactId>
+						hibernate-entitymanager
+					</artifactId>
+					<version>
+						4.0.0.Final
+					</version>
 					<exclusions>
 						<exclusion>
-							<groupId>org.slf4j</groupId>
-							<artifactId>slf4j-api</artifactId>
+							<groupId>
+								org.slf4j
+							</groupId>
+							<artifactId>
+								slf4j-api
+							</artifactId>
 						</exclusion>
 					</exclusions>
 				</dependency>
 				<dependency>
-					<groupId>com.sun.jersey</groupId>
-					<artifactId>jersey-server</artifactId>
-					<version>1.9</version>
+					<groupId>
+						com.sun.jersey
+					</groupId>
+					<artifactId>
+						jersey-server
+					</artifactId>
+					<version>
+						1.8
+					</version>
 				</dependency>
 			</dependencies>
 			<build>
