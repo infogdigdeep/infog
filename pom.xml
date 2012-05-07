@@ -600,7 +600,7 @@
 						jersey-server
 					</artifactId>
 					<version>
-						1.8
+						1.9
 					</version>
 				</dependency>
 			</dependencies>

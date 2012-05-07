@@ -25,6 +25,8 @@ public class Content {
 	
 	private List<ContentInfo> contentList;
 
+	private boolean isAdd;
+	
 	public ContentType[] getContentTypeValues() {
 		return ContentType.values();
 	}
