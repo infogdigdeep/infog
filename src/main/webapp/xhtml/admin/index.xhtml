@@ -11,7 +11,8 @@
 
 		<h:form id="form">
 			<p:dataTable id="contents" var="ct" value="#{content.contentList}"
-				selectionMode="single" selection="#{content.currentInfo}">
+				selectionMode="single" selection="#{content.currentInfo}"
+				rowKey="#{ct.id}">
 
 				<p:ajax event="rowSelect" update=":form:contentPanel" />
 
@@ -33,29 +34,43 @@
 					</f:facet>
 					<h:outputText value="#{ct.type}" />
 				</p:column>
+				<f:facet name="footer">
+					<p:commandButton title="Add" value="Add"
+						update=":form:contentPanel" oncomplete="contentDialog.show()" />
+					<p:commandButton title="Update" value="Update"
+						update=":form:contentPanel" oncomplete="contentDialog.show()" />
+					<p:commandButton title="Delete" value="Delete"
+						action="#{content.delete()}" update=":form:contents" />
+				</f:facet>
 			</p:dataTable>
 
-			<p:panel id="contentPanel" header="Content Entry" toggleable="true"
-				closable="false" toggleSpeed="500" onCloseUpdate="growl"
-				closeSpeed="2000" onToggleUpdate="growl" widgetVar="panel">
-				<h:panelGrid columns="3" cellpadding="10">
-					<label>Description</label>
-					<h:inputText label="Descriptions" id="descriptions"
-						value="#{content.currentInfo.descriptions}" required="true" />
-					<h:message for="descriptions" class="errorMsg" />
-					<label>URL</label>
-					<h:inputText label="URL" id="url"
-						value="#{content.currentInfo.url}" required="true" />
-					<h:message for="url" class="errorMsg" />
-					<label>Type</label>
-					<h:selectOneMenu id="type" value="#{content.currentInfo.type}">
-						<f:selectItems value="#{content.contentTypeValues}" var="ct"
-							itemValue="#{ct}" itemLabel="#{ct}" />
-					</h:selectOneMenu>
-					<h:message for="type" class="errorMsg" />
-					<h:commandButton title="Add" value="Add" action="#{content.save()}" />
-				</h:panelGrid>
-			</p:panel>
+			<p:dialog id="dialog" header="Content Information Detal"
+				widgetVar="contentDialog" resizable="false" showEffect="clip"
+				hideEffect="fold">
+				<p:panel id="contentPanel" header="Content Entry" toggleable="true"
+					closable="false" toggleSpeed="500" closeSpeed="2000"
+					widgetVar="panel">
+					<h:panelGrid columns="3" cellpadding="10">
+						<label>Description</label>
+						<h:inputText label="Descriptions" id="descriptions"
+							value="#{content.currentInfo.descriptions}" required="true" />
+						<h:message for="descriptions" class="errorMsg" />
+						<label>URL</label>
+						<h:inputText label="URL" id="url"
+							value="#{content.currentInfo.url}" required="true" />
+						<h:message for="url" class="errorMsg" />
+						<label>Type</label>
+						<h:selectOneMenu id="type" value="#{content.currentInfo.type}">
+							<f:selectItems value="#{content.contentTypeValues}" var="ct"
+								itemValue="#{ct}" itemLabel="#{ct}" />
+						</h:selectOneMenu>
+						<h:message for="type" class="errorMsg" />
+						<p:commandButton title="Save" value="Save"
+							action="#{content.save()}" oncomplete="contentDialog.hide()"
+							update=":form:contents" />
+					</h:panelGrid>
+				</p:panel>
+			</p:dialog>
 		</h:form>
 	</ui:define>
 </ui:composition>

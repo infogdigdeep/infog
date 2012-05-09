@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -26,6 +27,16 @@ public class ContentProvision {
 	
 	@POST
 	public void addConfig(ConfigInput cfg) {
+		if (cfg.getContentInput() != null) {
+			infoService.save(cfg.getContentInput());
+		}
+		if (cfg.getControlInput() != null) {
+			userService.save(cfg.getControlInput());
+		}
+	}
+	
+	@DELETE
+	public void deleteConfig(ConfigInput cfg) {
 		if (cfg.getContentInput() != null) {
 			infoService.save(cfg.getContentInput());
 		}
