@@ -17,6 +17,8 @@ import com.digdeep.infog.model.input.ContentRequestInput;
 import com.digdeep.infog.model.input.ControlProvisionInput;
 
 public class RestClient {
+	
+	private static RestClient client;
 
 	public String reqEntityToString(Object input) throws Exception {
 
@@ -29,6 +31,14 @@ public class RestClient {
 
 		return sw.toString();
 	}
+	
+	public static RestClient getInstance() {
+		if (client == null) {
+			client = new RestClient();
+		}
+		return client;
+	}
+	
 	/*
 	public static void main(String[] args) {
 		PutMethod putMethod = null;
