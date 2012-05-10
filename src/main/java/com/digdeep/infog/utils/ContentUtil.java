@@ -55,7 +55,7 @@ public class ContentUtil {
 	}
 
 	@XMLLogging
-	private InputStream getFeedContentStream(String url) {
+	public InputStream getContentStream(String url) {
 
 		try {
 			HttpClient client = new HttpClient();
@@ -98,7 +98,7 @@ public class ContentUtil {
 	}
 
 	public String getConcatDescriptions (String url) throws Exception {
-		List<String> descriptions = getFeedDescriptionList(getFeedContentStream(url));
+		List<String> descriptions = getFeedDescriptionList(getContentStream(url));
 			StringBuilder result = new StringBuilder();
 			for (String tmpDesc : descriptions) {
 				result.append(tmpDesc);
@@ -135,11 +135,11 @@ public class ContentUtil {
 	}
 	 
 	public String getContentWithPath(String url, String xPathExpression) throws Exception {
-		return getContent(getFeedContentStream(url), xPathExpression);
+		return getContent(getContentStream(url), xPathExpression);
 	}
 	
 	public List<String> getContentListWithPath(String url, String xPathExpression) throws Exception {
-		return getContentList(getFeedContentStream(url), xPathExpression);
+		return getContentList(getContentStream(url), xPathExpression);
 	}
 	
 	public JSONObject parseJSON (InputStream input) throws Exception {
@@ -149,7 +149,7 @@ public class ContentUtil {
 	}
 	
 	public JSONObject parseJSON(String url) throws Exception {
-		return parseJSON(getFeedContentStream(url));
+		return parseJSON(getContentStream(url));
 	}
 
 	

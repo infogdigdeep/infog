@@ -243,7 +243,19 @@
 			<artifactId>gson</artifactId>
 			<version>2.1</version>
 		</dependency>
+		<dependency>
+			<groupId>org.jboss.arquillian.junit</groupId>
+			<artifactId>arquillian-junit-container</artifactId>
+			<version>${version.arquillian_core}</version>
+			<scope>test</scope>
+		</dependency>
 
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+			<version>${version.junit}</version>
+		</dependency>
 
 	</dependencies>
 	<build>
@@ -447,22 +459,11 @@
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
-
 		</repository>
+
+
 	</repositories>
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
-		<httpclient.version>3.0</httpclient.version>
-		<org.springframework.version>3.1.0.RELEASE</org.springframework.version>
-		<spring.data.mongodb.version>1.0.0.RELEASE</spring.data.mongodb.version>
-		<javax.jstl-taglibs.version>1.1.2</javax.jstl-taglibs.version>
-		<jasper.version>4.5.0</jasper.version>
-		<log4j.version>1.2.14</log4j.version>
-		<mongodb.driver.version>2.7.2</mongodb.driver.version>
-		<cxf.version>2.5.3-SNAPSHOT</cxf.version>
-		<glassfish.directory>C:\development\tmp\glassfish3\glassfish3\glassfish</glassfish.directory>
-	</properties>
+
 
 	<profiles>
 		<profile>
@@ -479,7 +480,7 @@
 					<plugin>
 						<groupId>org.jboss.as.plugins</groupId>
 						<artifactId>jboss-as-maven-plugin</artifactId>
-						<version>7.1.1.Final</version>
+						<version>${jboss.version}</version>
 						<configuration>
 							<port>9999</port>
 							<jboss.home>C:\AppServ\jboss-as-7.1.1.Final</jboss.home>
@@ -616,6 +617,77 @@
 				</plugins>
 			</build>
 		</profile>
+
+		<profile>
+			<!-- We add the JBoss repository as we need the JBoss AS connectors for 
+				Arquillian -->
+			<repositories>
+				<!-- The JBoss Community public repository is a composite repository 
+					of several major repositories -->
+				<!-- see http://community.jboss.org/wiki/MavenGettingStarted-Users -->
+				<repository>
+					<id>jboss-public-repository</id>
+					<name>JBoss Repository</name>
+					<url>http://repository.jboss.org/nexus/content/groups/public</url>
+					<!-- These optional flags are designed to speed up your builds by reducing 
+						remote server calls -->
+					<releases>
+					</releases>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</repository>
+			</repositories>
+
+			<pluginRepositories>
+				<pluginRepository>
+					<id>jboss-public-repository</id>
+					<name>JBoss Repository</name>
+					<url>http://repository.jboss.org/nexus/content/groups/public</url>
+					<releases>
+					</releases>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</pluginRepository>
+			</pluginRepositories>
+
+			<!-- An optional Arquillian testing profile that executes tests in a remote 
+				JBoss AS instance -->
+			<!-- Run with: mvn clean test -Parq-jbossas-remote -->
+			<id>arq-jbossas-remote</id>
+			<dependencies>
+				<dependency>
+					<groupId>org.jboss.as</groupId>
+					<artifactId>jboss-as-arquillian-container-remote</artifactId>
+					<version>${jboss.version}</version>
+					<scope>test</scope>
+				</dependency>
+				<dependency>
+					<groupId>org.jboss.as</groupId>
+					<artifactId>jboss-as-appclient</artifactId>
+					<scope>test</scope>
+					<version>${jboss.version}</version>
+				</dependency>
+			</dependencies>
+		</profile>
 	</profiles>
+
+	<properties>
+		<jboss.version>7.1.1.Final</jboss.version>
+		<version.junit>4.8.2</version.junit>
+		<version.arquillian_core>1.0.0.Final</version.arquillian_core>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
+		<httpclient.version>3.0</httpclient.version>
+		<org.springframework.version>3.1.0.RELEASE</org.springframework.version>
+		<spring.data.mongodb.version>1.0.0.RELEASE</spring.data.mongodb.version>
+		<javax.jstl-taglibs.version>1.1.2</javax.jstl-taglibs.version>
+		<jasper.version>4.5.0</jasper.version>
+		<log4j.version>1.2.14</log4j.version>
+		<mongodb.driver.version>2.7.2</mongodb.driver.version>
+		<cxf.version>2.5.3-SNAPSHOT</cxf.version>
+		<glassfish.directory>C:\development\tmp\glassfish3\glassfish3\glassfish</glassfish.directory>
+	</properties>
 </project>
 			
