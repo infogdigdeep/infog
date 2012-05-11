@@ -249,6 +249,13 @@
 			<version>${version.arquillian_core}</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.jboss.shrinkwrap.resolver</groupId>
+			<artifactId>shrinkwrap-resolver-impl-maven</artifactId>
+			<version>2.0.0-alpha-1</version>
+			<scope>test</scope>
+		</dependency>
+
 
 		<dependency>
 			<groupId>junit</groupId>
@@ -356,6 +363,29 @@
 				</executions>
 			</plugin>
 
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.1</version>
+				<executions>
+
+					<execution>
+						<id>copy-test-libs</id>
+						<phase>process-test-resources</phase>
+						<configuration>
+							<includeScope>test</includeScope>
+							<outputDirectory>
+								${project.build.directory}/test-libs
+            				</outputDirectory>
+							<stripVersion>true</stripVersion>
+						</configuration>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+					</execution>
+
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 	<pluginRepositories>
@@ -370,16 +400,23 @@
 			<name>Java.net Repository for Maven</name>
 			<url>http://download.java.net/maven/glassfish/</url>
 		</pluginRepository>
-		<pluginRepository>
-			<id>maven-repository.dev.java.net</id>
-			<name>Java.net Maven 1 Repository (legacy)</name>
-			<url>http://download.java.net/maven/1</url>
-			<layout>legacy</layout>
-		</pluginRepository>
+		<!-- <pluginRepository> <id>maven-repository.dev.java.net</id> <name>Java.net 
+			Maven 1 Repository (legacy)</name> <url>http://download.java.net/maven/1</url> 
+			<layout>legacy</layout> </pluginRepository> -->
 		<pluginRepository>
 			<id>apache-snapshots</id>
 			<name>Apache SNAPSHOT Repository</name>
 			<url>http://repository.apache.org/snapshots/</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+		<pluginRepository>
+			<id>jboss-public-repository</id>
+			<name>JBoss Repository</name>
+			<url>http://repository.jboss.org/nexus/content/groups/public</url>
+			<releases>
+			</releases>
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
@@ -415,16 +452,10 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
-		<repository>
-			<id>maven-repository.dev.java.net</id>
-			<name>Java.net Maven 1 Repository (legacy)</name>
-			<url>http://download.java.net/maven/1</url>
-			<layout>legacy</layout>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-
-		</repository>
+		<!-- <repository> <id>maven-repository.dev.java.net</id> <name>Java.net 
+			Maven 1 Repository (legacy)</name> <url>http://download.java.net/maven/1</url> 
+			<layout>legacy</layout> <snapshots> <enabled>false</enabled> </snapshots> 
+			</repository> -->
 		<repository>
 			<id>glassfish-repository</id>
 			<name>Java.net Repository for Glassfish</name>
@@ -461,7 +492,28 @@
 			</snapshots>
 		</repository>
 
+		<repository>
+			<id>jboss-public-repository</id>
+			<name>JBoss Repository</name>
+			<url>http://repository.jboss.org/nexus/content/groups/public</url>
+			<!-- These optional flags are designed to speed up your builds by reducing 
+				remote server calls -->
+			<releases>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
 
+		<repository>
+			<id>repo1</id>
+			<name>repo1</name>
+			<url>http://repo1.maven.org/maven2</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+
+		</repository>
 	</repositories>
 
 
@@ -504,17 +556,6 @@
 		</profile>
 		<profile>
 			<id>weblogic</id>
-			<repositories>
-				<repository>
-					<id>repo1</id>
-					<name>repo1</name>
-					<url>http://repo1.maven.org/maven2</url>
-					<snapshots>
-						<enabled>false</enabled>
-					</snapshots>
-
-				</repository>
-			</repositories>
 			<dependencies>
 				<dependency>
 					<groupId>
@@ -611,7 +652,8 @@
 							<name>infog</name>
 							<user>admin</user>
 							<password>${weblogic.pwd}</password>
-							<artifactLocation>${project.build.directory}/${project.build.finalName}.war</artifactLocation>
+							<artifactLocation>${project.build.directory}/${project.build.finalName}.war
+							</artifactLocation>
 						</configuration>
 					</plugin>
 				</plugins>
@@ -621,36 +663,6 @@
 		<profile>
 			<!-- We add the JBoss repository as we need the JBoss AS connectors for 
 				Arquillian -->
-			<repositories>
-				<!-- The JBoss Community public repository is a composite repository 
-					of several major repositories -->
-				<!-- see http://community.jboss.org/wiki/MavenGettingStarted-Users -->
-				<repository>
-					<id>jboss-public-repository</id>
-					<name>JBoss Repository</name>
-					<url>http://repository.jboss.org/nexus/content/groups/public</url>
-					<!-- These optional flags are designed to speed up your builds by reducing 
-						remote server calls -->
-					<releases>
-					</releases>
-					<snapshots>
-						<enabled>false</enabled>
-					</snapshots>
-				</repository>
-			</repositories>
-
-			<pluginRepositories>
-				<pluginRepository>
-					<id>jboss-public-repository</id>
-					<name>JBoss Repository</name>
-					<url>http://repository.jboss.org/nexus/content/groups/public</url>
-					<releases>
-					</releases>
-					<snapshots>
-						<enabled>false</enabled>
-					</snapshots>
-				</pluginRepository>
-			</pluginRepositories>
 
 			<!-- An optional Arquillian testing profile that executes tests in a remote 
 				JBoss AS instance -->
@@ -680,14 +692,17 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
 		<httpclient.version>3.0</httpclient.version>
-		<org.springframework.version>3.1.0.RELEASE</org.springframework.version>
-		<spring.data.mongodb.version>1.0.0.RELEASE</spring.data.mongodb.version>
+		<org.springframework.version>3.1.0.RELEASE
+		</org.springframework.version>
+		<spring.data.mongodb.version>1.0.0.RELEASE
+		</spring.data.mongodb.version>
 		<javax.jstl-taglibs.version>1.1.2</javax.jstl-taglibs.version>
 		<jasper.version>4.5.0</jasper.version>
 		<log4j.version>1.2.14</log4j.version>
 		<mongodb.driver.version>2.7.2</mongodb.driver.version>
 		<cxf.version>2.5.3-SNAPSHOT</cxf.version>
-		<glassfish.directory>C:\development\tmp\glassfish3\glassfish3\glassfish</glassfish.directory>
+		<glassfish.directory>C:\development\tmp\glassfish3\glassfish3\glassfish
+		</glassfish.directory>
 	</properties>
 </project>
 			

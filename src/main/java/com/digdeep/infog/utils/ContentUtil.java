@@ -40,7 +40,7 @@ public class ContentUtil {
 		return getMethod;
 	}
 
-	@Inject 
+
 	public void setGetMethod(GetMethod getMethod) {
 		this.getMethod = getMethod;
 	}
@@ -49,7 +49,7 @@ public class ContentUtil {
 		return postMethod;
 	}
 
-	@Inject 
+
 	public void setPostMethod(PostMethod postMethod) {
 		this.postMethod = postMethod;
 	}
