@@ -57,6 +57,9 @@ public class ContentTest {
 				.create(WebArchive.class)
 				.addClasses(JSONProvider.class, ContentUtil.class)
 				.addAsLibrary(new File("target/test-libs/json-lib-jdk15.jar"))
+				.addAsLibrary(new File("target/test-libs/commons-lang.jar"))
+				.addAsLibrary(new File("target/test-libs/commons-beanutils.jar"))
+				.addAsLibrary(new File("target/test-libs/ezmorph.jar"))
 				.addAsLibraries(resolver.artifacts("commons-httpclient:commons-httpclient:3.0","org.apache.commons:commons-io:1.3.2").resolveAsFiles())
 				.addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
 	}
