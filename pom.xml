@@ -376,7 +376,7 @@
 							<includeScope>test</includeScope>
 							<outputDirectory>
 								${project.build.directory}/test-libs
-            				</outputDirectory>
+							</outputDirectory>
 							<stripVersion>true</stripVersion>
 						</configuration>
 						<goals>
@@ -661,13 +661,7 @@
 		</profile>
 
 		<profile>
-			<!-- We add the JBoss repository as we need the JBoss AS connectors for 
-				Arquillian -->
-
-			<!-- An optional Arquillian testing profile that executes tests in a remote 
-				JBoss AS instance -->
-			<!-- Run with: mvn clean test -Parq-jbossas-remote -->
-			<id>arq-jbossas-remote</id>
+			<id>arq-jboss</id>
 			<dependencies>
 				<dependency>
 					<groupId>org.jboss.as</groupId>
@@ -683,6 +677,25 @@
 				</dependency>
 			</dependencies>
 		</profile>
+		<profile>
+			<id>arq-wls</id>
+			<dependencies>
+				<dependency>
+					<groupId>org.jboss.arquillian.container</groupId>
+					<artifactId>arquillian-wls-remote-12.1</artifactId>
+					<version>1.0.0.Alpha2</version>
+					<scope>test</scope>
+				</dependency>
+				<dependency>
+					<groupId>org.jboss.spec</groupId>
+					<artifactId>jboss-javaee-6.0</artifactId>
+					<version>1.0.0.Final</version>
+					<type>pom</type>
+					<scope>provided</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+
 	</profiles>
 
 	<properties>
