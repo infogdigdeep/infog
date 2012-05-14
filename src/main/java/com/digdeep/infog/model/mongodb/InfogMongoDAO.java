@@ -45,7 +45,7 @@ public class InfogMongoDAO {
 	
 	public static void main (String [] args) {
 		try {
-			Content ct = new Content("www.google.ca", "Google", "Summary", "Google", ContentType.RSS);
+			Content ct = new Content();
 			InfogMongoDAO dao = new InfogMongoDAO();
 			dao.insert(ct);
 			DBCollection repo = getInfogMongoDB().getCollection(CONTENT_REPO);

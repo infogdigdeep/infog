@@ -1,6 +1,5 @@
 package com.digdeep.infog.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -29,7 +28,7 @@ public class RssProvider implements InfoProvider {
 			String woeid = yqlUtil.getWoeid(input);
 			input.setUrl(input.getUrl() + "&w=" +woeid);
 		}
-		List<Content> result = new ArrayList<Content>();
+		List<Content> result = contentUtil.getContents(input.getUrl());
 		
 		return result;
 	}

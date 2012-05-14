@@ -1,10 +1,23 @@
 package com.digdeep.infog.model;
 
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
+
 @XmlRootElement
+@Entity
 public class Content {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	
 	private String pictureUrl;
@@ -13,13 +26,21 @@ public class Content {
 	
 	private String summary;
 	
-	private String provider;
+	@Temporal(TemporalType.TIME)
+	private Date pubDate;
+	
+	@ManyToOne
+	private ContentSource provider;
 
 	private ContentType type;
 	
 	
+	public Content() {
+		
+	}
+	
 	public Content(String pictureUrl, String title, String summary,
-			String provider, ContentType type) {
+			ContentSource provider, ContentType type) {
 		super();
 		this.pictureUrl = pictureUrl;
 		this.title = title;
@@ -60,11 +81,11 @@ public class Content {
 		this.summary = summary;
 	}
 
-	public String getProvider() {
+	public ContentSource getProvider() {
 		return provider;
 	}
 
-	public void setProvider(String provider) {
+	public void setProvider(ContentSource provider) {
 		this.provider = provider;
 	}
 
@@ -74,6 +95,14 @@ public class Content {
 
 	public void setType(ContentType type) {
 		this.type = type;
+	}
+
+	public Date getPubDate() {
+		return pubDate;
+	}
+
+	public void setPubDate(Date pubDate) {
+		this.pubDate = pubDate;
 	}
 	
 	

@@ -13,10 +13,12 @@ import javax.inject.Named;
 
 import com.digdeep.infog.beans.InfoProviderBean;
 import com.digdeep.infog.model.ContentInfo;
+import com.digdeep.infog.model.ContentType;
 import com.digdeep.infog.model.User;
 import com.digdeep.infog.model.input.ContentRequestInput;
 import com.digdeep.infog.service.data.ContentInfoService;
 import com.digdeep.infog.service.data.UserService;
+import com.digdeep.infog.model.Content;
 
 @ManagedBean
 @ViewScoped
@@ -49,32 +51,21 @@ public class Infog {
 		this.currentUser = currentUser;
 	}
 
-	private List<String> currentContent;
+	private List<Content> currentContent;
 
 
 
-	public List<String> getCurrentContent() {
+	public List<Content> getCurrentContent() {
 		return currentContent;
 	}
 
-	public void setCurrentContent(List<String> currentContent) {
+	public void setCurrentContent(List<Content> currentContent) {
 		this.currentContent = currentContent;
 	}
 
 	public void loadContents() throws Exception {
-		List<ContentInfo> infoList = infoService.findAll();
-		setCurrentContent(new ArrayList<String>());
-		for (ContentInfo tmpInfo : infoList) {
-			try {
-				ContentRequestInput tmpInput = new ContentRequestInput();
-				tmpInput.setUrl(tmpInfo.getUrl());
-				tmpInput.setType(tmpInfo.getType().getType());
-				//String content = provider.get(tmpInput);
-				String content = "";
-				getCurrentContent().add(content);
-			} catch (Exception ex) {
-				ex.printStackTrace();
-			}
-		}
+		ContentRequestInput reqInput = new ContentRequestInput();
+		reqInput.setType(ContentType.RSS.getType());
+		setCurrentContent(provider.get(reqInput));
 	}
 }
