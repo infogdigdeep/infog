@@ -26,6 +26,8 @@ public class Content {
 	
 	private String summary;
 	
+	private String detailUrl;
+	
 	@Temporal(TemporalType.TIME)
 	private Date pubDate;
 	
@@ -103,6 +105,14 @@ public class Content {
 
 	public void setPubDate(Date pubDate) {
 		this.pubDate = pubDate;
+	}
+
+	public String getDetailUrl() {
+		return detailUrl;
+	}
+
+	public void setDetailUrl(String detailUrl) {
+		this.detailUrl = detailUrl;
 	}
 	
 	

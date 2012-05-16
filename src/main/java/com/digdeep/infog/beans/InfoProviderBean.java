@@ -16,6 +16,7 @@ import javax.inject.Inject;
 import com.digdeep.infog.exceptions.InvalidProviderException;
 import com.digdeep.infog.model.Content;
 import com.digdeep.infog.model.ContentInfo;
+import com.digdeep.infog.model.ContentSource;
 import com.digdeep.infog.model.ContentType;
 import com.digdeep.infog.model.input.ContentRequestInput;
 import com.digdeep.infog.qualifiers.ContentConfig;
@@ -32,7 +33,7 @@ public class InfoProviderBean {
 	private ContentInfoService contentInfoService;
 	
 
-	public List<Content> get(ContentRequestInput input) throws Exception {
+	public List<ContentSource> get(ContentRequestInput input) throws Exception {
 		ContentType contentType = ContentType.getType(input.getType());
 		ContentConfigQualifier ccQual = new ContentConfigQualifier(contentType);
 		Instance<InfoProvider> qualProvider = providers.select(ccQual);
@@ -40,10 +41,10 @@ public class InfoProviderBean {
 			throw new InvalidProviderException(input.getType());
 		}
 		List<ContentInfo> contentList = contentInfoService.findAll();
-		List<Content> contents = new ArrayList<Content>();
+		List<ContentSource> contents = new ArrayList<ContentSource>();
 		for (ContentInfo tmpInfo : contentList) {
 			input.setUrl(tmpInfo.getUrl());
-			contents.addAll(qualProvider.get().get(input));
+			contents.add(qualProvider.get().get(input));
 		}
 		return contents;
 	}

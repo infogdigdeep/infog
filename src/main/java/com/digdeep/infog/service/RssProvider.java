@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import com.digdeep.infog.model.Content;
+import com.digdeep.infog.model.ContentSource;
 import com.digdeep.infog.model.ContentType;
 import com.digdeep.infog.model.input.ContentRequestInput;
 import com.digdeep.infog.qualifiers.ContentConfig;
@@ -23,12 +24,12 @@ public class RssProvider implements InfoProvider {
 	
 	//http://rss.cbc.ca/lineup/technology.xml
 	//http://weather.yahooapis.com/forecastrss?u=c
-	public List<Content> get(ContentRequestInput input) throws Exception {	
+	public ContentSource get(ContentRequestInput input) throws Exception {	
 		if (input.getFeatureList().isNeedWoeId()) {
 			String woeid = yqlUtil.getWoeid(input);
 			input.setUrl(input.getUrl() + "&w=" +woeid);
 		}
-		List<Content> result = contentUtil.getContents(input.getUrl());
+		ContentSource result = contentUtil.getContents(input.getUrl());
 		
 		return result;
 	}

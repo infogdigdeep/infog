@@ -100,31 +100,32 @@ public class ContentUtil {
 		return format.parse(xmlDate);
 	}
 	
-	public List<Content> getContents (String url) throws Exception {
-		List<Content> result = new ArrayList<Content>();
+	public ContentSource getContents (String url) throws Exception {
+		ContentSource result = new ContentSource();
+		result.setContents(new ArrayList<Content>());
 		XMLInputFactory factory = XMLInputFactory.newInstance();
 		XMLStreamReader feedReader = null;
 		try {
 			InputStream contentStream = getContentStream(url);
 			feedReader = factory.createXMLStreamReader(contentStream);
-			ContentSource source = new ContentSource();
 			gotoStartTagContent(feedReader, "image");
-			source.setTitle(getStartTagContent(feedReader, "title"));
-			source.setImageUrl(getStartTagContent(feedReader, "url"));
+			result.setTitle(getStartTagContent(feedReader, "title"));
+			result.setImageUrl(getStartTagContent(feedReader, "url"));
 			while (feedReader.hasNext()) {
 				Content tmpContent = new Content();
 				gotoStartTagContent(feedReader, "item");
 				String title = getStartTagContent(feedReader, "title");
 				tmpContent.setSummary(title);
 				tmpContent.setTitle(title);
+				tmpContent.setDetailUrl(getStartTagContent(feedReader, "link"));
 				tmpContent.setPubDate(parseDate(getStartTagContent(feedReader, "pubDate")));
 				String description = getStartTagContent(feedReader, "description");
 				tmpContent.setPictureUrl(description);
 				tmpContent.setSummary(getStartTagContent(feedReader, "title"));
 				tmpContent.setTitle(getStartTagContent(feedReader, "title"));
 				tmpContent.setType(ContentType.RSS);
-				tmpContent.setProvider(source);
-				result.add(tmpContent);
+				tmpContent.setProvider(result);
+				result.getContents().add(tmpContent);
 			}
 		} finally {
 			if (feedReader != null) {

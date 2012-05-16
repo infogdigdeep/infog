@@ -44,7 +44,39 @@
 				</f:facet>
 			</p:dataTable>
 
-			<p:dialog id="dialog" header="Content Information Detal"
+			<p:treeTable value="#{infog.root}" var="content">
+				<f:facet name="header">  
+		            Infog Content	
+        		</f:facet>
+
+				<p:column style="width:200px">
+					<f:facet name="header">  
+                	Title  
+		            </f:facet>
+					<h:outputText value="#{content.title}" />
+				</p:column>
+
+				<p:column style="width:30px">
+					<f:facet name="header">  
+                	Publication Date
+            		</f:facet>
+					<h:outputText value="#{content.pubDate}" />
+				</p:column>
+
+				<p:column style="width:20px">
+					<f:facet name="header">  
+                		Detail  
+            		</f:facet>
+					<p:lightBox iframe="true">
+						<h:outputLink value="#{content.detailUrl}"
+							title="#{content.title}">
+							<h:outputText value="View" />
+						</h:outputLink>
+					</p:lightBox>
+				</p:column>
+
+			</p:treeTable>
+			<p:dialog id="dialog" header="Content Information Detail"
 				widgetVar="contentDialog" resizable="false" showEffect="clip"
 				hideEffect="fold">
 				<p:panel id="contentPanel" header="Content Entry" toggleable="true"
