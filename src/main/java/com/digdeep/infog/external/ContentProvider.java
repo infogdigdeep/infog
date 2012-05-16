@@ -13,6 +13,7 @@ import javax.ws.rs.core.MediaType;
 import com.digdeep.infog.beans.InfoProviderBean;
 import com.digdeep.infog.exceptions.InvalidProviderException;
 import com.digdeep.infog.model.Content;
+import com.digdeep.infog.model.ContentSource;
 import com.digdeep.infog.model.input.ContentRequestInput;
 
 
@@ -26,7 +27,7 @@ public class ContentProvider {
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_XML)
-	public List<Content> getInfo(ContentRequestInput input) throws InvalidProviderException, Exception {
+	public List<ContentSource> getInfo(ContentRequestInput input) throws InvalidProviderException, Exception {
 		return provider.get(input);
 	}
 
