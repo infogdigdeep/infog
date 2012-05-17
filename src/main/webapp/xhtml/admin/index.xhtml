@@ -67,10 +67,10 @@
 					<f:facet name="header">  
                 		Detail  
             		</f:facet>
-					<p:lightBox iframe="true">
+					<p:lightBox iframe="true" width="80%" height="80%" >
 						<h:outputLink value="#{content.detailUrl}"
 							title="#{content.title}">
-							<h:outputText value="View" />
+							<h:outputText value="View" rendered="#{content.detailUrl != '-'}"/>
 						</h:outputLink>
 					</p:lightBox>
 				</p:column>

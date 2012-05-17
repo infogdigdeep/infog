@@ -103,5 +103,6 @@ public class Infog {
 				TreeNode tmpContentNode = new DefaultTreeNode(tmpContent, tmpSourceNode);
 			}
 		}
+		setRoot(tmpNode);
 	}
 }

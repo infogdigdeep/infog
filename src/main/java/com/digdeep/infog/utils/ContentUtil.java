@@ -3,6 +3,7 @@ package com.digdeep.infog.utils;
 import java.io.InputStream;
 import java.io.StringWriter;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -70,18 +71,31 @@ public class ContentUtil {
 		return null;
 	}
 
-	private void gotoStartTagContent(XMLStreamReader feedReader, String tagName) 
+	private boolean gotoStartTagContent(XMLStreamReader feedReader, String tagName) 
 			throws Exception {
 		while (feedReader.hasNext()) {
 			feedReader.next();
 			if (feedReader.getEventType() == XMLStreamReader.START_ELEMENT) {
+				if (feedReader.getLocalName().equalsIgnoreCase(tagName)) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	private void gotoEndTagContent(XMLStreamReader feedReader, String tagName)
+			throws Exception {
+		while (feedReader.hasNext()) {
+			feedReader.next();
+			if (feedReader.getEventType() == XMLStreamReader.END_ELEMENT) {
 				if (feedReader.getLocalName().equalsIgnoreCase(tagName)) {
 					return;
 				}
 			}
 		}
 	}
-
+	
 	private String getStartTagContent(XMLStreamReader feedReader, String tagName) 
 			throws Exception {
 		while (feedReader.hasNext()) {
@@ -95,9 +109,14 @@ public class ContentUtil {
 		return null;
 	}
 
+	
 	private Date parseDate (String xmlDate) throws Exception {
-		DateFormat format = DateFormat.getDateInstance(DateFormat.FULL);
-		return format.parse(xmlDate);
+		DateFormat format = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss z");
+		if (xmlDate != null) {
+			return format.parse(xmlDate);
+		} else {
+			return new Date();
+		}
 	}
 	
 	public ContentSource getContents (String url) throws Exception {
@@ -111,9 +130,9 @@ public class ContentUtil {
 			gotoStartTagContent(feedReader, "image");
 			result.setTitle(getStartTagContent(feedReader, "title"));
 			result.setImageUrl(getStartTagContent(feedReader, "url"));
-			while (feedReader.hasNext()) {
+			while (gotoStartTagContent(feedReader, "item")) {
 				Content tmpContent = new Content();
-				gotoStartTagContent(feedReader, "item");
+				
 				String title = getStartTagContent(feedReader, "title");
 				tmpContent.setSummary(title);
 				tmpContent.setTitle(title);
@@ -126,6 +145,7 @@ public class ContentUtil {
 				tmpContent.setType(ContentType.RSS);
 				tmpContent.setProvider(result);
 				result.getContents().add(tmpContent);
+				gotoEndTagContent(feedReader, "item");
 			}
 		} finally {
 			if (feedReader != null) {
