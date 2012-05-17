@@ -88,7 +88,7 @@ public class ContentUtil {
 			feedReader.next();
 			if (feedReader.getEventType() == XMLStreamReader.START_ELEMENT) {
 				if (feedReader.getLocalName().equalsIgnoreCase(tagName)) {
-					return feedReader.getText();
+					return feedReader.getElementText();
 				}
 			}
 		}

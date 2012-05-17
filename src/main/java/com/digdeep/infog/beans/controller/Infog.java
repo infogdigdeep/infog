@@ -76,6 +76,7 @@ public class Infog {
 	@Schedule(minute="*/3", hour="*")
 	public void updateContents() throws Exception {
 		ContentInfoUpdateEvent iEvent = new ContentInfoUpdateEvent();
+		loadContents();
 		iEvent.setUpdateDate(Calendar.getInstance());
 		iEvent.setUpdatedContent(new ArrayList<ContentInfo>());
 		contentUpdateEvent.fire(iEvent);
