@@ -26,7 +26,7 @@ public class ContentProvision {
 	private UserService userService;
 	
 	@POST
-	public void addConfig(ConfigInput cfg) {
+	public void addConfig(ConfigInput cfg) throws Exception {
 		if (cfg.getContentInput() != null) {
 			infoService.save(cfg.getContentInput());
 		}
@@ -36,7 +36,7 @@ public class ContentProvision {
 	}
 	
 	@DELETE
-	public void deleteConfig(ConfigInput cfg) {
+	public void deleteConfig(ConfigInput cfg) throws Exception {
 		if (cfg.getContentInput() != null) {
 			infoService.save(cfg.getContentInput());
 		}

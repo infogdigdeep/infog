@@ -28,7 +28,7 @@ public class ContentProvider {
 	@POST
 	@Consumes(MediaType.APPLICATION_XML)
 	public List<ContentSource> getInfo(ContentRequestInput input) throws InvalidProviderException, Exception {
-		return provider.get(input);
+		return provider.getAllByType(input);
 	}
 
 }

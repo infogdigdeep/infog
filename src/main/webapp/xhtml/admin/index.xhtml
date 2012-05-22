@@ -35,7 +35,7 @@
 					<h:outputText value="#{ct.type}" />
 				</p:column>
 				<f:facet name="footer">
-					<p:commandButton title="Add" value="Add"
+					<p:commandButton title="Add" immediate="true" value="Add"
 						update=":form:contentPanel" oncomplete="contentDialog.show()" />
 					<p:commandButton title="Update" value="Update"
 						update=":form:contentPanel" oncomplete="contentDialog.show()" />
@@ -44,7 +44,7 @@
 				</f:facet>
 			</p:dataTable>
 
-			<p:treeTable value="#{infog.root}" var="content">
+			<p:treeTable value="#{infog.root}" var="ct">
 				<f:facet name="header">  
 		            Infog Content	
         		</f:facet>
@@ -53,14 +53,14 @@
 					<f:facet name="header">  
                 	Title  
 		            </f:facet>
-					<h:outputText value="#{content.title}" />
+					<h:outputText value="#{ct.title}" />
 				</p:column>
 
 				<p:column style="width:30px">
 					<f:facet name="header">  
                 	Publication Date
             		</f:facet>
-					<h:outputText value="#{content.pubDate}" />
+					<h:outputText value="#{ct.pubDate}" />
 				</p:column>
 
 				<p:column style="width:20px">
@@ -68,9 +68,9 @@
                 		Detail  
             		</f:facet>
 					<p:lightBox iframe="true" width="80%" height="80%" >
-						<h:outputLink value="#{content.detailUrl}"
-							title="#{content.title}">
-							<h:outputText value="View" rendered="#{content.detailUrl != '-'}"/>
+						<h:outputLink value="#{ct.detailUrl}"
+							title="#{ct.title}">
+							<h:outputText value="View" rendered="#{ct.detailUrl != '-'}"/>
 						</h:outputLink>
 					</p:lightBox>
 				</p:column>

@@ -3,11 +3,8 @@ package com.digdeep.infog.beans.controller;
 import java.util.List;
 
 import javax.ejb.EJB;
-import javax.enterprise.inject.Model;
-import javax.faces.application.FacesMessage;
-import javax.faces.application.FacesMessage.Severity;
 import javax.faces.bean.ManagedBean;
-import javax.faces.context.FacesContext;
+import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
 
@@ -20,6 +17,7 @@ import com.digdeep.infog.service.data.ContentInfoService;
 
 
 @ManagedBean
+@ViewScoped
 public class Content {
 	
 	@Inject
@@ -34,12 +32,13 @@ public class Content {
 	private List<ContentInfo> contentList;
 
 	private boolean isAdd;
-	
+		
+
 	public ContentType[] getContentTypeValues() {
 		return ContentType.values();
 	}
 
-	public void save() {
+	public void save() throws Exception {
 		ConfigInput config = new ConfigInput();
 		ContentProvisionInput input = new ContentProvisionInput();
 		input.setDescription(currentInfo.getDescriptions());
@@ -48,6 +47,7 @@ public class Content {
 		config.setContentInput(input);
 		provisionService.addConfig(config);
 		resetCurrentInfo();
+
 	}
 
 	public void delete() {

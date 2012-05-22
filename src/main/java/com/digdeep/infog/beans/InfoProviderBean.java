@@ -33,22 +33,30 @@ public class InfoProviderBean {
 	private ContentInfoService contentInfoService;
 	
 
-	public List<ContentSource> get(ContentRequestInput input) throws Exception {
-		ContentType contentType = ContentType.getType(input.getType());
-		ContentConfigQualifier ccQual = new ContentConfigQualifier(contentType);
-		Instance<InfoProvider> qualProvider = providers.select(ccQual);
-		if (qualProvider.isUnsatisfied() || qualProvider.isAmbiguous()) {
-			throw new InvalidProviderException(input.getType());
-		}
+	public List<ContentSource> getAllByType(ContentRequestInput input) throws Exception {
+		
 		List<ContentInfo> contentList = contentInfoService.findAll();
 		List<ContentSource> contents = new ArrayList<ContentSource>();
 		for (ContentInfo tmpInfo : contentList) {
 			input.setUrl(tmpInfo.getUrl());
-			contents.add(qualProvider.get().get(input));
+			contents.add(getProvider(tmpInfo.getType()).get(input));
 		}
 		return contents;
 	}
 	
+	public ContentSource get(ContentRequestInput input) throws Exception {
+		return getProvider(ContentType.getType(input.getType())).get(input);
+	}
+	
+	private InfoProvider getProvider (ContentType ct) throws Exception {
+		ContentConfigQualifier ccQual = new ContentConfigQualifier(ct);
+		Instance<InfoProvider> qualProvider = providers.select(ccQual);
+		if (qualProvider.isUnsatisfied() || qualProvider.isAmbiguous()) {
+			throw new InvalidProviderException(ct.getType());
+		}
+	
+		return qualProvider.get();
+	}
 	
     class ContentConfigQualifier extends AnnotationLiteral<ContentConfig>
     implements ContentConfig {

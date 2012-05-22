@@ -21,6 +21,8 @@ public class ContentSource {
 	private String title;
 	
 	private String imageUrl;
+	
+	private String link;
 
 	
 	@OneToMany(mappedBy="provider")
@@ -56,6 +58,14 @@ public class ContentSource {
 
 	public void setContents(List<Content> contents) {
 		this.contents = contents;
+	}
+
+	public String getLink() {
+		return link;
+	}
+
+	public void setLink(String link) {
+		this.link = link;
 	}
 	
 	

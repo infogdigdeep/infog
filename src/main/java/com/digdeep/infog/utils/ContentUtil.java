@@ -1,22 +1,14 @@
 package com.digdeep.infog.utils;
 
 import java.io.InputStream;
-import java.io.StringWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.inject.Inject;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamReader;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Source;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.stream.StreamResult;
-import javax.xml.transform.stream.StreamSource;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathFactory;
@@ -127,8 +119,10 @@ public class ContentUtil {
 		try {
 			InputStream contentStream = getContentStream(url);
 			feedReader = factory.createXMLStreamReader(contentStream);
-			gotoStartTagContent(feedReader, "image");
+			
+			gotoStartTagContent(feedReader, "channel");
 			result.setTitle(getStartTagContent(feedReader, "title"));
+			result.setLink(getStartTagContent(feedReader, "link"));
 			result.setImageUrl(getStartTagContent(feedReader, "url"));
 			while (gotoStartTagContent(feedReader, "item")) {
 				Content tmpContent = new Content();

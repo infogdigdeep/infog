@@ -9,6 +9,7 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.Schedule;
 import javax.enterprise.event.Event;
+import javax.enterprise.event.Observes;
 import javax.faces.bean.ApplicationScoped;
 
 import javax.faces.context.FacesContext;
@@ -28,6 +29,7 @@ import com.digdeep.infog.model.input.ContentRequestInput;
 import com.digdeep.infog.model.message.ContentInfoUpdateEvent;
 import com.digdeep.infog.service.data.ContentInfoService;
 import com.digdeep.infog.service.data.UserService;
+import com.digdeep.infog.test.GetContent;
 import com.digdeep.infog.model.Content;
 
 @Singleton
@@ -47,13 +49,12 @@ public class Infog {
 	
 	private TreeNode root;	
 	
-	@Inject
-	private Event<ContentInfoUpdateEvent> contentUpdateEvent;
-
+	private List<ContentSource> currentSourceList;
+	
 	public User getCurrentUser() {
 		if (getCurrentUser() == null) {
 			Principal principal = FacesContext.getCurrentInstance()
-					.getExternalContext().getUserPrincipal();
+					.getExternalContext().getUserPrincipal(); 
 			if (principal != null) {
 				setCurrentUser(userService.find(principal.getName()));
 			}
@@ -69,17 +70,17 @@ public class Infog {
 	public void loadContents() throws Exception {
 		ContentRequestInput reqInput = new ContentRequestInput();
 		reqInput.setType(ContentType.RSS.getType());
-		List<ContentSource> srcList = provider.get(reqInput);
-		buildTreeNodesFromSrcList(srcList);
+		currentSourceList = provider.getAllByType(reqInput);
+		buildTreeNodesFromSrcList(currentSourceList);
 	}
 
-	@Schedule(minute="*/3", hour="*")
-	public void updateContents() throws Exception {
-		ContentInfoUpdateEvent iEvent = new ContentInfoUpdateEvent();
-		loadContents();
-		iEvent.setUpdateDate(Calendar.getInstance());
-		iEvent.setUpdatedContent(new ArrayList<ContentInfo>());
-		contentUpdateEvent.fire(iEvent);
+	public void updateContents(@Observes ContentInfoUpdateEvent contentInfo) throws Exception {
+		ContentSource src = contentInfo.getContentSource();
+		for (int i=0; i < getCurrentSourceList().size(); i++) {
+			if (getCurrentSourceList().get(i).getLink().equals(src.getLink())) {
+				getCurrentSourceList().set(i, src);
+			}
+		}
 	}
 	
 	public TreeNode getRoot() {
@@ -89,20 +90,35 @@ public class Infog {
 	public void setRoot(TreeNode root) {
 		this.root = root;
 	}
+
+	
+	public List<ContentSource> getCurrentSourceList() {
+		return currentSourceList;
+	}
+
+	public void setCurrentSourceList(List<ContentSource> currentSourceList) {
+		this.currentSourceList = currentSourceList;
+	}
+
 	
 	private void buildTreeNodesFromSrcList (List<ContentSource> srcList) {
 		TreeNode tmpNode = new DefaultTreeNode("root", null);
-		final String NA = "-";
 		for (ContentSource tmpSrc : srcList) {
-			Content tmpSourceContent = new Content();
-			tmpSourceContent.setTitle(tmpSrc.getTitle());
-			tmpSourceContent.setPubDate(null);
-			tmpSourceContent.setDetailUrl(NA);
-			TreeNode tmpSourceNode = new DefaultTreeNode(tmpSourceContent, tmpNode);
-			for (Content tmpContent : tmpSrc.getContents()) {
-				TreeNode tmpContentNode = new DefaultTreeNode(tmpContent, tmpSourceNode);
-			}
+			buildTreeNodesFromSrc(tmpSrc, tmpNode);
 		}
 		setRoot(tmpNode);
 	}
+	
+	private void buildTreeNodesFromSrc (ContentSource tmpSrc, TreeNode rootNode) {
+		final String NA = "-";
+		Content tmpSourceContent = new Content();
+		tmpSourceContent.setTitle(tmpSrc.getTitle());
+		tmpSourceContent.setPubDate(null);
+		tmpSourceContent.setDetailUrl(NA);
+		TreeNode tmpSourceNode = new DefaultTreeNode(tmpSourceContent, rootNode);
+		for (Content tmpContent : tmpSrc.getContents()) {
+			TreeNode tmpContentNode = new DefaultTreeNode(tmpContent, tmpSourceNode);
+		}
+	}
+	
 }
