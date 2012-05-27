@@ -354,7 +354,7 @@
 							<wsdlOptions>
 								<wsdlOption>
 									<wsdl>
-										${basedir}/src/main/resource/ShoppingService.wsdl
+										${basedir}/src/main/resources/ShoppingService.wsdl
 									</wsdl>
 								</wsdlOption>
 							</wsdlOptions>

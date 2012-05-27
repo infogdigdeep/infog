@@ -5,7 +5,8 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:infog="http://java.sun.com/jsf/composite/component">
 	<ui:define name="title">Infog Administration Console</ui:define>
 	<ui:define name="content">
 
@@ -43,7 +44,6 @@
 						action="#{content.delete()}" update=":form:contents" />
 				</f:facet>
 			</p:dataTable>
-
 			<p:treeTable value="#{infog.root}" var="ct">
 				<f:facet name="header">  
 		            Infog Content	
@@ -53,7 +53,10 @@
 					<f:facet name="header">  
                 	Title  
 		            </f:facet>
+					<h:panelGrid column="2">
+					<infog:infoDescription title="#{ct.title}" imageUrl="#{ct.pictureUrl}" description="#{ct.summary}"/>
 					<h:outputText value="#{ct.title}" />
+					</h:panelGrid>
 				</p:column>
 
 				<p:column style="width:30px">

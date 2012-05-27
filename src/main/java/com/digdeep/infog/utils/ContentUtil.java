@@ -133,6 +133,7 @@ public class ContentUtil {
 				tmpContent.setDetailUrl(getStartTagContent(feedReader, "link"));
 				tmpContent.setPubDate(parseDate(getStartTagContent(feedReader, "pubDate")));
 				String description = getStartTagContent(feedReader, "description");
+				
 				tmpContent.setPictureUrl(description);
 				tmpContent.setSummary(getStartTagContent(feedReader, "title"));
 				tmpContent.setTitle(getStartTagContent(feedReader, "title"));
