@@ -534,7 +534,7 @@
 						<artifactId>jboss-as-maven-plugin</artifactId>
 						<version>${jboss.version}</version>
 						<configuration>
-							<port>9999</port>
+							<port>11999</port>
 							<jboss.home>C:\AppServ\jboss-as-7.1.1.Final</jboss.home>
 						</configuration>
 					</plugin>

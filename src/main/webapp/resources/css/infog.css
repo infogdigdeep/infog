@@ -1,0 +1,6 @@
+.borderless {
+    border: none;
+}
+.borderless td {
+    padding: 0;	
+}

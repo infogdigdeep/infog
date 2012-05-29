@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:composite="http://java.sun.com/jsf/composite">
+<head>
+<title>Not present in rendered output</title>
+</head>
+<body>
+	<composite:interface>
+		<composite:attribute name="title" />
+		<composite:attribute name="imageUrl" />
+		<composite:attribute name="description" />
+	</composite:interface>
+	<composite:implementation>
+		<h:panelGroup rendered="#{cc.attrs.description != null}">
+			<h:graphicImage library="images" name="search.png"
+				onclick="dialog.show()" />
+	
+			<p:dialog id="dialog" header="#{cc.attrs.title}" widgetVar="dialog"
+				resizable="false" showEffect="clip" hideEffect="fold">
+				<h:panelGrid columns="2" cellpadding="10">
+					<h:graphicImage value="#{cc.attrs.imageUrl}" />
+					<h:outputText value="#{cc.attrs.description}" />
+				</h:panelGrid>
+			</p:dialog>
+		</h:panelGroup>
+	</composite:implementation>
+</body>
+</html>

@@ -9,7 +9,6 @@
 	xmlns:infog="http://java.sun.com/jsf/composite/component">
 	<ui:define name="title">Infog Administration Console</ui:define>
 	<ui:define name="content">
-
 		<h:form id="form">
 			<p:dataTable id="contents" var="ct" value="#{content.contentList}"
 				selectionMode="single" selection="#{content.currentInfo}"
@@ -53,10 +52,8 @@
 					<f:facet name="header">  
                 	Title  
 		            </f:facet>
-					<h:panelGrid column="2">
 					<infog:infoDescription title="#{ct.title}" imageUrl="#{ct.pictureUrl}" description="#{ct.summary}"/>
 					<h:outputText value="#{ct.title}" />
-					</h:panelGrid>
 				</p:column>
 
 				<p:column style="width:30px">
