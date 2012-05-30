@@ -1,0 +1,17 @@
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>New Update</title>
+<meta name="description" content="News Update">
+
+<script type="text/javascript">
+	var source = new EventSource('http://localhost:10080/infog/newsupdate');
+	source.onmessage = function (event) {
+		   var ev = document.getElementById('news');
+           ev.innerHTML += "<br> " + event.data;
+	}
+</script>
+</head>
+
+<div id="news"/>
+</html>
