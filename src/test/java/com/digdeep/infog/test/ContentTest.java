@@ -37,7 +37,7 @@ public class ContentTest {
 		 * .addAsResource("META-INF/persistence.xml",
 		 * "META-INF/persistence.xml") .addAsWebInfResource(EmptyAsset.INSTANCE,
 		 * "beans.xml");
-		 */
+		 */ 
 		EffectivePomMavenDependencyResolver resolver = DependencyResolvers
 				.use(MavenDependencyResolver.class)
 				.loadSettings("src/test/resource/settings.xml")

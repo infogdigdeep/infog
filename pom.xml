@@ -14,16 +14,17 @@
 			<artifactId>cxf-rt-frontend-jaxws</artifactId>
 			<version>${cxf.version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxrs</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-transports-http</artifactId>
 			<version>${cxf.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>javax</groupId>
-			<artifactId>javaee-web-api</artifactId>
-			<version>6.0</version>
-			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
@@ -634,6 +635,22 @@
 						1.9
 					</version>
 				</dependency>
+
+				<dependency>
+					<groupId>javax</groupId>
+					<artifactId>javaee-web-api</artifactId>
+					<version>6.0</version>
+					<scope>provided</scope>
+				</dependency>
+
+				<dependency>
+					<groupId>javax</groupId>
+					<artifactId>javaee-api</artifactId>
+					<version>6.0</version>
+					<scope>test</scope>
+				</dependency>
+
+
 			</dependencies>
 			<build>
 				<resources>
@@ -713,7 +730,7 @@
 		<jasper.version>4.5.0</jasper.version>
 		<log4j.version>1.2.14</log4j.version>
 		<mongodb.driver.version>2.7.2</mongodb.driver.version>
-		<cxf.version>2.5.3-SNAPSHOT</cxf.version>
+		<cxf.version>2.6.0</cxf.version>
 		<glassfish.directory>C:\development\tmp\glassfish3\glassfish3\glassfish
 		</glassfish.directory>
 	</properties>

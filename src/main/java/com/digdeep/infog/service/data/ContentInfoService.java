@@ -9,7 +9,7 @@ import javax.ejb.Stateless;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 
-import com.digdeep.infog.beans.InfoProviderBean;
+import com.digdeep.infog.beans.impl.InfoProviderBean;
 import com.digdeep.infog.dao.GenericDao;
 import com.digdeep.infog.model.ContentInfo;
 import com.digdeep.infog.model.ContentSource;

@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 
 @XmlRootElement
@@ -31,6 +32,7 @@ public class Content {
 	@Temporal(TemporalType.TIME)
 	private Date pubDate;
 	
+
 	@ManyToOne
 	private ContentSource provider;
 
@@ -83,6 +85,7 @@ public class Content {
 		this.summary = summary;
 	}
 
+	@XmlTransient
 	public ContentSource getProvider() {
 		return provider;
 	}

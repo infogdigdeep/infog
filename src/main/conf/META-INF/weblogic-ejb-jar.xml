@@ -5,4 +5,12 @@
         <role-name>ADMIN</role-name>
         <principal-name>admin</principal-name>
     </security-role-assignment>
+    <application-param>
+		<param-name>webapp.encoding.default</param-name>
+		<param-value>UTF-8</param-value>
+	</application-param>
+	<prefer-application-packages>
+		<package-name>javax.jws.*</package-name>
+	</prefer-application-packages>
+    
 </weblogic-ejb-jar>

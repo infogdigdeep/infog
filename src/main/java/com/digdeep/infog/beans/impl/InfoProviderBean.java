@@ -1,4 +1,4 @@
-package com.digdeep.infog.beans;
+package com.digdeep.infog.beans.impl;
 
 
 import java.util.ArrayList;
@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import javax.ejb.EJB;
+import javax.ejb.Stateless;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Any;
 import javax.enterprise.inject.Instance;

@@ -20,7 +20,7 @@ import javax.inject.Singleton;
 import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.TreeNode;
 
-import com.digdeep.infog.beans.InfoProviderBean;
+import com.digdeep.infog.beans.impl.InfoProviderBean;
 import com.digdeep.infog.model.ContentInfo;
 import com.digdeep.infog.model.ContentSource;
 import com.digdeep.infog.model.ContentType;
