@@ -370,6 +370,7 @@
 
 				</executions>
 			</plugin>
+			
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>jasperreports-maven-plugin</artifactId>
@@ -387,10 +388,11 @@
 					<dependency>
 						<groupId>jasperreports</groupId>
 						<artifactId>jasperreports</artifactId>
-						<version>2.0.5</version>
+						<version>${jasper.version}</version>
 					</dependency>
 				</dependencies>
 			</plugin>
+			
 
 
 		</plugins>
@@ -428,7 +430,7 @@
 		<pluginRepository>
 			<id>jboss-thirdparty-repository</id>
 			<name>JBoss Third Party Repository</name>
-			<url>https://repository.jboss.org/nexus/content/repositories/thirdparty-releases</url>
+			<url>http://jasperreports.sourceforge.net/maven2</url>
 			<releases>
 			</releases>
 		</pluginRepository>
@@ -519,7 +521,7 @@
 		<repository>
 			<id>jboss-thirdparty-repository</id>
 			<name>JBoss Third Party Repository</name>
-			<url>https://repository.jboss.org/nexus/content/repositories/thirdparty-releases</url>
+			<url>http://jasperreports.sourceforge.net/maven2</url>
 			<releases>
 			</releases>
 
@@ -814,7 +816,7 @@
 		<spring.data.mongodb.version>1.0.0.RELEASE
 		</spring.data.mongodb.version>
 		<javax.jstl-taglibs.version>1.1.2</javax.jstl-taglibs.version>
-		<jasper.version>4.6.0</jasper.version>
+		<jasper.version>3.7.2</jasper.version>
 		<log4j.version>1.2.14</log4j.version>
 		<mongodb.driver.version>2.7.2</mongodb.driver.version>
 		<cxf.version>2.6.0</cxf.version>
