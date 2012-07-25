@@ -202,29 +202,12 @@
 			<version>${jasper.version}</version>
 			<type>jar</type>
 			<scope>compile</scope>
-			<exclusions>
-				<exclusion>
-					<artifactId>commons-collections</artifactId>
-					<groupId>commons-collections</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>commons-beanutils</artifactId>
-					<groupId>commons-beanutils</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>commons-digester</artifactId>
-					<groupId>commons-digester</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>commons-logging</artifactId>
-					<groupId>commons-logging</groupId>
-				</exclusion>
-				<exclusion>
-					<groupId>xml-apis</groupId>
-					<artifactId>xml-apis</artifactId>
-				</exclusion>
-
-			</exclusions>
+			<!-- <exclusions> <exclusion> <artifactId>commons-collections</artifactId> 
+				<groupId>commons-collections</groupId> </exclusion> <exclusion> <artifactId>commons-beanutils</artifactId> 
+				<groupId>commons-beanutils</groupId> </exclusion> <exclusion> <artifactId>commons-digester</artifactId> 
+				<groupId>commons-digester</groupId> </exclusion> <exclusion> <artifactId>commons-logging</artifactId> 
+				<groupId>commons-logging</groupId> </exclusion> <exclusion> <groupId>xml-apis</groupId> 
+				<artifactId>xml-apis</artifactId> </exclusion> </exclusions> -->
 		</dependency>
 		<dependency>
 			<groupId>org.twitter4j</groupId>
@@ -387,6 +370,31 @@
 
 				</executions>
 			</plugin>
+			
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jasperreports-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>compile-reports</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<outputDirectory>target/jasperreports/jasper</outputDirectory>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>jasperreports</groupId>
+						<artifactId>jasperreports</artifactId>
+						<version>${jasper.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			
+
+
 		</plugins>
 	</build>
 	<pluginRepositories>
@@ -408,9 +416,6 @@
 			<id>apache-snapshots</id>
 			<name>Apache SNAPSHOT Repository</name>
 			<url>http://repository.apache.org/snapshots/</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
 		</pluginRepository>
 		<pluginRepository>
 			<id>jboss-public-repository</id>
@@ -422,6 +427,14 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</pluginRepository>
+		<pluginRepository>
+			<id>jboss-thirdparty-repository</id>
+			<name>JBoss Third Party Repository</name>
+			<url>http://jasperreports.sourceforge.net/maven2</url>
+			<releases>
+			</releases>
+		</pluginRepository>
+
 	</pluginRepositories>
 	<repositories>
 		<repository>
@@ -505,7 +518,14 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
+		<repository>
+			<id>jboss-thirdparty-repository</id>
+			<name>JBoss Third Party Repository</name>
+			<url>http://jasperreports.sourceforge.net/maven2</url>
+			<releases>
+			</releases>
 
+		</repository>
 		<repository>
 			<id>repo1</id>
 			<name>repo1</name>
@@ -514,6 +534,12 @@
 				<enabled>false</enabled>
 			</snapshots>
 
+		</repository>
+
+		<repository>
+			<id>sonatype-oss-snapshots</id>
+			<name>Sonatype OSS Snapshots</name>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
 		</repository>
 	</repositories>
 
@@ -748,7 +774,7 @@
 			</dependencies>
 
 			<build>
-			
+
 				<resources>
 					<resource>
 						<directory>src/main/openshift</directory>
@@ -762,6 +788,23 @@
 						<configuration>
 							<outputDirectory>deployments</outputDirectory>
 							<warName>ROOT</warName>
+							<webResources>
+								<resource>
+									<directory>src/main/jasperreports</directory>
+									<includes>
+										<include>**/*.jrxml</include>
+									</includes>
+									<targetPath>resources/reports/sources</targetPath>
+								</resource>
+								<resource>
+									<directory>target/jasperreports/jasper</directory>
+									<includes>
+										<include>**/*.jasper</include>
+									</includes>
+									<targetPath>resources/reports/jasper</targetPath>
+								</resource>
+							</webResources>
+
 						</configuration>
 					</plugin>
 				</plugins>
@@ -782,7 +825,7 @@
 		<spring.data.mongodb.version>1.0.0.RELEASE
 		</spring.data.mongodb.version>
 		<javax.jstl-taglibs.version>1.1.2</javax.jstl-taglibs.version>
-		<jasper.version>4.5.0</jasper.version>
+		<jasper.version>3.7.2</jasper.version>
 		<log4j.version>1.2.14</log4j.version>
 		<mongodb.driver.version>2.7.2</mongodb.driver.version>
 		<cxf.version>2.6.0</cxf.version>
