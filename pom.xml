@@ -193,7 +193,11 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.7.9</version>
+		</dependency>
 
 
 		<dependency>
@@ -370,7 +374,7 @@
 
 				</executions>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>jasperreports-maven-plugin</artifactId>
@@ -392,7 +396,7 @@
 					</dependency>
 				</dependencies>
 			</plugin>
-			
+
 
 
 		</plugins>
