@@ -7,7 +7,9 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 
-import com.digdeep.infog.beans.impl.ContentProviderBeanImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.digdeep.infog.beans.ContentProviderBean;
 import com.digdeep.infog.exceptions.InvalidProviderException;
 import com.digdeep.infog.model.ContentSource;
 import com.digdeep.infog.model.input.ContentRequestInput;
@@ -16,13 +18,15 @@ import com.digdeep.infog.model.input.ContentRequestInput;
 @Path("content")
 public class ContentProvider {
 
-	private ContentProviderBeanImpl provider;
+	@Autowired
+	private ContentProviderBean provider;
 
-	public ContentProviderBeanImpl getProvider() {
+	public ContentProviderBean getProvider() {
 		return provider;
 	}
 
-	public void setProvider(ContentProviderBeanImpl provider) {
+	@Autowired
+	public void setProvider(ContentProviderBean provider) {
 		this.provider = provider;
 	}
 	

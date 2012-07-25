@@ -8,6 +8,8 @@ import javax.xml.ws.Service;
 
 import junit.framework.Assert;
 
+import org.apache.cxf.jaxrs.client.JAXRSClientFactory;
+import org.apache.cxf.jaxrs.client.WebClient;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -40,5 +42,13 @@ public class ContentProviderTest {
 		input.setType(ContentType.RSS.getType());
 		List<ContentSource> ctList = contentProvider.getInfo(input);
 		Assert.assertNotNull(ctList);
+	}
+	
+	@Test
+	public void getContentJaxRS() throws Exception {
+		WebClient client = WebClient.create("http://localhost:10080/infog/cxf");
+		ContentRequestInput input = new ContentRequestInput();
+		input.setType(ContentType.RSS.getType());
+		client.path("content").post(input);
 	}
 }

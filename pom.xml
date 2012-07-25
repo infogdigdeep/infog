@@ -584,6 +584,74 @@
 					</version>
 				</dependency>
 
+				<dependency>
+					<groupId>
+						org.hibernate
+					</groupId>
+					<artifactId>
+						hibernate-core
+					</artifactId>
+					<version>
+						4.1.2.Final
+					</version>
+					<scope>test</scope>
+					<exclusions>
+						<exclusion>
+							<groupId>
+								org.slf4j
+							</groupId>
+							<artifactId>
+								slf4j-api
+							</artifactId>
+						</exclusion>
+					</exclusions>
+				</dependency>
+
+				<dependency>
+					<groupId>
+						org.hibernate
+					</groupId>
+					<artifactId>
+						hibernate-commons-annotations
+					</artifactId>
+					<version>
+						3.2.0.Final
+					</version>
+					<scope>test</scope>
+					<exclusions>
+						<exclusion>
+							<groupId>
+								org.slf4j
+							</groupId>
+							<artifactId>
+								slf4j-api
+							</artifactId>
+						</exclusion>
+					</exclusions>
+				</dependency>
+				<dependency>
+					<groupId>
+						org.hibernate
+					</groupId>
+					<artifactId>
+						hibernate-entitymanager
+					</artifactId>
+					<version>
+						4.0.0.Final
+					</version>
+					<scope>test</scope>
+					<exclusions>
+						<exclusion>
+							<groupId>
+								org.slf4j
+							</groupId>
+							<artifactId>
+								slf4j-api
+							</artifactId>
+						</exclusion>
+					</exclusions>
+				</dependency>
+
 
 				<dependency>
 					<groupId>javax</groupId>
@@ -618,9 +686,7 @@
 						</exclusion>
 					</exclusions>
 				</dependency>
-				<!-- <dependency> <groupId>org.hibernate</groupId> <artifactId>hibernate-annotations</artifactId> 
-					<version>3.5.6-Final</version> <exclusions> <exclusion> <groupId>org.slf4j</groupId> 
-					<artifactId>slf4j-api</artifactId> </exclusion> </exclusions> </dependency> -->
+
 				<dependency>
 					<groupId>
 						org.hibernate
@@ -662,17 +728,6 @@
 							</artifactId>
 						</exclusion>
 					</exclusions>
-				</dependency>
-				<dependency>
-					<groupId>
-						com.sun.jersey
-					</groupId>
-					<artifactId>
-						jersey-server
-					</artifactId>
-					<version>
-						1.9
-					</version>
 				</dependency>
 
 				<dependency>
