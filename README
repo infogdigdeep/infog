@@ -127,3 +127,4 @@ basic auth type
 standalone.bat -Djboss.socket.binding.port-offset=2000
 
 mvn -o clean package -Dmaven.test.skip=true -Pjboss jboss-as:undeploy jboss-as:deploy
+

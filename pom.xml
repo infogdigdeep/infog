@@ -231,7 +231,7 @@
 			<artifactId>camel-core</artifactId>
 			<version>${camel.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-jms</artifactId>
@@ -247,6 +247,12 @@
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-spring-javaconfig</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-guava-eventbus</artifactId>
 			<version>${camel.version}</version>
 		</dependency>
 
@@ -294,6 +300,11 @@
 			<version>${version.junit}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>${guava.version}</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>infog</finalName>
@@ -1024,6 +1035,7 @@
 		<cxf.version>2.6.0</cxf.version>
 		<camel.version>2.10.0</camel.version>
 		<activemq.version>5.2.0</activemq.version>
+		<guava.version>12.0.1</guava.version>
 		<glassfish.directory>C:\development\tmp\glassfish3\glassfish3\glassfish
 		</glassfish.directory>
 	</properties>

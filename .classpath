@@ -94,6 +94,9 @@
   <classpathentry kind="var" path="M2_REPO/org/springframework/spring-jms/3.0.7.RELEASE/spring-jms-3.0.7.RELEASE.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/apache/camel/camel-spring-javaconfig/2.10.0/camel-spring-javaconfig-2.10.0.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/apache/servicemix/bundles/org.apache.servicemix.bundles.cglib/2.1_3_6/org.apache.servicemix.bundles.cglib-2.1_3_6.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/camel/camel-guava-eventbus/2.10.0/camel-guava-eventbus-2.10.0.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/google/guava/guava/12.0.1/guava-12.0.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/osgi/spring-osgi-core/1.1.0/spring-osgi-core-1.1.0.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/osgi/spring-osgi-io/1.1.0/spring-osgi-io-1.1.0.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/apache/felix/org.osgi.core/1.4.0/org.osgi.core-1.4.0.jar"/>

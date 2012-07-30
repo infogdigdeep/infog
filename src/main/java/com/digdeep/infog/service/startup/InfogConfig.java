@@ -4,6 +4,7 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.camel.CamelContext;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.jms.JmsComponent;
+import org.apache.camel.impl.SimpleRegistry;
 import org.apache.camel.impl.osgi.tracker.BundleTrackerCustomizer;
 import org.apache.camel.osgi.SpringCamelContextFactory;
 import org.apache.camel.spring.javaconfig.SingleRouteCamelConfiguration;
@@ -38,6 +39,8 @@ public class InfogConfig extends SingleRouteCamelConfiguration implements Initia
 		SpringCamelContextFactory factory = new SpringCamelContextFactory();
 		factory.setApplicationContext(getApplicationContext());
 		factory.setBundleContext(getBundleContext());
+		SimpleRegistry registry = new SimpleRegistry();
+		//registry.put("busName", eventBus);
 		return factory.createContext();
 	}
 

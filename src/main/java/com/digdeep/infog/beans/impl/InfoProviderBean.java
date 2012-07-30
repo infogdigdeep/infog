@@ -42,6 +42,7 @@ public class InfoProviderBean {
 			input.setUrl(tmpInfo.getUrl());
 			contents.add(getProvider(tmpInfo.getType()).get(input));
 		}
+		
 		return contents;
 	}
 	
