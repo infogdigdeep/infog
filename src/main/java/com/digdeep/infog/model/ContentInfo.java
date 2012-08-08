@@ -9,6 +9,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.google.gson.annotations.SerializedName;
+
 
 
 @XmlRootElement
@@ -32,9 +34,11 @@ public class ContentInfo {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 
+	@SerializedName("title")
 	private String descriptions;
 
 	@NotNull
+	@SerializedName("url")
 	private String url;
 	
 	@Enumerated
