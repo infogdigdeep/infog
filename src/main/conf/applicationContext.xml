@@ -51,6 +51,13 @@ http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
 		</property>
 	</bean>
 
+	<bean id="feedDiscoveryBean" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName">
+    		<value>java:global/infog/FeedDiscoveryBeanImpl!com.digdeep.infog.beans.FeedDiscoveryBeanLocal</value>				
+		</property>
+	</bean>
+
+	
 	<jaxws:endpoint id="contentProvider"
 		implementor="com.digdeep.infog.external.soap.impl.ContentProviderImpl"
 		address="/ContentProvider" />
@@ -64,5 +71,12 @@ http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
         </jaxrs:extensionMappings>
     </jaxrs:server>	
     
+    <jaxrs:server id="contentDiscovery" address="/">
+    	<jaxrs:serviceBeans>
+    		<ref bean="contentDiscoveryImpl"/>
+    	</jaxrs:serviceBeans>
+    </jaxrs:server>
+    
     <bean id="contentImpl" class="com.digdeep.infog.external.ContentProvider"/>
+    <bean id="contentDiscoveryImpl" class="com.digdeep.infog.external.ContentDiscovery"/>
 </beans>
