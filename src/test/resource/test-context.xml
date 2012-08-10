@@ -1,0 +1,48 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
+
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+
+
+	<!-- Activates various annotations to be detected in bean classes -->
+	<context:annotation-config />
+
+	<!-- Autowiring support (spring 2.5+) -->
+	<!-- The AutowiredAnnotationBeanPostProcessor and CommonAnnotationBeanPostProcessor 
+		are both included implicitly when using the component-scan element. That 
+		means that the two components are autodetected and wired together -->
+	<context:component-scan base-package="com.infog" />
+
+
+	<aop:aspectj-autoproxy />
+
+	<bean id="feedDiscoveryBean"
+		class="org.springframework.ejb.access.SimpleRemoteStatelessSessionProxyFactoryBean">
+		<property name="jndiName">
+			<value>java:global/infog/FeedDiscoveryBeanImpl!com.digdeep.infog.beans.FeedDiscoveryBeanRemote
+			</value>
+		</property>
+		<property name="businessInterface"
+			value="com.digdeep.infog.beans.FeedDiscoveryBeanRemote" />
+		<property name="jndiEnvironment">
+			<props>
+				<prop key="java.naming.factory.initial">org.jnp.interfaces.NamingContextFactory</prop>
+				<prop key="java.naming.factory.url.pkgs">org.jboss.naming:org.jnp.interfaces</prop>
+				<prop key="java.naming.provider.url">jnp://localhost:3099</prop>
+			</props>
+		</property>
+	</bean>
+
+
+</beans>
