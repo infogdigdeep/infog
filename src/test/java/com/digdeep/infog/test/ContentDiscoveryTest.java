@@ -12,6 +12,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.digdeep.infog.beans.FeedDiscoveryBean;
+import com.digdeep.infog.beans.FeedDiscoveryBeanRemote;
 import com.digdeep.infog.model.ContentInfo;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -19,7 +20,7 @@ import com.digdeep.infog.model.ContentInfo;
 public class ContentDiscoveryTest {
 
 	@Autowired
-	private FeedDiscoveryBean feedDiscoveryBean;
+	private FeedDiscoveryBeanRemote feedDiscoveryBean;
 	
 	@Test
 	public void discover() {

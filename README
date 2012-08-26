@@ -128,3 +128,4 @@ standalone.bat -Djboss.socket.binding.port-offset=2000
 
 mvn -o clean package -Dmaven.test.skip=true -Pjboss jboss-as:undeploy jboss-as:deploy
 
+mvn install:install-file -Dfile=wlclient.jar -DgroupId=com.weblogic -DartifactId=wlclient -Dversion=12 -Dpackaging=jar

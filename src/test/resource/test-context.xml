@@ -22,7 +22,7 @@ http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
 	<!-- The AutowiredAnnotationBeanPostProcessor and CommonAnnotationBeanPostProcessor 
 		are both included implicitly when using the component-scan element. That 
 		means that the two components are autodetected and wired together -->
-	<context:component-scan base-package="com.infog" />
+	<context:component-scan base-package="com.infog.digdeep.test" />
 
 
 	<aop:aspectj-autoproxy />
@@ -37,9 +37,11 @@ http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
 			value="com.digdeep.infog.beans.FeedDiscoveryBeanRemote" />
 		<property name="jndiEnvironment">
 			<props>
-				<prop key="java.naming.factory.initial">org.jnp.interfaces.NamingContextFactory</prop>
-				<prop key="java.naming.factory.url.pkgs">org.jboss.naming:org.jnp.interfaces</prop>
-				<prop key="java.naming.provider.url">jnp://localhost:3099</prop>
+<!-- 				<prop key="java.naming.factory.initial">org.jnp.interfaces.NamingContextFactory</prop> -->
+<!-- 				<prop key="java.naming.factory.url.pkgs">org.jboss.naming:org.jnp.interfaces</prop> -->
+<!-- 				<prop key="java.naming.provider.url">jnp://localhost:3099</prop> -->
+				<prop key="java.naming.factory.initial">weblogic.jndi.WLInitialContextFactory</prop>
+				<prop key="java.naming.provider.url">t3://0.0.0.0:7010</prop>
 			</props>
 		</property>
 	</bean>

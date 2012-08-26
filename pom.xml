@@ -305,6 +305,12 @@
 			<artifactId>guava</artifactId>
 			<version>${guava.version}</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>com.weblogic</groupId>
+			<artifactId>wlclient</artifactId>
+			<version>12</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>infog</finalName>
