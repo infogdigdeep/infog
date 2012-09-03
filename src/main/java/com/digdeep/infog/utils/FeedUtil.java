@@ -35,7 +35,7 @@ public class FeedUtil {
 	public JsonObject getObjectFromURL (String urlStr) throws Exception {
 		URL url = new URL(urlStr);
 		URLConnection conn = url.openConnection();
-		conn.addRequestProperty("Referer", "infog-digdeep.rhcloud.com");
+		conn.addRequestProperty("Referer", "http://digdeep-infog.rhcloud.com");
 		StringBuilder result = new StringBuilder();
 		BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 		String line;

@@ -251,12 +251,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-guava-eventbus</artifactId>
-			<version>${camel.version}</version>
-		</dependency>
-
-		<dependency>
 			<groupId>org.springframework.osgi</groupId>
 			<artifactId>spring-osgi-core</artifactId>
 			<version>${spring.osgi.version}</version>
@@ -1041,7 +1035,7 @@
 		<cxf.version>2.6.0</cxf.version>
 		<camel.version>2.10.0</camel.version>
 		<activemq.version>5.2.0</activemq.version>
-		<guava.version>12.0.1</guava.version>
+		<guava.version>13.0.1</guava.version>
 		<glassfish.directory>C:\development\tmp\glassfish3\glassfish3\glassfish
 		</glassfish.directory>
 	</properties>

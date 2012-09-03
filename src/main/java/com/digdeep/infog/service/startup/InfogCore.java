@@ -33,8 +33,8 @@ public class InfogCore {
 		try {
 		//userService.storeStaticUserInfo();
 		//infoService.storeStaticContentInfo();
-			bus = new EventBus();
-			bus.register(new GenericEventHandler());
+			//bus = new EventBus();
+			//bus.register(new GenericEventHandler());
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

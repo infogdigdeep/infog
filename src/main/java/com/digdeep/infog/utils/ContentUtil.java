@@ -1,14 +1,22 @@
 package com.digdeep.infog.utils;
 
 import java.io.InputStream;
+import java.io.StringWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamReader;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Templates;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathFactory;
@@ -20,6 +28,7 @@ import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.io.IOUtils;
+import org.apache.cxf.jaxrs.ext.xml.XMLSource;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
@@ -86,6 +95,23 @@ public class ContentUtil {
 				}
 			}
 		}
+	}
+	
+	private String getXMLStreamStr (InputStream input) {
+		try {
+			StreamSource source = new StreamSource(input);
+			StreamResult result = new StreamResult(new StringWriter());
+			TransformerFactory factory = TransformerFactory.newInstance();
+			Transformer tf = factory.newTransformer();
+			tf.setOutputProperty(OutputKeys.INDENT, "yes");
+			tf.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+			tf.transform(source, result);
+		    return result.toString();
+			
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return null;
 	}
 	
 	private String getStartTagContent(XMLStreamReader feedReader, String tagName) 

@@ -26,20 +26,26 @@ import com.google.gson.JsonObject;
 public class FeedDiscoveryBeanImpl implements FeedDiscoveryBeanLocal,
 		FeedDiscoveryBeanRemote {
 
+	
 	private static final String findFeedAPI = "https://ajax.googleapis.com/ajax/services/feed/find";
 
 	@Inject
 	private ContentUtil contentUtil;
 
+	public String buildFeedUrl(String query) throws Exception {
+		StringBuilder builder = new StringBuilder();
+		builder.append(findFeedAPI);
+		builder.append("?v=1.0&q=");
+		builder.append(URLEncoder.encode(query, "UTF-8"));
+		return builder.toString();
+	}
+	
 	@Override
 	public List<ContentInfo> findFeeds(String query) {
 		List<ContentInfo> result = null;
 		try {
 			FeedUtil util = new FeedUtil();
-			StringBuilder builder = new StringBuilder();
-			builder.append(findFeedAPI);
-			builder.append(URLEncoder.encode(query, "UTF-8"));
-			JsonObject response = util.getObjectFromURL(findFeedAPI);
+			JsonObject response = util.getObjectFromURL(buildFeedUrl(query));
 			result = mapToContentInfoList(util, util.getEntries(util.getResponseData(response)));
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -71,6 +77,14 @@ public class FeedDiscoveryBeanImpl implements FeedDiscoveryBeanLocal,
 			result.add(mapper.getObject(entry,ContentInfo.class));
 		}
 		return result;
+	}
+
+	public ContentUtil getContentUtil() {
+		return contentUtil;
+	}
+
+	public void setContentUtil(ContentUtil contentUtil) {
+		this.contentUtil = contentUtil;
 	}
 	
 

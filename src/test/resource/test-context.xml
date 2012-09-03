@@ -27,24 +27,30 @@ http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
 
 	<aop:aspectj-autoproxy />
 
-	<bean id="feedDiscoveryBean"
-		class="org.springframework.ejb.access.SimpleRemoteStatelessSessionProxyFactoryBean">
-		<property name="jndiName">
-			<value>java:global/infog/FeedDiscoveryBeanImpl!com.digdeep.infog.beans.FeedDiscoveryBeanRemote
-			</value>
-		</property>
-		<property name="businessInterface"
-			value="com.digdeep.infog.beans.FeedDiscoveryBeanRemote" />
-		<property name="jndiEnvironment">
-			<props>
-<!-- 				<prop key="java.naming.factory.initial">org.jnp.interfaces.NamingContextFactory</prop> -->
-<!-- 				<prop key="java.naming.factory.url.pkgs">org.jboss.naming:org.jnp.interfaces</prop> -->
-<!-- 				<prop key="java.naming.provider.url">jnp://localhost:3099</prop> -->
-				<prop key="java.naming.factory.initial">weblogic.jndi.WLInitialContextFactory</prop>
-				<prop key="java.naming.provider.url">t3://0.0.0.0:7010</prop>
-			</props>
-		</property>
-	</bean>
+<!-- 	<bean id="feedDiscoveryEJB" -->
+<!-- 		class="org.springframework.ejb.access.SimpleRemoteStatelessSessionProxyFactoryBean"> -->
+<!-- 		<property name="jndiName"> -->
+<!-- 			<value>java:global/infog/FeedDiscoveryBeanImpl!com.digdeep.infog.beans.FeedDiscoveryBeanRemote -->
+<!-- 			</value> -->
+<!-- 		</property> -->
+<!-- 		<property name="businessInterface" -->
+<!-- 			value="com.digdeep.infog.beans.FeedDiscoveryBeanRemote" /> -->
+<!-- 		<property name="jndiEnvironment"> -->
+<!-- 			<props> -->
+<!--  				<prop key="java.naming.factory.initial">org.jnp.interfaces.NamingContextFactory</prop>  -->
+<!--  				<prop key="java.naming.factory.url.pkgs">org.jboss.naming:org.jnp.interfaces</prop>  -->
+<!--  				<prop key="java.naming.provider.url">jnp://localhost:3099</prop>  -->
+<!-- 				<prop key="java.naming.factory.initial">weblogic.jndi.WLInitialContextFactory</prop>  -->
+<!-- 				<prop key="java.naming.provider.url">t3://0.0.0.0:7010</prop> -->
+<!-- 			</props> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
 
+	<bean id="feedDiscoveryBean" class="com.digdeep.infog.beans.impl.FeedDiscoveryBeanImpl">
+		<property name="contentUtil" ref="contentUtil"/>
+	</bean>
+	
+	<bean id="contentUtil" class="com.digdeep.infog.utils.ContentUtil"/>
+	
 
 </beans>
