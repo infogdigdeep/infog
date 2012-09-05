@@ -1,6 +1,7 @@
 package com.digdeep.infog.utils;
 
 import java.io.InputStream;
+import java.io.StringReader;
 import java.io.StringWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -29,6 +30,8 @@ import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.io.IOUtils;
 import org.apache.cxf.jaxrs.ext.xml.XMLSource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
@@ -39,6 +42,8 @@ import com.digdeep.infog.qualifiers.XMLLogging;
 
 public class ContentUtil {
 
+    private Logger logger = LoggerFactory.getLogger(ContentUtil.class);
+    
 	private GetMethod getMethod;
 	private PostMethod postMethod;
 
@@ -65,6 +70,7 @@ public class ContentUtil {
 			HttpClient client = new HttpClient();
 			setGetMethod(new GetMethod(url));
 			client.executeMethod(getGetMethod());
+			String response = getGetMethod().getResponseBodyAsString();
 			return getGetMethod().getResponseBodyAsStream();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -106,7 +112,7 @@ public class ContentUtil {
 			tf.setOutputProperty(OutputKeys.INDENT, "yes");
 			tf.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
 			tf.transform(source, result);
-		    return result.toString();
+		    return result.getWriter().toString();
 			
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -144,8 +150,8 @@ public class ContentUtil {
 		XMLStreamReader feedReader = null;
 		try {
 			InputStream contentStream = getContentStream(url);
-			feedReader = factory.createXMLStreamReader(contentStream);
-			
+			String contentStr = getXMLStreamStr(contentStream);
+			feedReader = factory.createXMLStreamReader(new StringReader(contentStr));
 			gotoStartTagContent(feedReader, "channel");
 			result.setTitle(getStartTagContent(feedReader, "title"));
 			result.setLink(getStartTagContent(feedReader, "link"));
