@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/atom10full.xsl"?>
+
+<?xml-stylesheet type="text/css" media="screen" href="http://feeds.feedburner.com/~d/styles/itemcontent.css"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:openSearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:blogger="http://schemas.google.com/blogger/2008" xmlns:georss="http://www.georss.org/georss" xmlns:gd="http://schemas.google.com/g/2005" xmlns:thr="http://purl.org/syndication/thread/1.0" xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" gd:etag="W/&quot;DU4EQHk7eip7ImA9WhJWF0k.&quot;">
+  <id>tag:blogger.com,1999:blog-3888390126548480395</id>
+  <updated>2012-08-23T11:51:41.702-07:00</updated>
+  <title>Official Android Blog</title>
+  <subtitle type="html">News and notes from the Android team.</subtitle>
+  <link rel="http://schemas.google.com/g/2005#feed" type="application/atom+xml" href="http://officialandroid.blogspot.com/feeds/posts/default"/>
+  <link rel="alternate" type="text/html" href="http://officialandroid.blogspot.com/"/>
+  <author>
+    <name>A Googler</name>
+    <email>noreply@blogger.com</email>
+    <gd:image rel="http://schemas.google.com/g/2005#thumbnail" width="16" height="16" src="http://img2.blogblog.com/img/b16-rounded.gif"/>
+  </author>
+  <generator version="7.00" uri="http://www.blogger.com">Blogger</generator>
+  <openSearch:totalResults>14</openSearch:totalResults>
+  <openSearch:startIndex>1</openSearch:startIndex>
+  <openSearch:itemsPerPage>25</openSearch:itemsPerPage>
+  <atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/atom+xml" href="http://feeds.feedburner.com/OfficialAndroidBlog"/>
+  <feedburner:info uri="officialandroidblog"/>
+  <atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com/"/>
+  <entry gd:etag="W/&quot;DEcDRn09cCp7ImA9WhJWEUo.&quot;">
+    <id>tag:blogger.com,1999:blog-3888390126548480395.post-6978691648773486729</id>
+    <published>2012-08-16T21:01:00.000-07:00</published>
+    <updated>2012-08-16T21:01:17.368-07:00</updated>
+    <app:edited xmlns:app="http://www.w3.org/2007/app">2012-08-16T21:01:17.368-07:00</app:edited>
+    <title>Voice Search arrives in 13 new languages</title>
+    <content type="html">“Norwegian restaurants in New York City.” I can type that phrase fast, but I can say it even faster—and when I’m on the go, speed is what I’m looking for. With Voice Search, you can speak into your phone to get search results quickly and easily. Voice Search is already available in 29 languages, and today, we're bringing support to 13 new languages for Android users—bringing the total to 42 languages and accents in 46 countries. In fact, 100 million new speakers can use Voice Search now, with the addition of:&lt;br /&gt;
+&lt;table align="center"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;ul&gt;
+&lt;li&gt;Basque&lt;/li&gt;
+&lt;li&gt;Bulgarian&lt;/li&gt;
+&lt;li&gt;Catalan&lt;/li&gt;
+&lt;li&gt;European Portuguese&lt;/li&gt;
+&lt;li&gt;Finnish&lt;/li&gt;
+&lt;li&gt;Galician&lt;/li&gt;
+&lt;li&gt;Hungarian&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/td&gt;
+&lt;td&gt;&lt;ul&gt;
+&lt;li&gt;Icelandic&lt;/li&gt;
+&lt;li&gt;Norwegian&lt;/li&gt;
+&lt;li&gt;Romanian&lt;/li&gt;
+&lt;li&gt;Serbian&lt;/li&gt;
+&lt;li&gt;Slovak&lt;/li&gt;
+&lt;li&gt;Swedish&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;br /&gt;
+Each new language usually requires that we initially collect hundreds of thousands of utterances from volunteers and, although we’ve been working on speech recognition for several years, adding these new languages led our engineers and scientists to tackle some unique challenges. While languages like Romanian follow predictable pronunciation rules, others, like Swedish, required that we recruit native speakers to provide us with the pronunciations for thousands of words. Our scientists then built a machine learning system based on that data to predict how all other Swedish words would be pronounced. &lt;br /&gt;
+&lt;br /&gt;
+This update has already started to roll out, and will continue to do so over the course of the next week. How you get started with Google Voice Search depends on what kind of phone you have. If your phone runs Android 2.2 or later, and you see the microphone icon on the Google Search widget on your homescreen, all you have to do is tap the icon to start a voice-powered search. Otherwise, you can install the &lt;a href="https://play.google.com/store/apps/details?id=com.google.android.voicesearch"&gt;Voice Search app from Google Play&lt;/a&gt;. Note that you can only speak one language into the app at a time, and you may need to change your language settings to use one of these new languages.&lt;br /&gt;
+&lt;br /&gt;
+As with other languages we’ve added, one of the major benefits to Google’s cloud-based model is that the more people use Voice Search, the more accurate it becomes. &lt;br /&gt;
+&lt;br /&gt;
+Posted by Bertrand Damiba, Product Manager&lt;div class="blogger-post-footer"&gt;&lt;img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3888390126548480395-6978691648773486729?l=officialandroid.blogspot.com' alt='' /&gt;&lt;/div&gt;&lt;img src="http://feeds.feedburner.com/~r/OfficialAndroidBlog/~4/QkURTkej6N4" height="1" width="1"/&gt;</content>
+    <link rel="replies" type="application/atom+xml" href="http://officialandroid.blogspot.com/feeds/6978691648773486729/comments/default" title="Post Comments"/>
+    <link rel="replies" type="text/html" href="http://officialandroid.blogspot.com/2012/08/voice-search-arrives-in-13-new-languages.html#comment-form" title="20 Comments"/>
+    <link rel="edit" type="application/atom+xml" href="http://www.blogger.com/feeds/3888390126548480395/posts/default/6978691648773486729?v=2"/>
+    <link rel="self" type="application/atom+xml" href="http://www.blogger.com/feeds/3888390126548480395/posts/default/6978691648773486729?v=2"/>
+    <link rel="alternate" type="text/html" href="http://feedproxy.google.com/~r/OfficialAndroidBlog/~3/QkURTkej6N4/voice-search-arrives-in-13-new-languages.html" title="Voice Search arrives in 13 new languages"/>
+    <author>
+      <name>A Googler</name>
+      <uri>http://www.blogger.com/profile/12685502312432682010</uri>
+      <email>noreply@blogger.com</email>
+      <gd:image rel="http://schemas.google.com/g/2005#thumbnail" width="16" height="16" src="http://img2.blogblog.com/img/b16-rounded.gif"/>
+    </author>
+    <thr:total>20</thr:total>
+    <feedburner:origLink>http://officialandroid.blogspot.com/2012/08/voice-search-arrives-in-13-new-languages.html</feedburner:origLink>
+  </entry>
+  <entry gd:etag="W/&quot;CUMNSXw_fCp7ImA9WhJQGEg.&quot;">
+    <id>tag:blogger.com,1999:blog-3888390126548480395.post-4767542171391567794</id>
+    <published>2012-08-01T10:56:00.000-07:00</published>
+    <updated>2012-08-01T13:38:18.244-07:00</updated>
+    <app:edited xmlns:app="http://www.w3.org/2007/app">2012-08-01T13:38:18.244-07:00</app:edited>
+    <title>Use any credit or debit card with Google Wallet</title>
+    <content type="html">&lt;span style="font-size: x-small;"&gt;&lt;i&gt;(cross-posted from the&amp;nbsp;&lt;a href="http://googlecommerce.blogspot.com/"&gt;Google Commerce Blog&lt;/a&gt;)&lt;/i&gt;&lt;/span&gt;&lt;br /&gt;
+&lt;br /&gt;
+Since we released the first version of &lt;a href="http://www.google.com/wallet"&gt;Google Wallet&lt;/a&gt;, the app that makes your phone your wallet, we’ve made it available on &lt;a href="http://www.google.com/wallet/get.html"&gt;six phones from Sprint and Virgin Mobile&lt;/a&gt;, as well as the new &lt;a href="http://www.google.com/nexus/#/7"&gt;Nexus 7 tablet&lt;/a&gt;. We’ve also partnered with more than &lt;a href="http://www.google.com/wallet/how-it-works/in-store.html"&gt;25 national retailers&lt;/a&gt;, and thanks to MasterCard PayPass, you can pay with your phone at more than 200,000 retail locations across the U.S.&lt;br /&gt;
+&lt;br /&gt;
+Today we’re releasing a new, cloud-based version of the Google Wallet app that supports all credit and debit cards from Visa, MasterCard, American Express, and Discover. Now, you can use any card when you shop in-store or online with Google Wallet. With the new version, you can also remotely disable your mobile wallet app from your Google Wallet account on the web.&lt;br /&gt;
+&lt;br /&gt;
+&amp;nbsp;
+
+
+&lt;iframe allowfullscreen="" frameborder="0" height="315" src="http://www.youtube.com/embed/VuFVsaFCzsw" width="560"&gt;&lt;/iframe&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;b&gt;A wallet with all your credit and debit cards&lt;/b&gt;&lt;br /&gt;
+To save a card to Google Wallet, just enter the number into the mobile app, &lt;a href="https://wallet.google.com/manage"&gt;online wallet&lt;/a&gt;, or Google Play when making purchases. When you shop in-store, you can use Google Wallet in conjunction with your selected credit or debit card for purchases (&lt;a href="http://support.google.com/wallet/bin/answer.py?hl=en&amp;amp;answer=2701024"&gt;more info here&lt;/a&gt;). Shortly after making a payment, you’ll see a transaction record on the phone with the merchant name and dollar amount. You can now view a history of all your in-store and online purchases from the &lt;a href="https://wallet.google.com/manage"&gt;online wallet&lt;/a&gt;.
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;div class="separator" style="clear: both; text-align: center;"&gt;
+&lt;/div&gt;
+&lt;div class="separator" style="clear: both; text-align: center;"&gt;
+&lt;a href="http://2.bp.blogspot.com/-eyDeIosKqSQ/UBmTm5SccuI/AAAAAAAABWo/GGJbPtfUVwM/s1600/hopslam_blog_01.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"&gt;&lt;img border="0" height="283" src="http://2.bp.blogspot.com/-eyDeIosKqSQ/UBmTm5SccuI/AAAAAAAABWo/GGJbPtfUVwM/s320/hopslam_blog_01.png" width="320" /&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div class="separator" style="clear: both; text-align: center;"&gt;
+&lt;br /&gt;&lt;/div&gt;
+&lt;div cla...

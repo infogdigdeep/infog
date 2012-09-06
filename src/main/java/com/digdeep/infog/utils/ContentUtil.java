@@ -143,6 +143,41 @@ public class ContentUtil {
 		}
 	}
 	
+	private void getContent (XMLStreamReader feedReader, List<Content> contents) throws Exception {
+		Content result = null;
+		while (feedReader.hasNext()) {
+			feedReader.next();
+			if (feedReader.getEventType() == XMLStreamReader.START_ELEMENT) {
+				if (feedReader.getLocalName().equalsIgnoreCase("item")) {
+					result = new Content();
+					while (feedReader.hasNext()) {
+						feedReader.next();
+						if (feedReader.getEventType() == XMLStreamReader.START_ELEMENT) {
+							String elementText = feedReader.getElementText();
+							if (feedReader.getLocalName().equalsIgnoreCase("pubDate")) {
+								result.setPubDate(parseDate(elementText));
+							} else if (feedReader.getLocalName().equalsIgnoreCase("title")) {
+								result.setTitle(elementText);
+								result.setSummary(elementText);
+							} else if (feedReader.getLocalName().equalsIgnoreCase("link")) {
+								result.setDetailUrl(elementText);
+							} else if (feedReader.getLocalName().equalsIgnoreCase("description")) {
+								result.setPictureUrl(elementText);
+							}
+						} else if (feedReader.getEventType() == XMLStreamReader.END_ELEMENT) {
+							if (feedReader.getLocalName().equalsIgnoreCase("item")) {
+								contents.add(result);
+								break;
+							}
+						}
+						
+					}
+				}
+			}
+			
+		}
+	}
+	
 	public ContentSource getContents (String url) throws Exception {
 		ContentSource result = new ContentSource();
 		result.setContents(new ArrayList<Content>());
@@ -156,24 +191,7 @@ public class ContentUtil {
 			result.setTitle(getStartTagContent(feedReader, "title"));
 			result.setLink(getStartTagContent(feedReader, "link"));
 			result.setImageUrl(getStartTagContent(feedReader, "url"));
-			while (gotoStartTagContent(feedReader, "item")) {
-				Content tmpContent = new Content();
-				
-				String title = getStartTagContent(feedReader, "title");
-				tmpContent.setSummary(title);
-				tmpContent.setTitle(title);
-				tmpContent.setDetailUrl(getStartTagContent(feedReader, "link"));
-				tmpContent.setPubDate(parseDate(getStartTagContent(feedReader, "pubDate")));
-				String description = getStartTagContent(feedReader, "description");
-				
-				tmpContent.setPictureUrl(description);
-				tmpContent.setSummary(getStartTagContent(feedReader, "title"));
-				tmpContent.setTitle(getStartTagContent(feedReader, "title"));
-				tmpContent.setType(ContentType.RSS);
-				tmpContent.setProvider(result);
-				result.getContents().add(tmpContent);
-				gotoEndTagContent(feedReader, "item");
-			}
+			getContent(feedReader, result.getContents());
 		} finally {
 			if (feedReader != null) {
 				feedReader.close();
