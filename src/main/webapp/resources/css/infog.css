@@ -4,3 +4,68 @@
 .borderless td {
     padding: 0;	
 }
+
+.menu {
+	color: #777;
+	text-align: left;
+	width: 150px;
+	position: relative;
+	height: 17px;
+	margin: 3px -22px 0 0;
+}
+
+.submenu {
+    background: #fff;
+    margin-left: 10px;
+    left: -20px;
+    z-index: 100;
+    width: 140px;
+    padding: 40px 0 5px;
+    border-radius: 6px;
+    position: absolute;
+    display: none;
+    top: -12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+ }
+ 
+ .menu li a {
+    cursor: pointer;
+    text-decoration:none;
+    font-weight: bold;
+    color: #777;
+    display: block;
+    font-family: helvetica;
+    padding: 8px 16px;
+}
+ 
+
+.menu li a:hover {
+    text-decoration: none;
+    background:#155FC2;
+    color: #FFF;
+}
+ 
+a.links {
+    position: absolute;
+    height: 28px;
+    background: url(/resources/images/search.png) 116px 17px no-repeat;
+    font-size: 11px;
+    line-height: 16px;
+    color: #555;
+    cursor:pointer;
+    width: 121px;
+    margin: -11px 0 0 -10px;
+    text-decoration: none;
+    z-index: 110;
+    display: block;
+    padding: 11px 0 0 20px;
+}
+ 
+.rootmenu {
+    margin: 0px;
+    font-size: 11px;
+    list-style: none;
+    padding: 0px;
+    border-top:1px solid #ccc;
+    padding: 11px 0 0 0px;
+ }
