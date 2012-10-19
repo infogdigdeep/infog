@@ -4,3 +4,29 @@
 .borderless td {
     padding: 0;	
 }
+
+body { 
+height: 101%; 
+font-size: 62.5%; 
+font-family: "Trebuchet MS", Arial, Tahoma, sans-serif; 
+color: #333; 
+background: #fff url('images/body-bg.jpg') 0px 0px repeat; 
+padding-top: 10px; 
+}
+
+#container { 
+display: block;
+max-width: 800px;
+margin: 0 auto; 
+margin-top: 5px; 
+margin-bottom: 66px;
+padding: 20px 15px; 
+background: #fff; 
+border-radius: 6px; 
+-webkit-border-radius: 6px; 
+-moz-border-radius: 6px;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box; 
+box-sizing: border-box;  
+}
+

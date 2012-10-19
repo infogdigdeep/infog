@@ -32,8 +32,9 @@ public class Content {
 	private List<ContentInfo> contentList;
 
 	private boolean isAdd;
-		
 
+	private String query;
+	
 	public ContentType[] getContentTypeValues() {
 		return ContentType.values();
 	}
@@ -73,4 +74,14 @@ public class Content {
 	public void setContentList(List<ContentInfo> contentList) {
 		this.contentList = contentList;
 	}
+
+	public String getQuery() {
+		return query;
+	}
+
+	public void setQuery(String query) {
+		this.query = query;
+	}
+	
+	
 }

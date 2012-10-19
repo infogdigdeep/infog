@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <ui:composition template="../template/infogMain.xhtml"
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -9,6 +9,12 @@
 	xmlns:infog="http://java.sun.com/jsf/composite/component">
 	<ui:define name="title">Infog Administration Console</ui:define>
 	<ui:define name="content">
+		<p:panel header="Search Info">
+			<p:panelGrid column="2">
+				<h:outputText value="Search"/>
+				<p:inputText value="#{content.query}"/>
+			</p:panelGrid>
+		</p:panel>	
 		<h:form id="form">
 			<p:dataTable id="contents" var="ct" value="#{content.contentList}"
 				selectionMode="single" selection="#{content.currentInfo}"

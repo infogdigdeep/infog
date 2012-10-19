@@ -284,3 +284,87 @@
   &lt;p&gt;&lt;a href="http://www.google.com/doodles/rhazes-1147th-birthday"&gt;
      &lt;img src="//www.google.com/logos/2012/rhazes12-hp.jpg" alt="Rhazes&amp;#39; 1147th Birthday"/&gt;&lt;/a&gt;&lt;/p&gt;
   &lt;p&gt;&lt;strong&gt;Date:&lt;/...
+  
+  
+  
+  
+  
+  <?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:openSearch="http://a9.com/-/spec/opensearch/1.1/" version="2.0">
+  <channel>
+    <description/>
+    <atom:id>tag:youtube.com,2008:user:Google:uploads</atom:id>
+    <lastBuildDate>Fri, 14 Sep 2012 00:31:16 +0000</lastBuildDate>
+    <category domain="http://schemas.google.com/g/2005#kind">http://gdata.youtube.com/schemas/2007#video</category>
+    <title>Uploads by Google</title>
+    <image>
+      <url>http://www.youtube.com/img/pic_youtubelogo_123x63.gif</url>
+      <title>Uploads by Google</title>
+      <link>http://www.youtube.com/channel/UCK8sQmJBp8GCxrOtXWBpyEA/videos</link>
+    </image>
+    <link>http://www.youtube.com/channel/UCK8sQmJBp8GCxrOtXWBpyEA/videos</link>
+    <atom:link rel="hub" href="http://pubsubhubbub.appspot.com"/>
+    <atom:link rel="self" href="http://gdata.youtube.com/feeds/base/users/Google/uploads?alt=rss&amp;start-index=1&amp;max-results=25&amp;client=ytapi-youtube-profile&amp;orderby=published&amp;v=2"/>
+    <managingEditor>Google</managingEditor>
+    <generator>YouTube data API</generator>
+    <openSearch:totalResults>1328</openSearch:totalResults>
+    <openSearch:startIndex>1</openSearch:startIndex>
+    <openSearch:itemsPerPage>25</openSearch:itemsPerPage>
+    <item>
+      <guid isPermaLink="false">tag:youtube.com,2008:video:30Pjl31cyDY</guid>
+      <pubDate>Thu, 13 Sep 2012 16:00:53 +0000</pubDate>
+      <atom:updated>2012-09-14T00:23:51.000Z</atom:updated>
+      <category domain="http://schemas.google.com/g/2005#kind">http://gdata.youtube.com/schemas/2007#video</category>
+      <title>DVF [through Glass]</title>
+      <description>&lt;div style="color: #000000;font-family: Arial, Helvetica, sans-serif;     font-size:12px; font-size: 12px; width: 555px;"&gt;
+&lt;table cellspacing="0" cellpadding="0" border="0"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td width="140" valign="top" rowspan="2"&gt;&lt;div style="border: 1px solid #999999; margin: 0px 10px 5px 0px;"&gt;&lt;a href="http://www.youtube.com/watch?v=30Pjl31cyDY&amp;amp;feature=youtube_gdata"&gt;&lt;img alt="" src="http://i.ytimg.com/vi/30Pjl31cyDY/default.jpg"&gt;&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td width="256" valign="top"&gt;&lt;div style="font-size: 12px; font-weight: bold;"&gt;&lt;a style="font-size: 15px; font-weight: bold;                  font-decoration: none;" href="http://www.youtube.com/watch?v=30Pjl31cyDY&amp;amp;feature=youtube_gdata"&gt;DVF [through Glass]&lt;/a&gt;
+&lt;br&gt;&lt;/div&gt;
+&lt;div style="font-size: 12px; margin: 3px 0px;"&gt;&lt;span&gt;Experience the DVF Spring 2013 show at New York Fashion Week through the eyes of the people who made it happen&amp;mdash;the stylists, the models and Diane von Furstenberg herself. All the footage you see here was filmed using only Glass, Google&amp;#39;s latest technology that lets you capture moments from a unique, new perspective. See what happens when fashion and technology come together like you&amp;#39;ve never seen before.&lt;/span&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td style="font-size: 11px; line-height: 1.4em; padding-left: 20px;             padding-top: 1px;" width="146" valign="top"&gt;&lt;div&gt;&lt;span style="color: #666666; font-size: 11px;"&gt;From:&lt;/span&gt;
+&lt;a href="http://www.youtube.com/channel/UCK8sQmJBp8GCxrOtXWBpyEA"&gt;Google&lt;/a&gt;&lt;/div&gt;
+&lt;div&gt;&lt;span style="color: #666666; font-size: 11px;"&gt;Views:&lt;/span&gt;
+17605&lt;/div&gt;
+&lt;div style="white-space: nowrap;text-align: left"&gt;&lt;img style="border: 0px none; margin: 0px; padding: 0px;                    vertical-align: middle; font-size: 11px;" align="top" alt="" src="http://gdata.youtube.com/static/images/icn_star_full_11x11.gif"&gt; &lt;img style="border: 0px none; margin: 0px; padding: 0px;                    vertical-align: middle; font-size: 11px;" align="top" alt="" src="http://gdata.youtube.com/static/images/icn_star_full_11x11.gif"&gt; &lt;img style="border: 0px none; margin: 0px; padding: 0px;                    vertical-align: middle; font-size: 11px;" align="top" alt="" src="http://gdata.youtube.com/static/images/icn_star_full_11x11.gif"&gt; &lt;img style="border: 0px none; margin: 0px; padding: 0px;                    vertical-align: middle; font-size: 11px;" align="top" alt="" src="http://gdata.youtube.com/static/images/icn_star_full_11x11.gif"&gt; &lt;img style="border: 0px none; margin: 0px; padding: 0px;                    vertical-align: middle; font-size: 11px;" align="top" alt="" src="http://gdata.youtube.com/static/images/icn_star_half_11x11.gif"&gt;&lt;/div&gt;
+&lt;div style="font-size: 11px;"&gt;1041
+&lt;span style="color: #666666; font-size: 11px;"&gt;ratings&lt;/span&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;span style="color: #666666; font-size: 11px;"&gt;Time:&lt;/span&gt;
+&lt;span style="color: #000000; font-size: 11px; font-weight: bold;"&gt;03:50&lt;/span&gt;&lt;/td&gt;
+&lt;td style="font-size: 11px; padding-left: 20px;"&gt;&lt;span style="color: #666666; font-size: 11px;"&gt;More in&lt;/span&gt;
+&lt;a href="http://www.youtube.com/videos?c=28"&gt;Science &amp;amp; Technology&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;</description>
+      <link>http://www.youtube.com/watch?v=30Pjl31cyDY&amp;feature=youtube_gdata</link>
+      <author>Google</author>
+    </item>
+    <item>
+      <guid isPermaLink="false">tag:youtube.com,2008:video:-iXpeFfnA4g</guid>
+      <pubDate>Wed, 12 Sep 2012 18:08:34 +0000</pubDate>
+      <atom:updated>2012-09-13T23:29:59.000Z</atom:updated>
+      <category domain="http://schemas.google.com/g/2005#kind">http://gdata.youtube.com/schemas/2007#video</category>
+      <title>Go Google: 30 Rock</title>
+      <description>&lt;div style="color: #000000;font-family: Arial, Helvetica, sans-serif;     font-size:12px; font-size: 12px; width: 555px;"&gt;
+&lt;table cellspacing="0" cellpadding="0" border="0"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td width="140" valign="top" rowspan="2"&gt;&lt;div style="border: 1px solid #999999; margin: 0px 10px 5px 0px;"&gt;&lt;a href="http://www.youtube.com/watch?v=-iXpeFfnA4g&amp;amp;feature=youtube_gdata"&gt;&lt;img alt="" src="http://i.ytimg.com/vi/-iXpeFfnA4g/default.jpg"&gt;&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td width="256" valign="top"&gt;&lt;div style="font-size: 12px; font-weight: bold;"&gt;&lt;a style="font-size: 15px; font-weight: bold;                  font-decoration: none;" href="http://www.youtube.com/watch?v=-iXpeFfnA4g&amp;amp;feature=youtube_gdata"&gt;Go Google: 30 Rock&lt;/a&gt;
+&lt;br&gt;&lt;/div&gt;
+&lt;div style="font-size: 12px; margin: 3px 0px;"&gt;&lt;span&gt;There&amp;#39;s nothing like a brainstorm for sparking some new ideas. With Google documents, it&amp;#39;s even easier to get the whole gang together - although you still have to come up with the ideas! Learn more at google.com&lt;/span&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td style="font-size: 11px; line-height: 1.4em; padding-left: 20px;             padding-top: 1px;" width="146" valign="top"&gt;&lt;div&gt;&lt;span style="color: #666666; font-size: 11px;"&gt;From:&lt;/span&gt;
+&lt;a href="http://www.youtube.com/channel/UCK8sQmJBp8GCxrOtXWBpyEA"&gt;Google&lt;/a&gt;&lt;/div&gt;
+&lt;div&gt;&lt;span style="color: #666666; font-size: 11px;"&gt;Views:&lt;/span&gt;
+28845&lt;/div&gt;
+&lt;div style="white-space: nowrap;text-align: left"&gt;&lt;img style="border: 0px none; margin: 0px; padding: 0px;                    vertical-align: middle; font-size: 11px;" align="top" alt="" src="http://gdata.youtube.com/static/images/icn_star_full_11x11.gif"&gt; &lt;img style="border: 0px none; margin: 0px; padding: 0px;                    vertical-align: middle; font-size: 11px;" align="top" alt="" src="http://gdata.youtube.com/static/images/icn_star_full_11x11.gif"&gt; &lt;img style="border: 0px none; margin: 0px; padding: 0px;                    vertical-align: middle; font-size: 11px;" align="top" alt="" src="http://gdata.youtube.com/static/images/icn_star_full_11x11.gif"&gt; &lt;img style="border: 0px none; margin: 0px; padding: 0px;                    vertical-align: middle; font-size: 11px;" align="top" alt="" src="http://gdata.youtube.com/static/images/icn_star_full_11x11.gif"&gt; &lt;img style="border: 0px none; margin: 0px; padding: 0px;                    vertical-align: middle; font-size: 11px;" align="top" alt="" src="http://gdata.youtube.com/static/images/icn_star_half_11x11.gif"&gt;&lt;/div&gt;
+&lt;div style="font-size: 11px;"&gt;1135
+&lt;span style="color: #666666; font-size: 11px;"&gt;ratings&lt;/span&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;span style="color: #666666; font-size: 11px;"&gt;Time:&lt;/span&gt;
+&lt;span style="color: #000000; font-size: 11px; font-weight: bold;"&gt;00:31&lt;/span&gt;&lt;/td&gt;
+&lt;td style="font-size: 11px; padding-left: 20px;"&gt;&lt;span style="color: #666666; font-size: 11px;"&gt;More in&lt;/span&gt;
+&lt;a href="http://www.youtube.com/videos?c=28"&gt;Science &amp;amp; Technology&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;</description>
+      <link>http://www.youtube.com/watch?v=-iXpeFfnA4g&amp;feature=youtube_gdata</link>
+      <author>Google</author>
+    </item>
+    <item>
+      <guid isPermaLink="false">tag:youtube.com,2008:video:5tthVEzX-UI</guid>
+      <pubDate>Mon, 10 Sep 2012 16:35:13 +0000</pubDate>
+      <atom:updated>2012-09-13T23:16:40.000Z</atom:updated>
+      <category domain="http://schemas.google.com/g/2005#kind">http://gdata.youtube.com/schemas/2007#video</category>
+      <title>Google Drive for mobile</title>
+      <description>&lt;div style="color: #000000;font-family: Arial, Helvetica, sans-serif;     font-size:12px; font-size: 12px; width: 555px;"&gt;
+&lt;table cellspacing="0" cellpadding="0" border="0"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td width="140" valign="top" rowspan="2"&gt;&lt;div style="border: 1px solid #999999; margin: 0px 10px 5px 0px;"&gt;&lt;a href="http://www.youtube.com/watch?v=5tthVEzX-UI&a...

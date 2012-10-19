@@ -3,7 +3,7 @@ package com.digdeep.infog.model;
 
 
 public enum ContentType {
-	RSS(0), JSON(1);
+	RSS(0), ATOM(1), JSON(2);
 	
 	private int type;
 	
@@ -16,6 +16,8 @@ public enum ContentType {
 		case 0:
 			return RSS;
 		case 1:
+			return ATOM;
+		case 2:
 			return JSON;
 		default:
 			return RSS;

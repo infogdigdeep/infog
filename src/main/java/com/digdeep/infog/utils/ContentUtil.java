@@ -6,14 +6,14 @@ import java.io.StringWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.DatatypeConverter;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamReader;
 import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Templates;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
@@ -29,7 +29,7 @@ import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.io.IOUtils;
-import org.apache.cxf.jaxrs.ext.xml.XMLSource;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.NodeList;
@@ -42,8 +42,8 @@ import com.digdeep.infog.qualifiers.XMLLogging;
 
 public class ContentUtil {
 
-    private Logger logger = LoggerFactory.getLogger(ContentUtil.class);
-    
+	private Logger logger = LoggerFactory.getLogger(ContentUtil.class);
+
 	private GetMethod getMethod;
 	private PostMethod postMethod;
 
@@ -78,8 +78,8 @@ public class ContentUtil {
 		return null;
 	}
 
-	private boolean gotoStartTagContent(XMLStreamReader feedReader, String tagName) 
-			throws Exception {
+	private boolean gotoStartTagContent(XMLStreamReader feedReader,
+			String tagName) throws Exception {
 		while (feedReader.hasNext()) {
 			feedReader.next();
 			if (feedReader.getEventType() == XMLStreamReader.START_ELEMENT) {
@@ -102,25 +102,26 @@ public class ContentUtil {
 			}
 		}
 	}
-	
-	private String getXMLStreamStr (InputStream input) {
+
+	private String getXMLStreamStr(InputStream input) {
 		try {
 			StreamSource source = new StreamSource(input);
 			StreamResult result = new StreamResult(new StringWriter());
 			TransformerFactory factory = TransformerFactory.newInstance();
 			Transformer tf = factory.newTransformer();
 			tf.setOutputProperty(OutputKeys.INDENT, "yes");
-			tf.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+			tf.setOutputProperty("{http://xml.apache.org/xslt}indent-amount",
+					"2");
 			tf.transform(source, result);
-		    return result.getWriter().toString();
-			
+			return result.getWriter().toString();
+
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 		return null;
 	}
-	
-	private String getStartTagContent(XMLStreamReader feedReader, String tagName) 
+
+	private String getStartTagContent(XMLStreamReader feedReader, String tagName)
 			throws Exception {
 		while (feedReader.hasNext()) {
 			feedReader.next();
@@ -133,8 +134,7 @@ public class ContentUtil {
 		return null;
 	}
 
-	
-	private Date parseDate (String xmlDate) throws Exception {
+	private Date parseDate(String xmlDate) throws Exception {
 		DateFormat format = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss z");
 		if (xmlDate != null) {
 			return format.parse(xmlDate);
@@ -142,43 +142,67 @@ public class ContentUtil {
 			return new Date();
 		}
 	}
-	
-	private void getContent (XMLStreamReader feedReader, List<Content> contents) throws Exception {
+
+	private Date parseXmlDate(String xmlDate) throws Exception {
+		Calendar cal = DatatypeConverter.parseDate(xmlDate);
+		return cal.getTime();
+	}
+
+	private void getContent(XMLStreamReader feedReader, List<Content> contents)
+			throws Exception {
 		Content result = null;
+		boolean isAtFirstItem = true;
 		while (feedReader.hasNext()) {
-			feedReader.next();
+			if (isAtFirstItem) {
+				isAtFirstItem = false;
+			} else {
+				feedReader.next();
+			}
 			if (feedReader.getEventType() == XMLStreamReader.START_ELEMENT) {
-				if (feedReader.getLocalName().equalsIgnoreCase("item")) {
+				if (feedReader.getLocalName().equalsIgnoreCase("item")
+						|| feedReader.getLocalName().equalsIgnoreCase("entry")) {
 					result = new Content();
 					while (feedReader.hasNext()) {
 						feedReader.next();
 						if (feedReader.getEventType() == XMLStreamReader.START_ELEMENT) {
 							String elementText = feedReader.getElementText();
-							if (feedReader.getLocalName().equalsIgnoreCase("pubDate")) {
+							if (feedReader.getLocalName().equalsIgnoreCase(
+									"pubDate")) {
 								result.setPubDate(parseDate(elementText));
-							} else if (feedReader.getLocalName().equalsIgnoreCase("title")) {
+							} else if (feedReader.getLocalName()
+									.equalsIgnoreCase("published")) {
+								result.setPubDate(parseXmlDate(elementText));
+							} else if (feedReader.getLocalName()
+									.equalsIgnoreCase("title")) {
 								result.setTitle(elementText);
-								result.setSummary(elementText);
-							} else if (feedReader.getLocalName().equalsIgnoreCase("link")) {
+								if (result.getSummary() == null) {
+									result.setSummary(elementText);
+								}
+							} else if (feedReader.getLocalName()
+									.equalsIgnoreCase("link")) {
 								result.setDetailUrl(elementText);
-							} else if (feedReader.getLocalName().equalsIgnoreCase("description")) {
-								result.setPictureUrl(elementText);
+							} else if (feedReader.getLocalName()
+									.equalsIgnoreCase("description")
+									|| feedReader.getLocalName()
+											.equalsIgnoreCase("content")) {
+								result.setSummary(elementText);
 							}
 						} else if (feedReader.getEventType() == XMLStreamReader.END_ELEMENT) {
-							if (feedReader.getLocalName().equalsIgnoreCase("item")) {
+							if (feedReader.getLocalName().equalsIgnoreCase(
+									"item")) {
 								contents.add(result);
 								break;
 							}
 						}
-						
+
 					}
 				}
 			}
-			
+
 		}
 	}
-	
-	public ContentSource getContents (String url) throws Exception {
+
+	public ContentSource getContents(String url) throws Exception {
 		ContentSource result = new ContentSource();
 		result.setContents(new ArrayList<Content>());
 		XMLInputFactory factory = XMLInputFactory.newInstance();
@@ -186,11 +210,46 @@ public class ContentUtil {
 		try {
 			InputStream contentStream = getContentStream(url);
 			String contentStr = getXMLStreamStr(contentStream);
-			feedReader = factory.createXMLStreamReader(new StringReader(contentStr));
-			gotoStartTagContent(feedReader, "channel");
-			result.setTitle(getStartTagContent(feedReader, "title"));
-			result.setLink(getStartTagContent(feedReader, "link"));
-			result.setImageUrl(getStartTagContent(feedReader, "url"));
+			feedReader = factory.createXMLStreamReader(new StringReader(
+					contentStr));
+			ContentType contentType = ContentType.RSS;
+
+			boolean goNext = true;
+			while (feedReader.hasNext()) {
+				if (goNext) {
+					feedReader.next();
+				} else {
+					goNext = true;
+				}
+				if (feedReader.getEventType() == XMLStreamReader.START_ELEMENT) {
+					if (feedReader.getLocalName().equalsIgnoreCase("item")
+							|| feedReader.getLocalName().equalsIgnoreCase(
+									"entry")) {
+						break;
+					} else if (feedReader.getLocalName().equalsIgnoreCase(
+							"feed")) {
+						contentType = ContentType.ATOM;
+					} else if (feedReader.getLocalName().equalsIgnoreCase(
+							"title")) {
+						result.setTitle(feedReader.getElementText());
+					} else if (feedReader.getLocalName().equalsIgnoreCase(
+							"link")) {
+						result.setLink(feedReader.getElementText());
+					} else if (feedReader.getLocalName().equalsIgnoreCase(
+							"image")) {
+						if (feedReader.hasNext()) {
+							feedReader.next();
+							if (feedReader.getEventType() == XMLStreamReader.START_ELEMENT
+									&& feedReader.getLocalName()
+											.equalsIgnoreCase("url")) {
+								result.setImageUrl(feedReader.getElementText());
+							} else {
+								goNext = false;
+							}
+						}
+					}
+				}
+			}
 			getContent(feedReader, result.getContents());
 		} finally {
 			if (feedReader != null) {
@@ -198,7 +257,7 @@ public class ContentUtil {
 			}
 		}
 		return result;
-		
+
 	}
 
 	public List<String> getFeedDescriptionList(InputStream content)
