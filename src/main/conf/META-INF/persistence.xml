@@ -3,7 +3,7 @@
 	<persistence-unit name="gf">
 		<!-- Persistence provider -->
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<jta-data-source>jdbc/__default</jta-data-source>
+		<jta-data-source>java:/MySqlDS</jta-data-source>
 
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.DerbyDialect" />

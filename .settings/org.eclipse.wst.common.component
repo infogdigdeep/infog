@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="infog">
-        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/target/generated-sources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/conf"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/weblogic"/>
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/oracle"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/mysql"/>
         <property name="context-root" value="infog"/>
         <property name="java-output-path" value="/infog/target/classes"/>
     </wb-module>
