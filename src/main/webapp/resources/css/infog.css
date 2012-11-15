@@ -1,3 +1,36 @@
+header[role="banner"]{
+	background:#0063A6;
+	height: 200px;
+	width: 100%;
+}
+
+header hgroup{ 
+	height: 124px;
+	margin: 0;
+	padding-top: 30px;
+	width: 505px;
+}
+header hgroup h1{
+	background: url(images/logo.png) no-repeat;
+	display: block;
+	height: 96px;
+	text-indent: -9999em;
+}
+header hgroup h2{
+	color: #FFF;
+	font-family: 'Quicksand','Helvetica Neue',Arial,sans-serif;
+	font-size: 16px;
+	font-style: italic;
+	font-weight: 400;
+	margin: 0;
+	left: 195px;
+	line-height: 1;
+	position: relative;
+	text-transform: none;
+	top: -25px;
+}
+
+
 .borderless {
     border: none;
 }
