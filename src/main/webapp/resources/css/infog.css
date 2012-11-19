@@ -1,21 +1,13 @@
 header[role="banner"]{
-	background:#0063A6;
-	height: 200px;
+	height: 150px;
 	width: 100%;
+	background: url("http://www.logomaker.com/logo-images/67710b2a45a55208.gif") no-repeat;
+	padding-top: 0px;
+	display: block;
+	border-bottom: thin;
+	border-bottom-color: gray;
 }
 
-header hgroup{ 
-	height: 124px;
-	margin: 0;
-	padding-top: 30px;
-	width: 505px;
-}
-header hgroup h1{
-	background: url(images/logo.png) no-repeat;
-	display: block;
-	height: 96px;
-	text-indent: -9999em;
-}
 header hgroup h2{
 	color: #FFF;
 	font-family: 'Quicksand','Helvetica Neue',Arial,sans-serif;
@@ -23,7 +15,7 @@ header hgroup h2{
 	font-style: italic;
 	font-weight: 400;
 	margin: 0;
-	left: 195px;
+	left: 395px;
 	line-height: 1;
 	position: relative;
 	text-transform: none;

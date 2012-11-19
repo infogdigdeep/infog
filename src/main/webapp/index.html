@@ -10,8 +10,8 @@
 			$(document).ready (function(){
 				$("#search").click( function(){
 					var query = $('#query').val();
-					$.ajax({ url : 'cxf/discover/test'}).done(function (data) {
-							alert(data);
+					$.ajax({ url : 'cxf/discover/test', dataType : json }).done(function (data) {
+							$("#content").html(data)
 					 });
 				});
 			});
@@ -19,29 +19,8 @@
 		</script>
 	</head>
 	<body>
-	<header role="banner">
-		<hgroup>
-			<h1>INFOG</h1>
-			<h2>Information Hub</h2>
-		</hgroup>
-		<!-- end hgroup -->
-
-	</header>
-	<div class="menu">
-	    	<div class="submenu">
-	    		<ul class= "rootmenu">
-	    			<li><a href="#Link1">Technologies</a></li>
-	    			<li><a href="#Link2">Business</a></li>
-	    		    <li><a href="#Link3">Entertainment</a></li>
-	    		</ul>
-	    	</div>
-	    </div>
-	    <select>
-	    	<option label="Technology" value="Technology">
-	    	<option label="Business" value="Business">
-	    	<option label="Entertainment" value="Entertainment">
-	    </select>
-	    <input id="query" type="text"/>
+	<header role="banner"><hgroup><h2>INFOG</h2></hgroup></header>
+		<input id="query" type="text"/>
 	    <button id="search">SEARCH</button>
 	    
 		<div id="content"></div>
