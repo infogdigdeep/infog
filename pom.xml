@@ -239,6 +239,12 @@
 		</dependency>
 
 		<dependency>
+		   <groupId>org.apache.activemq</groupId>
+		   <artifactId>activemq-pool</artifactId>
+		   <version>${activemq.version}</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-spring</artifactId>
 			<version>${camel.version}</version>
@@ -1033,7 +1039,7 @@
 		<mongodb.driver.version>2.7.2</mongodb.driver.version>
 		<cxf.version>2.6.0</cxf.version>
 		<camel.version>2.10.0</camel.version>
-		<activemq.version>5.2.0</activemq.version>
+		<activemq.version>5.6.0</activemq.version>
 		<guava.version>13.0.1</guava.version>
 		<glassfish.directory>C:\development\tmp\glassfish3\glassfish3\glassfish
 		</glassfish.directory>

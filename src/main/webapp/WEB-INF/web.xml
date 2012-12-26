@@ -7,6 +7,7 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
 			classpath:applicationContext.xml
+			classpath:spring-camel.xml
 			classpath:springSecurityContext.xml
 		</param-value> 
 	</context-param>
