@@ -10,6 +10,8 @@ import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
+import org.springframework.stereotype.Service;
+
 import com.digdeep.infog.beans.FeedDiscoveryBeanLocal;
 import com.digdeep.infog.beans.FeedDiscoveryBeanRemote;
 import com.digdeep.infog.model.ContentInfo;
@@ -23,6 +25,7 @@ import com.google.gson.JsonObject;
 @Stateless
 @Remote(FeedDiscoveryBeanRemote.class)
 @Local(FeedDiscoveryBeanLocal.class)
+@Service(value = "feedDiscoveryBean")
 public class FeedDiscoveryBeanImpl implements FeedDiscoveryBeanLocal,
 		FeedDiscoveryBeanRemote {
 
