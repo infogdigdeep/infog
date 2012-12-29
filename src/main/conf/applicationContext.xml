@@ -53,8 +53,7 @@ http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
 
 	<bean id="feedDiscoveryBean" class="org.springframework.jndi.JndiObjectFactoryBean">
 		<property name="jndiName">
-			<value>java:global/infog/FeedDiscoveryBeanImpl!com.digdeep.infog.beans.FeedDiscoveryBeanLocal
-			</value>
+			<value>java:global/infog/FeedDiscoveryBeanImpl!com.digdeep.infog.beans.FeedDiscoveryBeanLocal</value>
 		</property>
 	</bean>
 

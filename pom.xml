@@ -35,6 +35,13 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-rs-extension-providers</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+		
+
+		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
 			<scope>provided</scope>
@@ -250,6 +257,13 @@
 		   <artifactId>activemq-pool</artifactId>
 		   <version>${activemq.version}</version>
 		</dependency>
+		
+		<dependency>
+		   <groupId>org.apache.activemq</groupId>
+		   <artifactId>activemq-camel</artifactId>
+		   <version>${activemq.version}</version>
+		</dependency>
+
 
 		<dependency>
 			<groupId>org.apache.camel</groupId>
