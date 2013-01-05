@@ -10,19 +10,32 @@
 			$(document).ready (function(){
 				$("#search").click( function(){
 					var query = $('#query').val();
-					$.ajax({ url : 'cxf/discover/test', dataType : json }).done(function (data) {
-							$("#content").html(data)
-					 });
+					$.ajax({ url : 'cxf/discover/test', 
+							 type : 'GET', 
+							 dataType : 'json', 
+						     beforeSend: function() {
+							     $('#contentarea').html('<img src="/function-demos/functions/ajax/images/loading.gif" />');
+			                 },
+							 success: function(data, textStatus, xhr) {
+								 $('#contentarea').html(data);
+							 },
+							 error: function(xhr, textStatus, errorThrown) {
+								 $('#contentarea').html(textStatus);
+							 }
+									  
+				    });
 				});
 			});
 		
 		</script>
+		
+		
 	</head>
 	<body>
 	<header role="banner"><hgroup><h2>INFOG</h2></hgroup></header>
 		<input id="query" type="text"/>
 	    <button id="search">SEARCH</button>
-	    
-		<div id="content"></div>
+	    <p>
+		<div class="contentarea" style="border:1px solid orange;padding:10px;margin-bottom:5px;">Content will appear here.</div>
 	</body>
 </html>
