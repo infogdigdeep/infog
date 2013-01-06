@@ -10,17 +10,19 @@
 			$(document).ready (function(){
 				$("#search").click( function(){
 					var query = $('#query').val();
-					$.ajax({ url : 'cxf/discover/test', 
+					$.ajax({ url : 'cxf/content/discovery/' + query, 
 							 type : 'GET', 
 							 dataType : 'json', 
+							 /*
 						     beforeSend: function() {
 							     $('#contentarea').html('<img src="/function-demos/functions/ajax/images/loading.gif" />');
 			                 },
+			                 */
 							 success: function(data, textStatus, xhr) {
-								 $('#contentarea').html(data);
+								 $('.contentarea').html(data);
 							 },
 							 error: function(xhr, textStatus, errorThrown) {
-								 $('#contentarea').html(textStatus);
+								 $('.contentarea').html(textStatus);
 							 }
 									  
 				    });

@@ -9,12 +9,14 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.apache.cxf.feature.Features;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.digdeep.infog.beans.FeedDiscoveryBean;
 import com.digdeep.infog.model.ContentInfo;
 
-@Path("discover")
+@Path("/discovery")
+@Features(features = "org.apache.cxf.feature.LoggingFeature") 
 public class ContentDiscovery {
 	
 	@Autowired
