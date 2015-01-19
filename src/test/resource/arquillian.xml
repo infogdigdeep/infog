@@ -28,4 +28,5 @@
 			<property name="target">myserver</property>
 			<property name="wlsHome">/home/ws/applications/wls/wlserver</property>
 		</configuration>
+	</container>
 </arquillian>
