@@ -1051,7 +1051,7 @@
 
 	<properties>
 		<jboss.version>7.1.1.Final</jboss.version>
-		<version.junit>4.8.2</version.junit>
+		<version.junit>4.13.1</version.junit>
 		<version.arquillian_core>1.0.0.Final</version.arquillian_core>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
