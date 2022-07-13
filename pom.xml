@@ -1066,7 +1066,7 @@
 		<jasper.version>3.7.2</jasper.version>
 		<log4j.version>1.2.14</log4j.version>
 		<mongodb.driver.version>2.7.2</mongodb.driver.version>
-		<cxf.version>2.6.0</cxf.version>
+		<cxf.version>2.6.7</cxf.version>
 		<camel.version>2.10.1</camel.version>
 		<activemq.version>5.7.0</activemq.version>
 		<guava.version>13.0.1</guava.version>
