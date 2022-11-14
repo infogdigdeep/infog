@@ -1056,8 +1056,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
 		<httpclient.version>3.0</httpclient.version>
-		<org.springframework.version>3.1.0.RELEASE
-		</org.springframework.version>
+		<org.springframework.version>3.2.18.RELEASE</org.springframework.version>
 		<spring.data.mongodb.version>1.0.0.RELEASE
 		</spring.data.mongodb.version>
 		<spring.osgi.version>1.1.0</spring.osgi.version>
